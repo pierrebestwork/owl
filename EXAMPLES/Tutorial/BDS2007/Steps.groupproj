@@ -1,0 +1,211 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{9a5d29bb-f823-426a-acb9-1760770cbc4b}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="Step01p">
+    <MSBuild Projects="Step01p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step01p:Clean">
+    <MSBuild Projects="Step01p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step01p:Make">
+    <MSBuild Projects="Step01p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step02p">
+    <MSBuild Projects="Step02p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step02p:Clean">
+    <MSBuild Projects="Step02p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step02p:Make">
+    <MSBuild Projects="Step02p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step03p">
+    <MSBuild Projects="Step03p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step03p:Clean">
+    <MSBuild Projects="Step03p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step03p:Make">
+    <MSBuild Projects="Step03p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step04p">
+    <MSBuild Projects="Step04p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step04p:Clean">
+    <MSBuild Projects="Step04p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step04p:Make">
+    <MSBuild Projects="Step04p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step05p">
+    <MSBuild Projects="Step05p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step05p:Clean">
+    <MSBuild Projects="Step05p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step05p:Make">
+    <MSBuild Projects="Step05p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step06p">
+    <MSBuild Projects="Step06p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step06p:Clean">
+    <MSBuild Projects="Step06p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step06p:Make">
+    <MSBuild Projects="Step06p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step07p">
+    <MSBuild Projects="Step07p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step07p:Clean">
+    <MSBuild Projects="Step07p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step07p:Make">
+    <MSBuild Projects="Step07p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step08p">
+    <MSBuild Projects="Step08p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step08p:Clean">
+    <MSBuild Projects="Step08p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step08p:Make">
+    <MSBuild Projects="Step08p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step09p">
+    <MSBuild Projects="Step09p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step09p:Clean">
+    <MSBuild Projects="Step09p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step09p:Make">
+    <MSBuild Projects="Step09p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step10p">
+    <MSBuild Projects="Step10p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step10p:Clean">
+    <MSBuild Projects="Step10p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step10p:Make">
+    <MSBuild Projects="Step10p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step11p">
+    <MSBuild Projects="Step11p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step11p:Clean">
+    <MSBuild Projects="Step11p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step11p:Make">
+    <MSBuild Projects="Step11p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step12p">
+    <MSBuild Projects="Step12p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step12p:Clean">
+    <MSBuild Projects="Step12p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step12p:Make">
+    <MSBuild Projects="Step12p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step13p">
+    <MSBuild Projects="Step13p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step13p:Clean">
+    <MSBuild Projects="Step13p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step13p:Make">
+    <MSBuild Projects="Step13p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step14p">
+    <MSBuild Projects="Step14p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step14p:Clean">
+    <MSBuild Projects="Step14p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step14p:Make">
+    <MSBuild Projects="Step14p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step15p">
+    <MSBuild Projects="Step15p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step15p:Clean">
+    <MSBuild Projects="Step15p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step15p:Make">
+    <MSBuild Projects="Step15p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step16p">
+    <MSBuild Projects="Step16p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step16p:Clean">
+    <MSBuild Projects="Step16p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step16p:Make">
+    <MSBuild Projects="Step16p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Cntrl16p">
+    <MSBuild Projects="Cntrl16p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Cntrl16p:Clean">
+    <MSBuild Projects="Cntrl16p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Cntrl16p:Make">
+    <MSBuild Projects="Cntrl16p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step17p">
+    <MSBuild Projects="Step17p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step17p:Clean">
+    <MSBuild Projects="Step17p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step17p:Make">
+    <MSBuild Projects="Step17p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Cntrl17p">
+    <MSBuild Projects="Cntrl17p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Cntrl17p:Clean">
+    <MSBuild Projects="Cntrl17p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Cntrl17p:Make">
+    <MSBuild Projects="Cntrl17p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Step18p">
+    <MSBuild Projects="Step18p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Step18p:Clean">
+    <MSBuild Projects="Step18p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Step18p:Make">
+    <MSBuild Projects="Step18p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Cntrl18p">
+    <MSBuild Projects="Cntrl18p.cbproj" Targets="" />
+  </Target>
+  <Target Name="Cntrl18p:Clean">
+    <MSBuild Projects="Cntrl18p.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="Cntrl18p:Make">
+    <MSBuild Projects="Cntrl18p.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="Step01p;Step02p;Step03p;Step04p;Step05p;Step06p;Step07p;Step08p;Step09p;Step10p;Step11p;Step12p;Step13p;Step14p;Step15p;Step16p;Cntrl16p;Step17p;Cntrl17p;Step18p;Cntrl18p" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="Step01p:Clean;Step02p:Clean;Step03p:Clean;Step04p:Clean;Step05p:Clean;Step06p:Clean;Step07p:Clean;Step08p:Clean;Step09p:Clean;Step10p:Clean;Step11p:Clean;Step12p:Clean;Step13p:Clean;Step14p:Clean;Step15p:Clean;Step16p:Clean;Cntrl16p:Clean;Step17p:Clean;Cntrl17p:Clean;Step18p:Clean;Cntrl18p:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="Step01p:Make;Step02p:Make;Step03p:Make;Step04p:Make;Step05p:Make;Step06p:Make;Step07p:Make;Step08p:Make;Step09p:Make;Step10p:Make;Step11p:Make;Step12p:Make;Step13p:Make;Step14p:Make;Step15p:Make;Step16p:Make;Cntrl16p:Make;Step17p:Make;Cntrl17p:Make;Step18p:Make;Cntrl18p:Make" />
+  </Target>
+</Project>

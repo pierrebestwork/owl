@@ -1,0 +1,30 @@
+//-------------------------------------------------------------------
+// OWL File Extensions (OWLFX) Class Library
+// Copyright(c) 1999 by Yura Bidus.
+// All rights reserved.
+//
+//$Revision: 1.1.4.2 $
+//$Author: jogybl $
+//$Date: 2009-10-23 10:49:38 $
+//
+//  Constant definitions for all resources defined in owlfx.rc.
+//
+//----------------------------------------------------------------------------
+//#if !defined(owlfx_rh)   // Sentry use file only if it's not already included.
+//#define owlfx_rh
+
+#define IDC_OPENDLGPREVIEW				1002
+
+#define IDD_FILEOPENPREVIEWDLGNEW 2000 
+#define IDD_FILEOPENPREVIEWDLGOLD 2001
+
+#define IDS_ALL_DESCRIPTOR				3001
+#define IDS_BMP_DESCRIPTOR				3003
+#define IDS_PCX_DESCRIPTOR				3004
+#define IDS_TGA_DESCRIPTOR				3005
+#define IDS_GIF_DESCRIPTOR				3006
+#define IDS_PNG_DESCRIPTOR				3007
+#define IDS_JPG_DESCRIPTOR				3008
+
+
+//#endif  // owlfx_rh

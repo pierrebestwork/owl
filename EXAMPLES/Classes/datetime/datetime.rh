@@ -1,0 +1,14 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Yura Bidus, All Rights Reserved
+//----------------------------------------------------------------------------
+#if !defined(DATETIME_RH)
+#define DATETIME_RH
+
+
+#define IDD_CLIENTDLG         100
+#define IDC_DATEPICKER        101
+
+
+#endif  //  OWLBTNX_H
+

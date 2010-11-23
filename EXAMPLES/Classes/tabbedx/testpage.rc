@@ -1,0 +1,21 @@
+/****************************************************************************
+
+
+testpage.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+#include "testpage.rh"
+
+IDM_MENU1 MENU 
+{
+ POPUP "&File"
+ {
+  MENUITEM "&Add Page", CM_ADDPAGE
+  MENUITEM "E&xit", CM_EXIT
+ }
+
+}
+

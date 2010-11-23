@@ -1,0 +1,53 @@
+Freeware OWL classes that show items with a checkmark in a listbox.
+The TCheckListBox and TCheckListBoxItem classes are similar to original OWL
+classes, but they are buggy free, look better and have more functions.
+
+TCheckListBox
+-------------
+- Similar to Borlands TCheckList, but it's buggy free
+- Use the system highlight color for selected items
+- Add, Insert, Find and Delete items on the fly
+- The items in the list can be sorted
+- The text of the items can be shown with tab stops
+
+TCheckListBoxItem
+-----------------
+- Similar to Borlands TCheckListItem, but it's buggy free
+- The checkbox of the item can be disabled
+- Draws the checkbox like Windows (16-bit and 32-bit)
+- Has comparison operators and copy constructor
+- Has more information functions
+
+The example "CheckLstApp" use the CheckLst classes and shows
+you all the functions of TCheckListBox and TCheckListBoxItem.
+
+V1.1 is tested with Borland C++ 5.02, OWL 5.02 under Windows NT 4.0 SP3
+and V1.0 is also tested with Borland C++ 4.52, OWL 2.5 under Windows 3.11
+
+Many thanks to Torsten Schmeissel for their help
+in testing and fixing the CheckList classes.
+
+Please send me bug reports, bug fixes, enhancements, requests, etc., and
+I'll try to keep this in next versions:
+  EMail: dieter.windau@usa.net
+  Web:   http://www.members.aol.com/SoftEngage
+
+Happy coding.
+
+HISTORY
+
+1.1  10.07.98
+-------------
+TCheckListBoxItem:
+- Add comparison operators
+- Add copy constructor
+- Add state information functions
+
+TCheckListBox:
+Add support for LBS_USETABSTOPS style based on
+MFC class CTabCheckListBox written by Qing Zhang.
+
+1.0  11.06.98
+-------------
+Basic version
+

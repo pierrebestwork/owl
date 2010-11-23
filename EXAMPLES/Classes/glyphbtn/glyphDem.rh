@@ -1,0 +1,36 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1991, 1995 by Borland International, All Rights Reserved
+//----------------------------------------------------------------------------
+#if !defined(OWLBTNX_H)
+#define OWLBTNX_H
+#include <owl/glyphbtn.rh>
+
+#define IDB_BORBTNII_HELPG 1234
+
+
+#define IDD_CLIENTDLG         100
+#define IDC_1                 101
+#define IDC_2                 102
+#define IDC_3                 103
+#define IDC_ENABLEHELP        104
+#define IDC_BUTTON2	112
+#define IDC_BUTTON3	113
+
+#define IDC_CLOSE							101
+#define IDC_APPLY							102
+#define IDC_BROWSE						103
+#define IDC_REVERT						105
+#define IDC_ADD	              106
+#define IDC_DELETE						107
+#define IDC_EDIT							108
+#define IDC_KEY								109
+#define IDC_SETUP							110
+#define IDC_BUTTON1	111
+#define IDC_MHELP	111
+
+
+
+
+#endif  //  OWLBTNX_H
+

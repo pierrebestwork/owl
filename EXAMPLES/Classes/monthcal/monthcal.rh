@@ -1,0 +1,14 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Yura Bidus, All Rights Reserved
+//----------------------------------------------------------------------------
+#if !defined(MONTHCAL_RH)
+#define MONTHCAL_RH
+
+
+#define IDD_CLIENTDLG         100
+#define IDC_MONTHCAL        101
+
+
+#endif  //  MONTHCAL_RH
+

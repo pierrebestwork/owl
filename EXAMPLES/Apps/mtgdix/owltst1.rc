@@ -1,0 +1,355 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resrc1.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Unknown language: 0xD, 0x1 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HEB)
+#ifdef _WIN32
+LANGUAGE 0xD, 0x1
+#pragma code_page(1255)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_SDI MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "New &Ball\tF2",               CM_NEW_BALL
+        MENUITEM "New 10 Balls\tF6",            CM_NEW_10BALL
+        MENUITEM "New 25 Balls\tF10",           CM_NEW_25BALL
+        MENUITEM SEPARATOR
+        MENUITEM "New &Rectangle\tF3",          CM_NEW_RECTANGLE
+        MENUITEM "New 10 Rectngles\tF7",        CM_NEW_10RECTANGLE
+        MENUITEM "New 25 Rectangles\tF11",      CM_NEW_25RECTANGLE
+        MENUITEM SEPARATOR
+        MENUITEM "New &Line\tF4",               CM_NEW_LINE
+        MENUITEM "New 10 Lines\tF8",            CM_NEW_10LINE
+        MENUITEM "New 25 Lines\tF12",           CM_NEW_25LINE
+        MENUITEM SEPARATOR
+        MENUITEM "Kill All Fast.\tESC",         CM_KILL_FAST
+        MENUITEM "Kill All Slow",               CM_KILL_SLOW
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",               CM_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDM_SDI ACCELERATORS MOVEABLE PURE 
+BEGIN
+    VK_BACK,        CM_EDITUNDO,            VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      CM_EDITDELETE,          VIRTKEY, NOINVERT
+    VK_DELETE,      CM_EDITCLEAR,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      CM_EDITCUT,             VIRTKEY, SHIFT, NOINVERT
+    VK_ESCAPE,      CM_KILL_FAST,           VIRTKEY, NOINVERT
+    VK_F10,         CM_NEW_25BALL,          VIRTKEY, NOINVERT
+    VK_F11,         CM_NEW_25RECTANGLE,     VIRTKEY, NOINVERT
+    VK_F12,         CM_NEW_25LINE,          VIRTKEY, NOINVERT
+    VK_F2,          CM_NEW_BALL,            VIRTKEY, NOINVERT
+    VK_F3,          CM_EDITFINDNEXT,        VIRTKEY, NOINVERT
+    VK_F3,          CM_NEW_RECTANGLE,       VIRTKEY, NOINVERT
+    VK_F4,          CM_NEW_LINE,            VIRTKEY, NOINVERT
+    VK_F6,          CM_NEW_10BALL,          VIRTKEY, NOINVERT
+    VK_F7,          CM_NEW_10RECTANGLE,     VIRTKEY, NOINVERT
+    VK_F8,          CM_NEW_25LINE,          VIRTKEY, NOINVERT
+    VK_INSERT,      CM_EDITCOPY,            VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      CM_EDITPASTE,           VIRTKEY, SHIFT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_SDIAPPLICATION      ICON    DISCARDABLE     "res/applsdi.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTDLG DIALOG DISCARDABLE  12, 17, 204, 65
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About owltst1"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Version",IDC_VERSION,2,14,200,8,SS_NOPREFIX
+    CTEXT           "About this Application",-1,2,4,200,8,SS_NOPREFIX
+    CTEXT           "",IDC_COPYRIGHT,2,27,200,17,SS_NOPREFIX
+    RTEXT           "",IDC_DEBUG,136,55,66,8,SS_NOPREFIX
+    ICON            IDI_SDIAPPLICATION,-1,2,2,34,34
+    DEFPUSHBUTTON   "OK",IDOK,82,48,40,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x3fL
+#else
+ FILEFLAGS 0x3eL
+#endif
+ FILEOS 0x1L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "My Copmany\0"
+            VALUE "FileDescription", "owltst1 for Windows\0"
+            VALUE "FileVersion", "1.0\0"
+            VALUE "InternalName", "owltst1\0"
+            VALUE "LegalCopyright", "Copyright 1998. All right reserved.\0"
+            VALUE "LegalTrademarks", "Windows(TM) is a trademark of Microsoft Corporation\0"
+            VALUE "OriginalFilename", "owltst1.exe\0"
+            VALUE "ProductName", "owltst1\0"
+            VALUE "ProductVersion", "1.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resrc1.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    24320                   "Edit operations"
+    CM_EDITUNDO             "Reverses the last operation"
+    CM_EDITCUT              "Cuts the selection and puts it on the Clipboard"
+    CM_EDITCOPY             "Copies the selection and puts it on the Clipboard"
+    CM_EDITPASTE            "Inserts the Clipboard contents at the insertion point"
+    CM_EDITDELETE           "Deletes the selection"
+    CM_EDITCLEAR            "Clears the active document"
+    CM_EDITADD              "Inserts a new line"
+    CM_EDITEDIT             "Edits the current line"
+    24330                   "File operations"
+    CM_FILENEW              "Creates a new window"
+    CM_FILEOPEN             "Opens a window"
+    CM_FILESAVE             "Saves the active document"
+    CM_FILESAVEAS           "Saves the active document with a new name"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    CM_FILECLOSE            "Closes the active document"
+    24350                   "Search/replace operations"
+    CM_EDITFIND             "Finds the specified text"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    CM_EXIT                 "Quits owltst1 and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    CM_EDITREPLACE          "Finds the specified text and changes it"
+    CM_EDITFINDNEXT         "Finds the next match"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2008                    "Access About"
+    CM_HELPABOUT            "About the owltst1 application"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MODES               "EXT|CAPS|NUM|SCRL|OVR|REC"
+    IDS_MODESOFF            "   |  |   |  |   |   "
+    IDS_CANNOTFIND          "Cannot find ""%s""."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UNTITLED            "Document"
+    IDS_UNABLEREAD          "Unable to read file %s from disk."
+    IDS_UNABLEWRITE         "Unable to write file %s to disk."
+    IDS_FILECHANGED         "The text in the %s file has changed.\n\nDo you want to save the changes?"
+    IDS_FILEFILTER          "Text files|*.txt|AllFiles|*.*|"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VBXLIBRARYFAIL      "VBX Library init failure"
+    IDS_INVALIDMAINWINDOW   "Invalid MainWindow"
+    IDS_INVALIDMODULE       "Invalid module specified for window"
+    IDS_OUTOFMEMORY         "Out of memory"
+    IDS_NOAPP               "No application object"
+    IDS_UNKNOWNERROR        "Unknown error"
+    IDS_UNHANDLEDXMSG       "Unhandled Exception"
+    IDS_OKTORESUME          "OK to resume?"
+    IDS_OWLEXCEPTION        "ObjectWindows Exception"
+    IDS_UNKNOWNEXCEPTION    "Unknown exception"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INVALIDCLIENTWINDOW "Invalid client window %s"
+    IDS_INVALIDCHILDWINDOW  "Invalid child window %s"
+    IDS_INVALIDWINDOW       "Invalid window %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GDIRESLOADFAIL      "GDI resource load failure"
+    IDS_GDICREATEFAIL       "GDI creation failure"
+    IDS_GDIALLOCFAIL        "GDI allocate failure"
+    IDS_GDIFAILURE          "GDI failure"
+    IDS_LAYOUTBADRELWIN     "Invalid relative window specified in layout constraint in window %s"
+    IDS_LAYOUTINCOMPLETE    "Incomplete layout constraints specified in window %s"
+    IDS_PRINTERERROR        "Printer error"
+    IDS_VALIDATORSYNTAX     "Validator syntax error"
+    IDS_MENUFAILURE         "Menu creation failure"
+    IDS_CHILDCREATEFAIL     "Child create fail for window %s"
+    IDS_WINDOWEXECUTEFAIL   "Execute fail for window %s"
+    IDS_WINDOWCREATEFAIL    "Create fail for window %s"
+    IDS_CHILDREGISTERFAIL   "Child class registration fail for window %s"
+    IDS_CLASSREGISTERFAIL   "Class registration fail for window %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INVALIDDIBHANDLE    "Invalid DIB handle %X"
+    IDS_GDIDESTROYFAIL      "GDI object %X destroy failure"
+    IDS_GDIDELETEFAIL       "GDI object %X delete failure"
+    IDS_GDIFILEREADFAIL     "GDI file read failure"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61440                   "Changes the size of the window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61456                   "Moves the window to another position"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61472                   "Reduces the window to an icon"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61488                   "Enlarges the window to it maximum size"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61728                   "Restores the window to its previous size"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61536                   "Closes the window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61744                   "Opens task list"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61504                   "Switches to next window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VALPXPCONFORM       "Input does not conform to picture:\n""%s"""
+    IDS_VALINVALIDCHAR      "Invalid character in input"
+    IDS_VALNOTINRANGE       "Value is not in the range %ld to %ld."
+    IDS_VALNOTINLIST        "Input is not in valid-list"
+END
+
+#endif    // Unknown language: 0xD, 0x1 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

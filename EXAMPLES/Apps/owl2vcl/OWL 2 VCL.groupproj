@@ -1,0 +1,44 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{a4f1ff4b-8895-459a-919a-59ae5f9eacbc}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="owl2vcl.cbproj" />
+    <Projects Include="viewdlgs1.cbproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+  <BorlandProject xmlns=""> <Default.Personality> </Default.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="owl2vcl">
+    <MSBuild Projects="owl2vcl.cbproj" Targets="" />
+  </Target>
+  <Target Name="owl2vcl:Clean">
+    <MSBuild Projects="owl2vcl.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="owl2vcl:Make">
+    <MSBuild Projects="owl2vcl.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="viewdlgs1">
+    <MSBuild Projects="viewdlgs1.cbproj" Targets="" />
+  </Target>
+  <Target Name="viewdlgs1:Clean">
+    <MSBuild Projects="viewdlgs1.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="viewdlgs1:Make">
+    <MSBuild Projects="viewdlgs1.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="owl2vcl;viewdlgs1" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="owl2vcl:Clean;viewdlgs1:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="owl2vcl:Make;viewdlgs1:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

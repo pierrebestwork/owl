@@ -1,0 +1,35 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Bidus Yura, All Rights Reserved
+//----------------------------------------------------------------------------
+#ifndef WORKSHOP_INVOKED
+#include "windows.h"
+#endif
+
+#include <owl/owlapp.rc>
+#include <owl/except.rc>
+#include <owl/window.rh>
+#include <owl/commctrl.h>
+
+//Should'n be necessary 
+#if !defined MONTHCAL_CLASS
+#define MONTHCAL_CLASSW          L"SysMonthCal32"
+#define MONTHCAL_CLASSA          "SysMonthCal32"
+
+#ifdef UNICODE
+#define MONTHCAL_CLASS           MONTHCAL_CLASSW
+#else
+#define MONTHCAL_CLASS           MONTHCAL_CLASSA
+#endif
+#endif //MONTHCAL_CLASS
+
+#include "monthcal.rh"
+
+IDD_CLIENTDLG DIALOG 6, 15, 218, 169
+STYLE DS_3DLOOK | WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX
+CAPTION "Month Calendar"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "Month Calendar", IDC_MONTHCAL, MONTHCAL_CLASS, WS_CHILD |WS_VISIBLE |WS_TABSTOP, 8, 16, 148, 132
+ CONTROL "OK", IDOK, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 160, 16, 50, 14
+}

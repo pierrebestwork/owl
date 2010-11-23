@@ -1,0 +1,18 @@
+//-------------------------------------------------------------------
+// OWL Extensions (OWLEXT) Class Library
+//
+// .RH file for TPickEditList
+//
+//$Revision: 1.1.4.2 $
+//$Author: jogybl $
+//$Date: 2009-10-23 10:49:26 $
+//
+// Resource IDs to use with pickedit.rc and pickedit.h
+//----------------------------------------------------------------------------
+#if !defined(OWL_PICKEDIT_RH)
+#define OWL_PICKEDIT_RH
+
+#define IDD_EXTPICKLIST	32520
+#define IDC_PICKLIST		101
+
+#endif

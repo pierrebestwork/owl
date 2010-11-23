@@ -1,0 +1,313 @@
+// wstrstream standard header
+// for MS VC
+// check also for BC ???
+
+#ifndef _WSTRSTREAM_
+#define _WSTRSTREAM_
+
+
+#include <istream>
+
+#if defined(BI_HAS_PRAGMA_ONCE)
+# pragma once
+#endif
+#if defined(BI_COMP_WATCOM)
+# pragma read_only_file
+#endif
+
+#if defined(BI_COMP_MSC)
+
+#ifdef  _MSC_VER
+#pragma pack(push,8)
+#endif  /* _MSC_VER */
+
+_STD_BEGIN
+
+// CLASS wstrstreambuf
+class _OWLCLASS wstrstreambuf : public wstreambuf {
+public:
+	enum __Strstate {_Allocated = 1, _Constant = 2,	_Dynamic = 4, _Frozen = 8};
+	_BITMASK(__Strstate, _Strstate);
+	explicit wstrstreambuf(streamsize _N = 0)
+		{_Init(_N); }
+	wstrstreambuf(void *(__cdecl *_A)(size_t), void (__cdecl *_F)(void *))
+		{_Init(), _Palloc = _A, _Pfree = _F; }
+	wstrstreambuf(wchar_t *_G, streamsize _N, wchar_t *_P = 0)
+		{_Init(_N, _G, _P); }
+	wstrstreambuf(const wchar_t *_G, streamsize _N)
+		{_Init(_N, (wchar_t *)_G, 0, _Constant); }
+	virtual ~wstrstreambuf();
+	void freeze(bool = true);
+	wchar_t *str()
+	  {freeze(); return (gptr()); }
+	streamsize pcount() const
+		{return (pptr() == 0 ? 0 : pptr() - pbase()); } 
+protected:
+	virtual int_type overflow(int_type n = EOF);
+	virtual int_type pbackfail(int_type n = EOF);
+	virtual int_type underflow();
+	virtual pos_type seekoff(off_type, ios::seekdir, ios::openmode = ios::in | ios::out);
+	virtual pos_type seekpos(pos_type,ios::openmode = ios::in | ios::out);
+	void _Init(int = 0, wchar_t * = 0, wchar_t * = 0, _Strstate = (_Strstate)0);
+	void _Tidy();
+private:
+	enum {_ALSIZE = 512, _MINSIZE = 32};
+	wchar_t *_Pendsave, *_Seekhigh;
+	int _Alsize;
+	_Strstate _Strmode;
+	void *(__cdecl *_Palloc)(size_t);
+	void (__cdecl *_Pfree)(void *);
+};
+
+_BITMASK_OPS(wstrstreambuf::__Strstate)
+
+// CLASS wistrstream
+class _OWLCLASS wistrstream : public wistream {
+public:
+	explicit wistrstream(const wchar_t *_S)
+		: wistream(&_Sb), _Sb(_S, 0) {}
+	wistrstream(const wchar_t *_S, streamsize _N)
+		: wistream(&_Sb), _Sb(_S, _N) {}
+	explicit wistrstream(wchar_t *_S)
+		: wistream(&_Sb), _Sb((const wchar_t *)_S, 0) {}
+	wistrstream(wchar_t *_S, int _N)
+		: wistream(&_Sb), _Sb((const wchar_t *)_S, _N) {}
+	virtual ~wistrstream();
+	wstrstreambuf *rdbuf() const
+		{return ((wstrstreambuf *)&_Sb); }
+	wchar_t *str()
+		{return (_Sb.str()); }
+private:
+	wstrstreambuf _Sb;
+};
+
+// CLASS wostrstream
+class _OWLCLASS wostrstream : public wostream {
+public:
+	wostrstream()
+		: wostream(&_Sb), _Sb() {}
+	wostrstream(wchar_t *, streamsize, openmode = out);
+	virtual ~wostrstream();
+	wstrstreambuf *rdbuf() const
+		{return ((wstrstreambuf *)&_Sb); }
+	void freeze(bool _F = true)
+		{_Sb.freeze(_F); }
+	wchar_t *str()
+		{return (_Sb.str()); }
+	streamsize pcount() const
+		{return (_Sb.pcount()); }
+private:
+	wstrstreambuf _Sb;
+};
+
+// CLASS wstrstream
+class _OWLCLASS wstrstream : public wiostream {
+public:
+	wstrstream()
+		: wiostream(&_Sb), _Sb() {}
+	wstrstream(wchar_t *, streamsize, openmode = in | out);
+	virtual ~wstrstream();
+	wstrstreambuf *rdbuf() const
+		{return ((wstrstreambuf*)&_Sb); }
+	void freeze(bool _F = true)
+		{_Sb.freeze(_F); }
+	wchar_t *str()
+		{return (_Sb.str()); }
+	streamsize pcount() const
+		{return (_Sb.pcount()); }
+private:
+	wstrstreambuf _Sb;
+};
+
+_STD_END
+
+#ifdef  _MSC_VER
+#pragma pack(pop)
+#endif  /* _MSC_VER */
+
+#elif defined(BI_COMP_BORLANDC)
+
+#ifndef _RWSTD_NO_NAMESPACE 
+namespace std {
+#endif
+
+  class _OWLCLASS wstrstreambuf
+#ifndef _RWSTD_NO_COMPLEX_DEFAULT_TEMPLATES
+    : public basic_streambuf<wchar_t>
+#else
+    : public basic_streambuf<wchar_t, char_traits<wchar_t> >
+#endif // _RWSTD_NO_COMPLEX_DEFAULT_TEMPLATES 
+  {
+
+  public:
+    //
+    // Types:
+    //
+    typedef wchar_t                      char_type;
+    typedef char_traits<wchar_t>         traits;
+    typedef traits::int_type             int_type;
+    typedef traits::pos_type             pos_type;
+    typedef traits::off_type             off_type;
+  
+    _EXPLICIT wstrstreambuf(streamsize alsize = 0);
+    wstrstreambuf(void *(*palloc)(size_t), void (*pfree)(void *));
+    wstrstreambuf(char_type *gnext, streamsize n, char_type *pbeg = 0);
+    wstrstreambuf(const char_type *gnext, streamsize n);
+    virtual ~wstrstreambuf();
+
+    void freeze(bool f = true);
+    char_type *str();
+    int pcount() const;
+
+  protected:
+    virtual int_type overflow(int_type c = traits::eof());
+    virtual int_type pbackfail(int_type c = traits::eof());
+    virtual int_type underflow();
+
+    virtual pos_type seekoff(off_type, ios_base::seekdir way,
+                             ios_base::openmode which =
+                             ios_base::in | ios_base::out);
+
+    virtual pos_type seekpos(pos_type sp, ios_base::openmode which =
+                             ios_base::in | ios_base::out);
+
+    virtual wstreambuf* setbuf(char_type *s, streamsize n);
+    virtual streamsize xsputn(const char_type *s, streamsize n);
+
+  private:
+    typedef long strstate;
+
+    enum str_state {
+      allocated      = 0x01,
+      constant       = 0x02,
+      dynamic        = 0x04,
+      frozen         = 0x08
+    };
+
+    int doallocate();
+  
+    strstate       __strmode;
+    streamsize     __alsize;
+    char_type      *__data;
+    streamsize     __end_pos;
+
+    void           *(*__palloc)(size_t);
+    void           (*__pfree)(void *);
+  };
+
+  class _OWLCLASS wistrstream
+#ifndef _RWSTD_NO_COMPLEX_DEFAULT_TEMPLATES
+    : public basic_istream<wchar_t>
+#else
+    : public basic_istream<wchar_t, char_traits<wchar_t> >
+#endif
+  {
+
+  public:
+    //
+    // Types:
+    //
+    typedef wchar_t                      char_type;
+    typedef char_traits<wchar_t>         traits;
+    typedef traits::int_type             int_type;
+    typedef traits::pos_type             pos_type;
+    typedef traits::off_type             off_type;
+  
+    _EXPLICIT wistrstream(const char_type *s);
+    wistrstream(const char_type *s, streamsize n);
+    _EXPLICIT wistrstream(char_type *s);
+    wistrstream(char_type *s, streamsize n);
+
+    virtual ~wistrstream();
+
+    wstrstreambuf *rdbuf() const;
+    char_type *str();
+  protected:
+
+  private:
+    wstrstreambuf             __sb;
+  };
+  class _OWLCLASS wostrstream
+#ifndef _RWSTD_NO_COMPLEX_DEFAULT_TEMPLATES
+    : public basic_ostream<wchar_t>
+#else
+    : public basic_ostream<wchar_t, char_traits<wchar_t> >
+#endif
+  {
+
+  public:
+    //
+    // Types:
+    //
+    typedef wchar_t                            char_type;
+    typedef char_traits<wchar_t>               traits;
+    typedef traits::int_type                   int_type;
+    typedef traits::pos_type                   pos_type;
+    typedef traits::off_type                   off_type;
+  
+    wostrstream();
+    wostrstream(char_type *s, int n,
+               ios_base::openmode = ios_base::out);
+    
+    virtual ~wostrstream();
+    wstrstreambuf *rdbuf() const;
+    void freeze(bool freezefl = true);
+    char_type *str();
+    int pcount() const;
+
+  protected:
+
+  private:
+    wstrstreambuf        __sb;
+  };
+/*
+ *  Class strstream
+ */
+
+  class _OWLCLASS wstrstream
+#ifndef _RWSTD_NO_DEFAULT_TEMPLATES
+    : public basic_iostream<wchar_t>
+#else
+    : public basic_iostream<wchar_t, char_traits<wchar_t> >
+#endif
+  {
+
+  public:
+    //
+    // Types:
+    //
+    typedef wchar_t                      char_type;
+    typedef char_traits<wchar_t>         traits;
+    typedef traits::int_type             int_type;
+    typedef traits::pos_type             pos_type;
+    typedef traits::off_type             off_type;
+  
+    wstrstream();
+    wstrstream(char_type *s, int n,
+              ios_base::openmode = ios_base::out | ios_base::in);
+
+    void freeze(bool freezefl = true);
+    int pcount() const;
+
+    virtual ~wstrstream();
+    wstrstreambuf *rdbuf() const;
+
+    char_type *str();
+  protected:
+
+  private:
+    wstrstreambuf          __sb;
+  };
+#ifndef _RWSTD_NO_NAMESPACE
+}
+#endif
+
+#else
+  OWL_COMPILE_ERROR(Unknown compiler)
+#endif
+
+#endif /* _WSTRSTREAM_ */
+
+/*
+ * Copyright (c) 1999-2000 by Yura Bidus.  ALL RIGHTS RESERVED. 
+ */

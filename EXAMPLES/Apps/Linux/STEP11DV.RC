@@ -1,0 +1,14 @@
+//----------------------------------------------------------------------------
+// ObjectWindows - (C) Copyright 1991, 1993 by Borland International
+//   Tutorial application -- step11dv.rc
+//----------------------------------------------------------------------------
+#if !defined(__step11dv_rc)
+#define __step11dv_rc
+
+#define CM_PENSIZE    306
+#define CM_PENCOLOR   307
+#define IDM_DRAWVIEW  212
+#ifndef IDS_FILEINFO
+#define IDS_FILEINFO  215
+#endif
+#endif

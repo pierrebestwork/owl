@@ -1,0 +1,16 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Yura Bidus, All Rights Reserved
+//----------------------------------------------------------------------------
+#if !defined(BTNTXTG_RH)
+#define BTNTXTG_RH
+
+#define IDM_APPMENU     100
+#define IDM_TRACKMENU   101
+#define IDD_ABOUT				202
+#define CM_ABOUT				101
+#define CM_TEXT				  102
+
+
+#endif  //  BTNTXTG_RH
+

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<link href="main.css" rel="stylesheet" type="text/css">
+<!-- Title -->	
+	<title>Setting up C++ Builder 2007 to work with OWLNext</title>
+<!-- End of title -->
+</head>
+
+<body>
+<div align="center">
+<a href="http://www.owlnext.org/"><img src="images/owlnext.jpg" border="0" alt="OWLNext Home"></a>
+<hr>
+<br>
+<h1>
+<!-- Title -->	
+	~ Setting up C++ Builder 2007 to work with OWLNext ~
+<!-- End of title -->	
+</h1>
+</div>
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td width="21%" valign="top" align="left"> 
+</td>
+<td valign="top" align="left">
+
+<!-- Content -->	
+
+<p class="important">
+Note: For an updated version of this article check the 
+<a href="http://owlnext.sourceforge.net/setupbds2007.html" target="_blank">page</a> at OWLNext site.</p>
+
+<dl>
+	<dt>Setting up environment variables</dt>
+	<dd><p>For building OWLNext applications I recommend to set the environment variable <strong>OWLROOT</strong> 
+	to point to the root folder where OWLNext files are installed.
+	An advantage of using this environment variable is that projects are easily transferred 
+	from one computer to another without having to modify the project files.<br>
+	<em>See also:</em> <a href="http://owlnext.sourceforge.net/setupenv.html">Setting up environment variables under Windows 2000/XP</a>.<br>
+	<em>Note: <strong>OWLROOT</strong> should be set by OWLNext Setup Wizard.</em> </p>
+	</dd>
+	
+	<dt>Setting up defaults for C++ Builder 2007</dt>
+	<dd><p>Start the IDE and make sure no project is open. From the menu Tools-&gt;Options open the Options dialog
+	and go to the Environment Options/C++ Options/Paths and Directories page:<br>
+	<img src="images/bds2007pathoptions.png" width="673" height="441" border="0" title="Project Options" alt="Project Options">
+	<br>
+	For the include directories add<br>
+	<strong>$(OWLROOT)\include;</strong><br>
+	and for the library directories:<br>
+	<strong>$(OWLROOT)\lib;</strong><br>
+	</p></dd>
+	
+	<dt>Starting a new OWLNext project</dt>
+	<dd><p>From the menu File-&gt;New-&gt;Other choose to create a new Console Application. 
+	In the New Console Application dialog uncheck the Use VCL and Console Application checkboxes:<br>
+	<img src="images/bds2007newconsoleapp.png" width="346" height="205" border="0" title="Project Options" alt="Project Options">
+	<br>
+	If you want to use static linking for OWLNext library (which is recommended), open the Project Options dialog 
+	and go to the Linker/Linking page. Select the Base Build Configuration and uncheck the Dynamic RTL checkbox:<br>
+	<img src="images/bds2007linkingoptions.png" width="651" height="521" border="0" title="Project Options" alt="Project Options">
+	<br>
+	To test if everything is set up correctly, open the created .cpp file for the project and replace it's 
+	contents with the following code:</p>
+ <pre><code>//-----------------------------------------------------------------------
+// ObjectWindows - (C) Copyright 1991, 1994 by Borland International
+// Tutorial application -- step01.cpp
+//-----------------------------------------------------------------------
+#include &lt;owl/applicat.h&gt;
+#include &lt;owl/framewin.h&gt;
+
+class TDrawApp : public TApplication
+{
+  public:
+    TDrawApp() : TApplication() {}
+
+    void InitMainWindow()
+    {
+        SetMainWindow(new TFrameWindow(0, &quot;Sample ObjectWindows Program&quot;));
+    }
+};
+
+int
+OwlMain(int /* argc */, char* /* argv */ [])
+{
+  return TDrawApp().Run();
+}
+</code></pre> 
+<p>
+Build and run the application. It should show an empty window with the title 
+<strong>Sample ObjectWindows Program</strong>
+	</p>
+	</dd>
+	
+
+	<dt>Adding empty OWLNext application project to the project repository</dt>
+	<dd><p>For easier creation of OWLNext application in the future, this sample project
+	can be added to the project repository. Simply delete the .cpp file, and select the
+	menu item Project-&gt;Add to Repository. In the dialog select appropriate category
+	and fill the Title, Description and Author fields:<br>
+	<img src="images/bds2007projectrepository.png" width="521" height="443" border="0" title="Project Options" alt="Project Options">
+	<br>
+	
+	</p>
+	</dd>
+	
+</dl>
+
+<!-- End of content -->	
+
+
+</td>
+</tr>
+<tr>
+<td></td>
+<td> 
+<br><br>
+<p class="lastupdated">
+<!-- Last updated -->	
+Last updated: 1 June 2007
+<!-- End of last updated -->	
+</p>
+</td></tr>
+</table>
+<div align="center">
+<br>Hosted by<br>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=30809" width="88" height="31" border="0" alt="SourceForge Logo"></a>
+</div>
+</body>
+</html>
+
+
+
+
+

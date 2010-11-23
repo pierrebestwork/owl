@@ -1,0 +1,57 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1991, 1995 by Borland International, All Rights Reserved
+//----------------------------------------------------------------------------
+#ifndef WORKSHOP_INVOKED
+  #include <windows.h>
+#endif
+#include <owl/editfile.rh>
+#include "bmpview.h"
+
+#include <owl/inputdia.rc>
+#include <owl/except.rc>
+
+CM_READ1 BITMAP SB_BW.BMP
+CM_READ2 BITMAP SBSML256.BMP
+
+BITMAPVIEW MENU 
+{
+  POPUP "&File"
+  {
+    MENUITEM "&Open...\tCtrl+O", CM_FILEOPEN
+    MENUITEM SEPARATOR
+    MENUITEM "Resource Bitmap &1", CM_READ1
+    MENUITEM "Resource Bitmap &2", CM_READ2
+    MENUITEM SEPARATOR
+    MENUITEM "&Bad Bitmap\tCtrl+B", CM_READBAD
+    MENUITEM SEPARATOR
+    MENUITEM "&Memory Handle...\tCtrl+M", CM_MEMHANDLE
+    MENUITEM "Memory Handle Refresh\tCtrl+R", CM_MEMHANDLEREFRESH
+    MENUITEM SEPARATOR
+    MENUITEM "E&xit", CM_EXIT
+  }
+
+  POPUP "&Edit"
+  {
+    MENUITEM "&Copy\tCtrl+c", CM_EDITCOPY
+    MENUITEM "&Paste\tCtrl+Ins", CM_EDITPASTE
+  }
+
+  POPUP "&View"
+  {
+    MENUITEM "&Fit to window", CM_FIT
+    MENUITEM "&Auto clipboard view", CM_AUTOCLIPVIEW
+    MENUITEM "&Paint from DDB", CM_PAINTFROMDDB
+    MENUITEM "Paint &Icon", CM_PAINTICON
+  }
+}
+
+IDA_BMPVIEW ACCELERATORS
+{
+  "o", CM_FILEOPEN, VIRTKEY, CONTROL
+  "b", CM_READBAD, VIRTKEY, CONTROL
+  "m", CM_MEMHANDLE, VIRTKEY, CONTROL 
+  "r", CM_MEMHANDLEREFRESH, VIRTKEY, CONTROL
+}
+
+BITMAPVIEW ICON "appicon.ico"

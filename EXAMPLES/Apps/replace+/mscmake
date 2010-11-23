@@ -1,0 +1,13 @@
+# This is a part of the ObjectWindows Library.
+# OWL NExt
+#
+
+PROJ=replace+
+PROJRESFILE=app.res
+OBJS=app.obj client.obj help.obj replacer.obj util.obj
+OWLDLL=1
+DEBUG=0
+#EXTRA_LIBS=winmm.lib
+
+
+!include <owlsamps.mk>

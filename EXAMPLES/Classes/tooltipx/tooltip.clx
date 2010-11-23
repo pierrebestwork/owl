@@ -1,0 +1,66 @@
+//Always generated OWL ClassExpert's Data File.
+//OWL ClassExpert for VC. Version 1.1.
+//Copyright (C) 1998-1999 by Yura Bidus. All rights reserved.
+//
+
+
+@@START_CLASS_INFO
+{
+  TSampleApp{
+    hsource=tooltipx.cpp
+    cppsource=tooltipx.cpp
+    ClassType=CAE123
+    BaseClasses=TApplication,
+    Constructor=TSampleApp()
+    Commands{
+      CM_HELPABOUT=CmHelpAbout|
+    }
+    Virtuals{
+      void InitMainWindow()
+    }
+  }
+  TClientWindow{
+    hsource=tooltipx.cpp
+    cppsource=tooltipx.cpp
+    ClassType=CWE123
+    BaseClasses=TWindow,
+    Constructor=TClientWindow(TWindow* parent)
+  }
+  TAboutDlg{
+    hsource=tooltipx.cpp
+    cppsource=tooltipx.cpp
+    WindowID=IDD_ABOUT
+    ClassType=CWDE123
+    BaseClasses=TDialog,
+    Constructor=TAboutDlg(TWindow* parent)
+  }
+}
+@@END_CLASS_INFO
+@@START_VERSION_INFO
+{
+  Project=tooltipx
+  Company=OWL NExt
+  Author=Yura
+  Copyright=Copyright 1999. Yura All Rights reserved.
+  Target=tooltipx
+}
+@@END_VERSION_INFO
+
+@@START_COMMAND_INFO
+{
+  CM_TOOLBARTIP
+  CM_WINDOWTIP
+  CM_EXIT
+  CM_HELPABOUT
+}
+@@END_COMMAND_INFO
+@@START_DIALOG_INFO
+{
+  IDD_ABOUT{
+    IDC_VERSION=Static
+    IDC_COPYRIGHT=Static
+    IDC_DEBUG=Static
+    IDOK=Button
+  }
+}
+@@END_DIALOG_INFO

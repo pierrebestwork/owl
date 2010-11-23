@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{bcc85d17-d447-44f4-bf4c-12c9ccd92af0}</ProjectGuid>
+    <ProjectType>CppGuiApplication</ProjectType>
+    <Config Condition="'$(Config)'==''">Release Build</Config>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+    <Base>true</Base>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Config)'=='Debug Build' or '$(Cfg_1)'!=''">
+    <Base>true</Base>
+    <Cfg_1>true</Cfg_1>
+    <CfgParent>Base</CfgParent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Config)'=='Release Build' or '$(Cfg_2)'!=''">
+    <Base>true</Base>
+    <Cfg_2>true</Cfg_2>
+    <CfgParent>Base</CfgParent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Base)'!=''">
+    <OutputExt>exe</OutputExt>
+    <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+    <ILINK_ClearState>true</ILINK_ClearState>
+    <DCC_ObjPath>..\..\..\include\owl</DCC_ObjPath>
+    <ILINK_AppType>Windows</ILINK_AppType>
+    <BCC_GenerateWindowsApp>true</BCC_GenerateWindowsApp>
+    <BCC_PCHWithExternalTypeFiles>false</BCC_PCHWithExternalTypeFiles>
+    <ILINK_ObjectSearchPath>..\..\..\include\owl</ILINK_ObjectSearchPath>
+    <UsePackages>true</UsePackages>
+    <NoVCL>true</NoVCL>
+    <ILINK_CaseSensitive>true</ILINK_CaseSensitive>
+    <PackageImports>vclx.bpi;vcl.bpi;rtl.bpi;dbrtl.bpi;vcldb.bpi;adortl.bpi;dbxcds.bpi;dbexpress.bpi;xmlrtl.bpi;vclie.bpi;inet.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;dsnap.bpi;bdertl.bpi;vcldbx.bpi</PackageImports>
+    <DCC_UnitSearchPath>..\..\..\include\owl;C:\Documents and Settings\labo-1\Mis documentos\Borland Studio Projects;$(BDS)\lib;$(BDS)\lib\obj</DCC_UnitSearchPath>
+    <BCC_GenerateMultithreaded>true</BCC_GenerateMultithreaded>
+    <BCC_PCHCache>true</BCC_PCHCache>
+    <BCC_IncludePath>$(OWLROOT)\include;$(BDS)\include;$(BDS)\include\dinkumware</BCC_IncludePath>
+    <DCC_IncludePath>..\..\..\include\owl;C:\Documents and Settings\labo-1\Mis documentos\Borland Studio Projects;$(BDS)\lib;$(BDS)\lib\obj</DCC_IncludePath>
+    <BRCC_IncludePath>$(OWLROOT)\include;$(BDS)\include;$(BDS)\include\dinkumware</BRCC_IncludePath>
+    <TASM_IncludePath>$(OWLROOT)\include;$(BDS)\include;$(BDS)\include\dinkumware</TASM_IncludePath>
+    <BCC_DisableOptimizations>false</BCC_DisableOptimizations>
+    <BCC_InternalDefines>NO_STRICT</BCC_InternalDefines>
+    <ILINK_LibraryPath>$(OWLROOT)\lib;$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk</ILINK_LibraryPath>
+    <Multithreaded>true</Multithreaded>
+    <DCC_ResourcePath>..\..\..\include\owl</DCC_ResourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Cfg_1)'!=''">
+    <DCC_Optimize>false</DCC_Optimize>
+    <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+    <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+    <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+    <ILINK_DisableIncrementalLinking>true</ILINK_DisableIncrementalLinking>
+    <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+    <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+    <IntermediateOutputDir>Debug_Build</IntermediateOutputDir>
+    <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+    <BCC_StackFrames>true</BCC_StackFrames>
+    <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+    <ILINK_LibraryPath>$(BDS)\lib\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+    <BCC_Defines>_DEBUG;$(BCC_Defines)</BCC_Defines>
+    <TASM_Debugging>Full</TASM_Debugging>
+    <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Cfg_2)'!=''">
+    <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+    <DCC_DebugInformation>false</DCC_DebugInformation>
+    <IntermediateOutputDir>Release_Build</IntermediateOutputDir>
+    <ILINK_LibraryPath>$(BDS)\lib\release;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+    <BCC_Defines>NDEBUG;$(BCC_Defines)</BCC_Defines>
+    <TASM_Debugging>None</TASM_Debugging>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>CPlusPlusBuilder.Personality</Borland.Personality>
+    <Borland.ProjectType>CppGuiApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><CPlusPlusBuilder.Personality><VersionInfo><VersionInfo Name="IncludeVerInfo">False</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">11274</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Debugging><Debugging Name="DebugSourceDirs"></Debugging></Debugging><Parameters><Parameters Name="RunParams"></Parameters><Parameters Name="Launcher"></Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="DebugCWD"></Parameters><Parameters Name="HostApplication"></Parameters><Parameters Name="RemoteHost"></Parameters><Parameters Name="RemotePath"></Parameters><Parameters Name="RemoteParams"></Parameters><Parameters Name="RemoteLauncher"></Parameters><Parameters Name="UseRemoteLauncher">False</Parameters><Parameters Name="RemoteCWD"></Parameters><Parameters Name="RemoteDebug">False</Parameters><Parameters Name="Debug Symbols Search Path"></Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><DebugEnvironmentVariables><DebugEnvironmentVariables Name="ALLUSERSPROFILE">C:\Documents and Settings\All Users</DebugEnvironmentVariables><DebugEnvironmentVariables Name="APPDATA">C:\Documents and Settings\Sebastian\Datos de programa</DebugEnvironmentVariables><DebugEnvironmentVariables Name="BCC55ROOT">C:\Borland\Bcc55</DebugEnvironmentVariables><DebugEnvironmentVariables Name="BDSPROJECTSDIR">C:\Documents and Settings\Sebastian\Mis documentos\Borland Studio Projects</DebugEnvironmentVariables><DebugEnvironmentVariables Name="COMPUTERNAME">64-BITS</DebugEnvironmentVariables><DebugEnvironmentVariables Name="HOMEPATH">\Documents and Settings\Sebastian</DebugEnvironmentVariables><DebugEnvironmentVariables Name="LOGONSERVER">\\64-BITS</DebugEnvironmentVariables><DebugEnvironmentVariables Name="Path">C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\;C:\Archivos de programa\Borland\BDS\4.0\Bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\BC5\BIN;C:\Documents and Settings\Sebastian\Mis documentos\Borland Studio Projects\Bpl</DebugEnvironmentVariables><DebugEnvironmentVariables Name="PROCESSOR_IDENTIFIER">x86 Family 15 Model 12 Stepping 0, AuthenticAMD</DebugEnvironmentVariables><DebugEnvironmentVariables Name="PROCESSOR_LEVEL">15</DebugEnvironmentVariables><DebugEnvironmentVariables Name="PROCESSOR_REVISION">0c00</DebugEnvironmentVariables><DebugEnvironmentVariables Name="TEMP">C:\DOCUME~1\SEBAST~2\CONFIG~1\Temp</DebugEnvironmentVariables><DebugEnvironmentVariables Name="TMP">C:\DOCUME~1\SEBAST~2\CONFIG~1\Temp</DebugEnvironmentVariables><DebugEnvironmentVariables Name="USERDOMAIN">64-BITS</DebugEnvironmentVariables><DebugEnvironmentVariables Name="USERNAME">Sebastian</DebugEnvironmentVariables><DebugEnvironmentVariables Name="USERPROFILE">C:\Documents and Settings\Sebastian</DebugEnvironmentVariables><DebugEnvironmentVariables Name="BCB">c:\archivos de programa\borland\bds\4.0</DebugEnvironmentVariables><DebugEnvironmentVariables Name="BDS">c:\archivos de programa\borland\bds\4.0</DebugEnvironmentVariables><DebugEnvironmentVariables Name="BitRock">1</DebugEnvironmentVariables><DebugEnvironmentVariables Name="CLASSPATH">C:\Archivos de programa\QuickTime\QTSystem\QTJava.zip</DebugEnvironmentVariables><DebugEnvironmentVariables Name="CommonProgramFiles">C:\Archivos de programa\Archivos comunes</DebugEnvironmentVariables><DebugEnvironmentVariables Name="NUMBER_OF_PROCESSORS">1</DebugEnvironmentVariables><DebugEnvironmentVariables Name="OWLROOT">C:\OWL</DebugEnvironmentVariables><DebugEnvironmentVariables Name="PATHEXT">.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH</DebugEnvironmentVariables><DebugEnvironmentVariables Name="ProgramFiles">C:\Archivos de programa</DebugEnvironmentVariables><DebugEnvironmentVariables Name="QTJAVA">C:\Archivos de programa\QuickTime\QTSystem\QTJava.zip</DebugEnvironmentVariables><DebugEnvironmentVariables Name="tvdumpflags">8</DebugEnvironmentVariables><DebugEnvironmentVariables Name="VS80COMNTOOLS">C:\Archivos de programa\Microsoft Visual Studio 8\Common7\Tools\</DebugEnvironmentVariables></DebugEnvironmentVariables><DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="BCB">c:\archivos de programa\borland\bds\4.0</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="BDS">c:\archivos de programa\borland\bds\4.0</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="BitRock">1</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="CLASSPATH">C:\Archivos de programa\QuickTime\QTSystem\QTJava.zip</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="CLIENTNAME">Console</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="CommonProgramFiles">C:\Archivos de programa\Archivos comunes</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="ComSpec">C:\WINDOWS\system32\cmd.exe</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="FP_NO_HOST_CHECK">NO</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="HOMEDRIVE">C:</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="NUMBER_OF_PROCESSORS">1</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="OS">Windows_NT</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="OWLROOT">C:\OWL</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="PATHEXT">.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="PROCESSOR_ARCHITECTURE">x86</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="ProgramFiles">C:\Archivos de programa</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="QTJAVA">C:\Archivos de programa\QuickTime\QTSystem\QTJava.zip</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="SESSIONNAME">Console</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="SystemDrive">C:</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="SystemRoot">C:\WINDOWS</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="tvdumpflags">8</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="VS80COMNTOOLS">C:\Archivos de programa\Microsoft Visual Studio 8\Common7\Tools\</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="windir">C:\WINDOWS</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="ALLUSERSPROFILE">C:\Documents and Settings\All Users</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="BC5ROOT">C:\Tools\Borland\BC5</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="BDSCOMMONDIR">C:\Documents and Settings\All Users\Documents\RAD Studio\5.0</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="BDSUSERDIR">C:\Documents and Settings\Jogy.SIRMA\My Documents\RAD Studio\5.0</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="BOOSTROOT">C:\Tools\Boost</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="CVSROOT">C:\Work\OWLNext\VersionControl</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="ENCYCLOPEDIA_ROOT">C:\Work\Encyclopedia</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="GENPRO">C:\Tools\Power Softwares\GenPro</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="GNPPRJ">C:\Tools\Power Softwares\GenPro\Projects</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="LANG">C</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="lib">C:\Program Files\SQLXML 4.0\bin\</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="PROCESSOR_LEVEL">15</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="QMAKESPEC">win32-msvc2005</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="QTDIR">C:\Tools\Qt\4.1.3</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="USERDNSDOMAIN">SIRMA.INT</DebugSysEnvironmentVariables><DebugSysEnvironmentVariables Name="VCLZIPROOT">C:\Tools\VCLZip</DebugSysEnvironmentVariables></DebugSysEnvironmentVariables><Linker><Linker Name="LibPrefix"></Linker><Linker Name="LibSuffix"></Linker><Linker Name="LibVersion"></Linker></Linker><ProjectProperties><ProjectProperties Name="AutoShowDeps">False</ProjectProperties><ProjectProperties Name="ManagePaths">True</ProjectProperties><ProjectProperties Name="VerifyPackages">True</ProjectProperties></ProjectProperties><HistoryLists_hlILINK_LibraryPath><HistoryLists_hlILINK_LibraryPath Name="Count">1</HistoryLists_hlILINK_LibraryPath><HistoryLists_hlILINK_LibraryPath Name="Item0">$(BDS)\lib\release;$(OWLROOT)\lib;$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk</HistoryLists_hlILINK_LibraryPath></HistoryLists_hlILINK_LibraryPath><HistoryLists_hlIntermediateOutputDir><HistoryLists_hlIntermediateOutputDir Name="Count">1</HistoryLists_hlIntermediateOutputDir><HistoryLists_hlIntermediateOutputDir Name="Item0">Release_Build</HistoryLists_hlIntermediateOutputDir></HistoryLists_hlIntermediateOutputDir></CPlusPlusBuilder.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Cpp.Targets" />
+  <ItemGroup>
+    <None Include="Console1.bpf">
+      <BuildOrder>0</BuildOrder>
+    </None>
+    <None Include="readme.txt">
+      <BuildOrder>2</BuildOrder>
+    </None>
+    <CppCompile Include="Test1.cpp">
+      <BuildOrder>1</BuildOrder>
+    </CppCompile>
+    <BuildConfiguration Include="Debug Build">
+      <Key>Cfg_1</Key>
+    </BuildConfiguration>
+    <BuildConfiguration Include="Release Build">
+      <Key>Cfg_2</Key>
+    </BuildConfiguration>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,116 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// (C) Copyright 1995 by Borland International, All Rights Reserved
+//----------------------------------------------------------------------------
+
+#include <owl/winres.rh>
+
+#include <owl/owlapp.rc>
+#include <owl/except.rc>
+#include "tooltip.h"
+
+
+IDM_MAINMENU MENU
+{
+  POPUP "&Tooltips"
+  {
+    MENUITEM "&Toolbar",  CM_TOOLBARTIP
+    MENUITEM "&Window",   CM_WINDOWTIP
+    MENUITEM SEPARATOR
+    MENUITEM "E&xit",   CM_EXIT
+  }
+  POPUP "&Help"
+  {
+    MENUITEM "&About...", CM_HELPABOUT
+  }
+}
+
+
+
+STRINGTABLE LOADONCALL MOVEABLE DISCARDABLE
+{
+    ID_BLUETOOL,    "Blue Rectangle"
+    ID_YELLOWTOOL,  "Yellow Rectangle"
+
+    CM_EDITUNDO,    "Undoes the last edit operation\nUndo"
+    CM_EDITCUT,     "Cuts the current selection \nCut"
+    CM_EDITCOPY,    "Copies the current selection\nCopy"
+    CM_EDITPASTE,   "Paste the current selection the clipboard\nPaste"
+    CM_EDITDELETE,  "Deletes the current selection\nDelete"
+    CM_EDITCLEAR,   "Clears the editor\nClear"
+    CM_EDITFIND,    "Finds a string\nFind"
+    CM_EDITREPLACE, "Replaces a string with another\nReplace"
+    CM_EDITFINDNEXT,"Finds the next occurence of a string\nFind next"
+    ID_COMBOBOX,    "ComboBox gadget control\nComboBox" 
+}
+
+CM_EDITUNDO BITMAP PRELOAD MOVEABLE DISCARDABLE "undo.bmp"
+CM_EDITCUT BITMAP PRELOAD MOVEABLE DISCARDABLE "cut.bmp"
+CM_EDITCOPY BITMAP PRELOAD MOVEABLE DISCARDABLE "copy.bmp"
+CM_EDITPASTE BITMAP PRELOAD MOVEABLE DISCARDABLE "paste.bmp"
+CM_FILENEW BITMAP PRELOAD MOVEABLE DISCARDABLE "new.bmp"
+CM_FILEOPEN BITMAP PRELOAD MOVEABLE DISCARDABLE "open.bmp"
+CM_FILESAVE BITMAP PRELOAD MOVEABLE DISCARDABLE "save.bmp"
+CM_FILEPRINT BITMAP PRELOAD MOVEABLE DISCARDABLE "print.bmp"
+
+// About box.
+//
+IDD_ABOUT DIALOG 12, 17, 204, 65
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Tooltip"
+FONT 8, "MS Sans Serif"
+BEGIN
+  EDITTEXT        IDC_EDIT,9,53,36,12
+  CTEXT "Version", IDC_VERSION, 2, 14, 200, 8, SS_NOPREFIX
+  CTEXT "Toltip Example", -1, 2, 4, 200, 8, SS_NOPREFIX
+  CTEXT "", IDC_COPYRIGHT, 2, 27, 200, 17, SS_NOPREFIX
+  RTEXT "", IDC_DEBUG, 136, 55, 66, 8, SS_NOPREFIX
+  ICON IDI_OWLAPP, -1, 2, 2, 34, 34
+  DEFPUSHBUTTON "OK", IDOK, 82, 48, 40, 14
+END
+
+/////////////////////////////////////
+// Version info.
+//
+1 VERSIONINFO LOADONCALL MOVEABLE
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1, 0, 0, 0
+#ifndef _DEBUG
+FILEFLAGSMASK 0
+#else
+FILEFLAGSMASK VS_FF_DEBUG | VS_FF_PRERELEASE | VS_FF_PATCHED | VS_FF_PRIVATEBUILD | VS_FF_SPECIALBUILD
+#endif
+FILEFLAGS VS_FFI_FILEFLAGSMASK
+#if defined(BI_PLAT_WIN32)
+FILEOS VOS__WINDOWS32
+#else
+FILEOS VOS__WINDOWS16
+#endif
+FILETYPE VFT_APP
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    // Language type = U.S. English(0x0409) and Character Set = Windows, Multilingual(0x04e4)
+    BLOCK "040904E4"              // Matches VarFileInfo Translation hex value.
+    BEGIN
+      VALUE "CompanyName", "OWL NExt\000"
+      VALUE "FileDescription", "Tooltip example\000"
+      VALUE "FileVersion", "1.0\000"
+      VALUE "InternalName", "Tooltip\000"
+      VALUE "LegalCopyright", "Copyright © 1996. All Rights Reserved.\000"
+      VALUE "LegalTrademarks", "Windows(TM) is a trademark of Micro$oft Corporation\000"
+      VALUE "OriginalFilename", "Tooltip.exe\000"
+      VALUE "ProductName", "Tooltip\000"
+      VALUE "ProductVersion", "1.0\000"
+#ifdef _DEBUG
+      VALUE "SpecialBuild", "Debug Version\000"
+      VALUE "PrivateBuild", "Built by Yura Bidus\000"
+#endif
+    END
+  END
+
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0409, 0x04e4    // U.S. English(0x0409) & Windows Multilingual(0x04e4) 1252
+  END
+END

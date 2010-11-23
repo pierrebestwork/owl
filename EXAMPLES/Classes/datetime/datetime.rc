@@ -1,0 +1,36 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Bidus Yura, All Rights Reserved
+//----------------------------------------------------------------------------
+#ifndef WORKSHOP_INVOKED
+#include <windows.h>
+#endif
+#include <owl/owlapp.rc>
+#include <owl/except.rc>
+#include <owl/window.rh>
+
+#include <owl/commctrl.h>
+
+#if !defined DATETIMEPICK_CLASS
+#define DATETIMEPICK_CLASSW          L"SysDateTimePick32"
+#define DATETIMEPICK_CLASSA          "SysDateTimePick32"
+
+#ifdef UNICODE
+#define DATETIMEPICK_CLASS           DATETIMEPICK_CLASSW
+#else
+#define DATETIMEPICK_CLASS           DATETIMEPICK_CLASSA
+#endif
+#define DTS_LONGDATEFORMAT  0x0004 // use the long date format (app must forward WM_WININICHANGE messages)
+#endif
+
+#include "datetime.rh"
+
+
+IDD_CLIENTDLG DIALOG 6, 15, 201, 46
+STYLE DS_3DLOOK | WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX
+CAPTION "DateTime Picker"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "", IDC_DATEPICKER, DATETIMEPICK_CLASS, WS_CHILD |WS_VISIBLE |WS_TABSTOP |DTS_LONGDATEFORMAT, 8, 16, 124, 14
+ CONTROL "OK", IDOK, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 144, 16, 50, 14
+}

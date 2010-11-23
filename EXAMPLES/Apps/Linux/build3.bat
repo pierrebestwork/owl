@@ -1,0 +1,1 @@
+gcc -o hello3.exe hello3.cpp -Le:/owl/lib -lgdi32 -lstdc++ -lkernel32 -luser32 -lowlwf -Wl,--subsystem,windows -fvtable-thunks -D_OWLPCH -Ie:/owl/include 

@@ -1,0 +1,35 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Bidus Yura, All Rights Reserved
+//----------------------------------------------------------------------------
+#ifndef WORKSHOP_INVOKED
+#include "windows.h"
+#endif
+
+#include <owl/owlapp.rc>
+#include <owl/except.rc>
+#include <owl/window.rh>
+#include <owl/commctrl.h>
+
+//Should'nt be necesary
+#if !defined WC_IPADDRESS
+#define WC_IPADDRESSW           L"SysIPAddress32"
+#define WC_IPADDRESSA           "SysIPAddress32"
+
+#ifdef UNICODE
+#define WC_IPADDRESS          WC_IPADDRESSW
+#else
+#define WC_IPADDRESS          WC_IPADDRESSA
+#endif
+#endif //WC_IPADDRESS
+
+#include "ipaddres.rh"
+
+IDD_CLIENTDLG DIALOG 6, 15, 218, 46
+STYLE DS_3DLOOK | WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX
+CAPTION "IP Address control"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "", IDC_IPADDRESS, WC_IPADDRESS, WS_CHILD |WS_VISIBLE |WS_TABSTOP, 8, 16, 148, 12
+ CONTROL "OK", IDOK, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 160, 16, 50, 14
+}

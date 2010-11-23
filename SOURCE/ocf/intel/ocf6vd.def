@@ -1,0 +1,11 @@
+LIBRARY     ocf6vd.dll
+
+EXPORTS
+ DllGetClassObject PRIVATE
+ DllCanUnloadNow PRIVATE
+ DllRegisterServer PRIVATE
+ DllUnregisterServer PRIVATE
+ DllRegisterCommand  PRIVATE
+ GetDocTemplateHead	 
+ GetModulePtr		
+

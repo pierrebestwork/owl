@@ -1,0 +1,179 @@
+# ---------------------------------------------------------------------------
+!if !$d(BCB)
+BCB = $(MAKEDIR)\..
+!endif
+
+# ---------------------------------------------------------------------------
+# IDE MANAGED SECTION
+# ---------------------------------------------------------------------------
+# The following section of the project makefile is managed by the BCB IDE.
+# It is recommended to use the IDE to change any of the values in this
+# section.
+# ---------------------------------------------------------------------------
+
+VERSION = BCB.03
+# ---------------------------------------------------------------------------
+PROJECT = checklsx.exe
+OBJFILES =  checklsx.obj
+RESFILES = checklst.res
+RESDEPEN = $(RESFILES)
+LIBFILES = 
+LIBRARIES =
+SPARELIBS =
+PACKAGES =
+DEFFILE =
+# ---------------------------------------------------------------------------
+PATHCPP = .;
+PATHASM = .;
+PATHRC = .;
+PATHPAS = .;
+DEBUGLIBPATH = $(BCB)\lib\debug
+RELEASELIBPATH = $(BCB)\lib\release
+# ---------------------------------------------------------------------------
+CFLAG1 = -Od -Hc -w -r- -d -k -y -v -vi- -c -w-par -w-inl -tWM- -W
+CFLAG2 = -DBI_NAMESPACE;_NO_VCL;_RTLDLL;_BIDSDLL;_OWLDLL;STRICT;_OWLPCH;BI_STD_STRING \
+  -I..\..\..\INCLUDE;$(BCB)\include; -H=..\..\..\lib\owlwfi.csm -Hh=owl\pch.h
+CFLAG3 = -Tkh30000 -5
+PFLAGS = -DBI_NAMESPACE;_NO_VCL;_RTLDLL;_BIDSDLL;_OWLDLL;STRICT;_OWLPCH;BI_STD_STRING \
+  -U..\..\..\LIB;$(BCB)\lib;$(BCB)\lib\obj;$(DEBUGLIBPATH) \
+  -I..\..\..\INCLUDE;$(BCB)\include; -$Y -$W -$O- -v -JPHN -M
+AFLAGS = /i..\..\..\INCLUDE /i$(BCB)\include /dBI_NAMESPACE /d_NO_VCL /d_RTLDLL \
+  /d_BIDSDLL /d_OWLDLL /dSTRICT /d_OWLPCH /dBI_STD_STRING /mx /w2 /zd
+RFLAGS = -DBI_NAMESPACE;_NO_VCL;_RTLDLL;_BIDSDLL;_OWLDLL;STRICT;_OWLPCH;BI_STD_STRING \
+  -i..\..\..\INCLUDE;$(BCB)\include;
+LFLAGS = -L..\..\..\LIB;$(BCB)\lib;$(BCB)\lib\obj;$(DEBUGLIBPATH) -aa -Tpe -x -Gn -v -c
+IFLAGS =
+# ---------------------------------------------------------------------------
+ALLOBJ = c0w32.obj $(OBJFILES)
+ALLRES = $(RESFILES)
+ALLLIB = $(LIBFILES) $(LIBRARIES)  owlwfi.lib bidsfi.lib import32.lib cw32i.lib
+# ---------------------------------------------------------------------------
+!ifdef IDEOPTIONS
+
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=1
+Item0=..\..\..\INCLUDE;$(BCB)\include;
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=..\..\..\LIB;$(BCB)\lib;$(BCB)\lib\obj;
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=..\..\..\owlcore\source
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=BI_NAMESPACE;_NO_VCL;_RTLDLL;_BIDSDLL;_OWLDLL;STRICT;_OWLPCH;BI_STD_STRING;
+
+[Debugging]
+DebugSourceDirs=..\..\..\owlcore\source
+
+[Parameters]
+RunParams=
+HostApplication=
+
+!endif
+
+# ---------------------------------------------------------------------------
+# MAKE SECTION
+# ---------------------------------------------------------------------------
+# This section of the project makefile is not used by the BCB IDE.  It is for
+# the benefit of building from the command-line using the MAKE utility.
+# ---------------------------------------------------------------------------
+
+.autodepend
+# ---------------------------------------------------------------------------
+!if !$d(BCC32)
+BCC32 = bcc32
+!endif
+
+!if !$d(DCC32)
+DCC32 = dcc32
+!endif
+
+!if !$d(TASM32)
+TASM32 = tasm32
+!endif
+
+!if !$d(LINKER)
+LINKER = ilink32
+!endif
+
+!if !$d(BRCC32)
+BRCC32 = brcc32
+!endif
+# ---------------------------------------------------------------------------
+!if $d(PATHCPP)
+.PATH.CPP = $(PATHCPP)
+.PATH.C   = $(PATHCPP)
+!endif
+
+!if $d(PATHPAS)
+.PATH.PAS = $(PATHPAS)
+!endif
+
+!if $d(PATHASM)
+.PATH.ASM = $(PATHASM)
+!endif
+
+!if $d(PATHRC)
+.PATH.RC  = $(PATHRC)
+!endif
+# ---------------------------------------------------------------------------
+$(PROJECT): $(OBJFILES) $(RESDEPEN) $(DEFFILE)
+   $(BCB)\BIN\$(LINKER) @&&! 
+   $(LFLAGS) + 
+   $(ALLOBJ), + 
+   $(PROJECT),, + 
+   $(ALLLIB), + 
+   $(DEFFILE), + 
+   $(ALLRES) 
+!
+# ---------------------------------------------------------------------------
+
+.pas.hpp:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.pas.obj:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.cpp.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.c.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.asm.obj:
+    $(BCB)\BIN\$(TASM32) $(AFLAGS) $<, $@
+
+.rc.res:
+    $(BCB)\BIN\$(BRCC32) $(RFLAGS) -fo$@ $<
+# ---------------------------------------------------------------------------

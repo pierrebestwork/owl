@@ -1,0 +1,17 @@
+#define IDM_COMMANDS     100
+#define CM_PRECONDITION	101
+#define CM_PRECONDITIONX	102
+#define CM_CHECK					103
+#define CM_CHECKX				104
+#define CM_VALIDPTR      105
+#define CM_TRACE         106
+#define CM_TRACEX        107
+#define CM_WARN         	108
+#define CM_WARNX        	109
+#define CM_FUNCTION      110
+#define CM_FUNCTIONX     111
+#define CM_FUNCTIONP     112
+#define CM_FUNCTIONXP    113
+#define CM_LOKALHOOK			114
+#define CM_GLOBALHOOK		115
+

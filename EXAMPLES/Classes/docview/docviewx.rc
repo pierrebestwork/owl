@@ -1,0 +1,110 @@
+//----------------------------------------------------------------------------
+// ObjectWindows - (C) Copyright 1993 by Borland International
+//   Resources for use with doc/view example
+//----------------------------------------------------------------------------
+#ifndef WS_POPUP
+  #include <windows.h>
+#endif
+#include <owl\docview.rc>
+#include <owl\except.rc>
+#include <owl\mdi.rh>
+
+#define IDI_DOCVIEW    22201
+#define IDM_DVSDI      22201
+#define IDM_DVMDI      22202
+#define IDB_DVSDI      22201
+#define IDB_DVMDI      22202
+#define CM_DESKCLEAR   22202
+#define CM_DESKSAVE    22203
+#define CM_DESKRESTORE 22204
+#define CM_HIDEVIEW    22205
+#define CM_SHOWVIEWS   22206
+#define CM_DISABLEVIEW 22207
+#define CM_ENABLEVIEWS 22208
+
+#if defined(RC_INVOKED)
+
+#include <owl\statusba.rc>
+#include <owl\owlapp.rc>
+#include "editlist.rc"
+#include "linedoc.rc"
+#include "odlistvw.rc"
+#include "xcptview.rc"
+#include "infoview.rc"
+#include "dumpview.rc"
+
+IDM_DVSDI MENU LOADONCALL MOVEABLE PURE DISCARDABLE
+{
+  MENUITEM "File",   0,GRAYED  //;placeholder for File menu from DocManager
+  MENUITEM SEPARATOR
+  MENUITEM SEPARATOR
+  POPUP "&Desktop"
+  {
+    MenuItem "&Clear Desktop",  CM_DESKCLEAR
+   	MenuItem "&Save Desktop",   CM_DESKSAVE
+   	MenuItem "&Restore Desktop",CM_DESKRESTORE
+  }
+}
+
+IDM_DVMDI MENU LOADONCALL MOVEABLE PURE DISCARDABLE
+{
+  MENUITEM "File",   0, GRAYED  //;placeholder for File menu from DocManager
+  MENUITEM SEPARATOR
+  MENUITEM SEPARATOR
+  POPUP "&Desktop"
+  {
+    MENUITEM "&Clear Desktop",  CM_DESKCLEAR
+   	MENUITEM "&Save Desktop",   CM_DESKSAVE
+   	MENUITEM "&Restore Desktop",CM_DESKRESTORE
+    MENUITEM "&Hide View",      CM_HIDEVIEW
+    MENUITEM "&Unhide Views",   CM_SHOWVIEWS
+    MENUITEM "&Disable View",   CM_DISABLEVIEW
+    MENUITEM "&Enable Views",   CM_ENABLEVIEWS
+  }
+  MENUITEM Separator
+  MENUITEM Separator
+  POPUP "&Window"
+  {
+    MENUITEM  "&Cascade",       CM_CASCADECHILDREN
+    MENUITEM  "&Tile",          CM_TILECHILDREN
+    MENUITEM  "Arrange &Icons", CM_ARRANGEICONS
+    MENUITEM  "C&lose All",     CM_CLOSECHILDREN
+    MENUITEM  "Add &View",      CM_VIEWCREATE
+  }
+}
+
+STRINGTABLE LOADONCALL MOVEABLE DISCARDABLE
+{
+  CM_DESKCLEAR,   "Clear desktop"
+  CM_DESKSAVE,    "Save desktop"
+  CM_DESKRESTORE, "Restore desktop"
+  CM_HIDEVIEW,    "Hide current view"
+  CM_SHOWVIEWS,   "Unhide hidden views"
+  CM_DISABLEVIEW, "Disable current view"
+  CM_ENABLEVIEWS, "Enable disabled views"
+}
+
+IDI_DOCVIEW ICON "docview.ico"
+
+IDB_DVSDI TOOLBAR 20, 20
+BEGIN
+  BUTTON CM_FILENEW
+  BUTTON CM_FILESAVE
+  BUTTON CM_FILEOPEN
+  SEPARATOR
+  BUTTON -1
+END
+
+IDB_DVMDI TOOLBAR 20, 20
+BEGIN
+  BUTTON CM_FILENEW
+  BUTTON CM_FILESAVE
+  BUTTON CM_FILEOPEN
+  SEPARATOR
+  BUTTON -1
+END
+
+IDB_DVSDI BITMAP "dvmain.bmp"
+IDB_DVMDI BITMAP "dvmain.bmp"
+
+#endif  // defined(RC_INVOKED)

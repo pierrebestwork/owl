@@ -1,0 +1,1200 @@
+; This contents file was created with HelpScribble 5.3.0
+; Registered to: Daniel O. Scott
+
+:BASE Owl6.hlp
+:TITLE ObjectWindows Library Reference
+1 Revision History=Scribble10
+1 ObjectWindows 6.0 Programmers Guide
+2 Overview of ObjectWindows
+3 Overview of ObjectWindows=OverviewOfObjectWindows
+3 Working With Class Hierarchies
+4 Working with class hierarchies=WorkingWithClassHierarchies
+4 Using A Class
+5 Using a class=FJSEWP
+5 Deriving new classes=1_VYGAK
+5 Mixing object behavior=1YGHON3
+5 Instantiating classes=ZP0L7
+5 Abstract classes=77QN7V
+5 Inheriting Members
+6 Inheriting members=B9WQ_R
+5 Types of Member Functions
+6 Types of member functions=1.HVXWQ
+6 Virtual functions=6.2.X8
+6 Nonvirtual functions=CA06J_
+6 Pure virtual functions=Z5LGOM
+6 Default placeholder functions=XY_6SR
+4 ObjectWindows Classes
+5 ObjectWindows Classes=ObjectWindowsClasses
+2 Application and Module Objects
+3 Application and module objects overview (ObjectWindows)=U6Q6W7
+3 Minimum Requirements
+4 Minimum requirements=LC61MM
+4 Creating an object (ObjectWindows)=14_LSD.
+4 Calling the Run function (ObjectWindows)=21VUX48
+4 Accessing application objects (ObjectWindows)=USJ_H2
+4 Finding the object (ObjectWindows)=ZDQ.PV
+4 Creating a small application=RZNEWV
+3 Initializing Applications
+4 Initializing Applications (ObjectWindows)=2ML9HAY
+4 Constructing the application object (ObjectWindows)=DUC39M
+4 Using WinMain and OwlMain (ObjectWindows)=1Y_.Z_Y
+4 Calling Initialization Functions
+5 Calling initialization functions (ObjectWindows)=121NVKN
+5 Initializing new instances (ObjectWindows)=2C4LPE5
+5 Initializing the main window (ObjectWindows)=D1HWM0
+5 Specifying the main window display mode (ObjectWindows)=J8465A
+5 Changing the main window (ObjectWindows)=8Y4RWQ
+3 Application Message Handling
+4 Application message handling (ObjectWindows)=1FYFCUP
+4 Extra message processing (ObjectWindows)=NGYYXM
+4 Idle processing (ObjectWindows)=70NN6F
+3 Closing Applications
+4 Closing Applications (ObjectWindows)=1VTWOFO
+3 Changing Closing Behaviour
+4 Modifying CanClose=ModifyingCanClose
+3 Using Control Libraries
+4 Using control libraries (ObjectWindows)=25E.06B
+4 Using the Borland Custom Controls Library=UsingtheBorlandCustomControlsLibrary
+4 Using the Microsoft 3-D Controls Library=UsingtheMicrosoft3DControlsLibrary
+3 Interface Objects
+4 Interface Objects (ObjectWindows)=_68YZD
+4 The Generic Interface Object: TWindow (ObjectWindows)=O.JNNK
+4 Creating Interface Objects
+5 Creating Interface Objects (ObjectWindows)=1133J9W
+5 When Is a Window Handle Valid? (ObjectWindows)=NC.JH.
+5 Making Interface Elements Visible (ObjectWindows)=2VZVC8
+5 Object Properties (ObjectWindows)=1WPV8GQ
+5 Window Properties (ObjectWindows)=2AQ6O0
+4 Destroying Interface Objects
+5 Destroying Interface Objects (ObjectWindows)=2NC.7KX
+5 Destroying the Interface Element (ObjectWindows)=QT.TEN
+5 Deleting the Interface Object (ObjectWindows)=9Z94YT
+4 Parent and Child Interface Elements
+5 Parent and Child Interface Elements (ObjectWindows)=EX4KXG
+5 Child-window Lists (ObjectWindows)=WG.M6
+5 Constructing Child Windows (ObjectWindows)=1MBJ34C
+5 Creating Child Interface Elements (ObjectWindows)=NGS08E
+5 Destroying Windows (ObjectWindows)=3ISI7B
+5 Automatic Creation (ObjectWindows)=J2I.6M
+5 Manipulating Child Windows
+6 Manipulating Child Windows (ObjectWindows)=3LQ9VFO
+6 Operating On All Children: ForEach (ObjectWindows)=.S27A7
+6 Finding a Specific Child (ObjectWindows)=1NHRUUU
+6 Working with the Child List (ObjectWindows)=2LEJRW4
+4 Registering Window Classes
+5 Registering Window Classes (ObjectWindows)=LXV8A
+3 Event Handling
+4 Event Handling Overview (ObjectWindows)=4NH3_GS
+4 Declaring Response Tables (ObjectWindows)=1ORE0UI
+4 Defining Response Tables (ObjectWindows)=31K2RH5
+4 Defining Response Table Entries
+5 Command Message Macros (ObjectWindows)=2MZ_CPJ
+5 Windows Message Macros (ObjectWindows)=61CU_W0
+5 Child ID Notification Messages
+6 Child ID Notification Message Macros (ObjectWindows)=1W_JUW5
+6 EV_CHILD_NOTIFY=17J2G2E
+6 EV_CHILD_NOTIFY_ALL_CODES=REA02O
+6 EV_CHILD_NOTIFY_AND_CODE=KT_E1.
+6 EV_CHILD_NOTIFY_AT_CHILD=1ODDBAL
+4 Command Enabling
+5 About command enabling=L68Y78
+5 Handling command-enabling messages=3U5M1I
+5 Working with Command-enabling
+6 Working with command-enabling=Workingwithcommandenabling
+6 TCommandEnabler: The command-enabling interface=TCommandEnablerThecommandenablinginterface
+5 Common Command-enabling Tasks
+6 Common command-enabling tasks=Commoncommandenablingtasks
+6 Enabling and disabling command items=ZNJ31W
+6 Changing menu item text=48TG7P
+6 Toggling command items=11F4TDT
+4 ObjectWindows Exception Handling
+5 ObjectWindows Exception Handling=ObjectWindowsExceptionHandling
+5 ObjectWindows Exception Hierarchy=ObjectWindowsExceptionHierarchy
+5 Working with TXBase
+6 Working with TXBase=M3Y65J
+6 Constructing and Destroying TXBase=1HJXV6N
+6 Throwing TXBase Exceptions=AE.IJ
+5 Working with TXOwl
+6 Working with TXOwl=KTOB9N
+6 Constructing and Destroying TXOwl=2FWO_NU
+6 Cloning TXOwl and TXOwl-Derived Exception Objects=.KCURT
+5 Specialized ObjectWindows Exception Classes
+6 Specialized ObjectWindows Exception Classes=SpecializedObjectWindowsExceptionClasses
+5 ObjectWindows Exception-Handling Macros
+6 ObjectWindows Exception-Handling Macros=ObjectWindowsExceptionHandlingMacros
+6 Turning ObjectWindows Exceptions On and Off=TurningObjectWindowsExceptionsOnandOff
+3 Window Objects
+4 Window Objects Overview (ObjectWindows)=5FFP3_
+4 Constructing Window Objects (ObjectWindows)=12RVLLN
+4 Setting Creation Attributes (ObjectWindows)=FA768H
+4 Overriding Default Attributes (ObjectWindows)=EN7CUW
+4 Creating Window Interface Elements (ObjectWindows)=K39VMS
+4 Layout Windows
+5 Layout Windows (ObjectWindows)=101J0AN
+5 Layout Constraints
+6 Layout Constraints (ObjectWindows)=BJD35R
+6 Defining Constraints (ObjectWindows)=33CH07
+6 Defining Constraining Relationships (ObjectWindows)=OV26K
+5 Using Layout Windows
+6 Using Layout Windows (ObjectWindows)=L6ND1F
+4 Frame Windows
+5 Frame Windows (ObjectWindows)=9YKFCZ
+5 Constructing Frame Window Objects (ObjectWindows)=8F.CI6
+5 Constructing New Frame Windows (ObjectWindows)=R4N2BO
+5 Constructing a Frame Window Alias (ObjectWindows)=1MTTUCC
+5 Modifying Frame Windows (ObjectWindows)=ON5YWT
+4 Decorated Frame Windows
+5 Decorated Frame Windows (ObjectWindows)=30R9MUS
+5 Constructing Decorated Frame Window Objects (ObjectWindows)=LCSLQL
+5 Adding Decorations To Decorated Frame Windows (ObjectWindows)=5JE49I
+5 The Docking Classes
+6 About the DockingClasses (ObjectWindows)=2LMQZYT
+6 Using the Docking Classes=FR8UZM
+4 MDI Windows
+5 MDI Windows (ObjectWindows)=3PCM_XO
+5 Building an MDI Application
+6 Building an MDI Application (ObjectWindows)=32V8LAS
+6 Creating an MDI Frame Window (ObjectWindows)=2RP0ZHD
+6 Add Behavior To an MDI Client Window (ObjectWindows)=LAJLN_
+6 Creating MDI Child Windows (ObjectWindows)=3259_GJ
+3 Menu Objects
+4 Menu Objects Overview (ObjectWindows)=1GD52QP
+4 Constructing Menu Objects (ObjectWindows)=1MLD3HO
+4 Modifying Menu Objects (ObjectWindows)=IM962
+4 Querying Menu Objects (ObjectWindows)=42RP.WV
+4 Using System Menu Objects (ObjectWindows)=HUJK2F
+4 Using Popup Menu Objects (ObjectWindows)=19FGOG0
+4 Using Menu Objects with Frame Windows
+5 Using Menu Objects with Frame Windows (ObjectWindows)=1TCJR3X
+5 Adding Menu Resources To Frame Windows (ObjectWindows)=5AVL.CS
+5 Using Menu Descriptors
+6 Using Menu Descriptors (ObjectWindows=1.GT6J_
+6 Creating Menu Descriptors=01TB.C
+6 Constructing Menu Descriptor Objects=I_G__6
+6 Creating Menu Groups in Menu Resources=2.QAQWM
+6 Merging Menus with Menu Descriptors=1Y4A.C
+3 Dialog Box Objects
+4 About dialog box objects (ObjectWindows)=7UN6Y5
+4 Using Dialog Box Objects
+5 Using dialog box objects (ObjectWindows)=6II7DL
+5 Constructing a Dialog Box Object
+6 Constructing a dialog box object (ObjectWindows)=11YYRPJ
+5 Executing a Dialog Box
+6 Executing a dialog box (ObjectWindows)=7LJG.BD
+6 Modal dialog boxes (ObjectWindows)=J31KMZ
+6 Modeless dialog boxes (ObjectWindows)=6KH8__J
+6 Using autocreation with dialog boxes (ObjectWindows)=7LJAB3
+6 Managing dialog boxes (ObjectWindows)=II7GOB
+6 Handling errors while executing dialog boxes (ObjectWindows)=4UYCN6
+5 Closing the Dialog Box
+6 Closing the dialog box (ObjectWindows)=2BCIWZP
+5 Using a Dialog Box as Your Main Window
+6 Using a dialog box as your main window (ObjectWindows)=2I2T_L
+5 Manipulating Controls In Dialog Boxes
+6 Manipulating controls in dialog boxes (ObjectWindows)=1FQ6ZXK
+5 Associating Interface Objects With Controls
+6 Associating interface objects with controls (ObjectWindows)=30B._QW
+6 Setting up controls (ObjectWindows)=0H__ED
+5 Using Dialog Boxes
+6 Using dialog boxes (ObjectWindows)=54RE_NH
+6 Using input dialog boxes (ObjectWindows)=3IAN6N
+6 Using common dialog boxes (ObjectWindows)=1FLK0N2
+6 Constructing common dialog boxes (ObjectWindows)=RDG035
+6 Using color common dialog boxes (ObjectWindows)=218XB73
+6 Using font common dialog boxes (ObjectWindows)=JN0VBU
+6 Using File Open common dialog boxes (ObjectWindows)=F.NGSP
+6 Using File Save common dialog boxes (ObjectWindows)=JDFWR.
+6 Using Find and Replace Common Dialog Boxes
+7 Using Find and Replace common dialog boxes (ObjectWindows)=65F.ZI
+7 Constructing and creating Find and Replace common dialog boxes (ObjectWindows)=ADRE4P
+7 Processing Find and Replace messages (ObjectWindows)=185GO5.
+7 Handling a Find Next command (ObjectWindows)=KLJUWB
+6 Using Printer Common Dialog Boxes
+7 About the printer common dialog boxes (ObjectWindows)=99OFUZ
+3 Doc/View Objects
+4 Doc/View Objects Overview (ObjectWindows)=WHQIS0
+4 How Documents and Views Work Together
+5 How Documents and Views Work Together (ObjectWindows)=111ZYA3
+5 Documents (ObjectWindows)=K6O5_Y
+5 Views (ObjectWindows)=.7VXPN
+5 Associating Document and View Classes (ObjectWindows)=G2250X
+5 Document Manager (ObjectWindows)=KVD7J2
+4 Document Templates
+5 Document Templates (ObjectWindows)=5_GORX
+5 Designing Document Template Classes (ObjectWindows)=3_JTDA
+5 Creating Document Registration Tables (ObjectWindows)=OHCQUD
+5 Creating Template Class Instances (ObjectWindows)=E3EZHZ
+4 Using the Document Manager
+5 Using the Document Manager (ObjectWindows)=3HA9.W5
+5 Constructing the Document Manager (ObjectWindows)=3K017Z0
+5 TDocManager Event Handling (ObjectWindows)=TIANYY
+4 Creating a Document Class
+5 Creating a Document Class (ObjectWindows)=9CCTV.
+5 Constructing TDocument (ObjectWindows)=2GTKAZ5
+5 Adding Functionality To Documents (ObjectWindows)=1VJB6ZP
+5 Data Access Functions
+6 Data Access Functions (ObjectWindows)=1IDV2KX
+6 Stream Access (ObjectWindows)=19ER7X0
+6 Stream List (ObjectWindows)=1A2LBB8
+6 Complex Data Access (ObjectWindows)=1.HNJ7L
+6 Data Access Helper Functions (ObjectWindows)=AT5TPQ
+4 Closing a Document
+5 Closing a Document (ObjectWindows)=D9H.9C
+5 Expanding Document Functionality (ObjectWindows)=2OS2.UA
+5 Working with the Document Manager (ObjectWindows)=0EXD23
+5 Working with Views (ObjectWindows)=2MG96TZ
+4 Creating a View Class
+5 Creating a View Class (ObjectWindows)=EP7PYD
+5 Constructing TView (ObjectWindows)=2UQT_RU
+5 Adding Functionality To Views (ObjectWindows)=TXG5VY
+5 Adding a Display To a View (ObjectWindows)=JRSRX6
+5 Adding Pointers To Interface Objects (ObjectWindows)=1BN3ZT1
+5 Mixing TView with Interface Objects (ObjectWindows)=24WL44O
+5 Closing a View (ObjectWindows)=VBF_YW
+4 Doc/View Event Handling
+5 Doc/View Event Handling (ObjectWindows)=DZ_VHR
+5 Doc/View Event Handling in the Application Object (ObjectWindows)=.J1ZKD
+5 Handling Predefined Doc/View Events (ObjectWindows)=1U4EUS5
+5 Adding Your Own View Events (ObjectWindows)=2P79YUP
+4 Doc/View Properties
+5 Doc/View Properties (ObjectWindows)=1A0G6V
+5 Property Values and Names (ObjectWindows)=FJ2RJN
+5 Accessing Property Information (ObjectWindows)=5EAW.V_
+5 Getting and Setting Properties (ObjectWindows)=12AW.FE
+3 Control Objects
+4 Introduction
+5 Control Objects Overview (ObjectWindows)=RJL0JH
+5 Control Classes (ObjectWindows)=4UFW_LF
+5 About Common Controls=LX7.YR
+5 Implementation of Controls=L1UYWE
+4 Using Control Objects
+5 What Are Control Objects? (ObjectWindows)=2JZ.D8E
+5 Constructing and Destroying Control Objects
+6 Constructing and Destroying Control Objects (ObjectWindows)=SJOZP5
+6 Adding the Control Object Pointer Data Member (ObjectWindows)=0392ON
+6 Calling Control Object Constructors (ObjectWindows)=F22T21
+6 Changing Control Attributes (ObjectWindows)=H88.25
+6 Initializing the Control (ObjectWindows)=_015QE
+6 Showing Controls=11ETIPE
+6 Destroying Controls=1JR.LUB
+5 Communicating with Control Objects
+6 Communicating with Control Objects (ObjectWindows)=1UI909T
+6 Manipulating Controls (ObjectWindows)=9_SMCF
+6 Making a Window Act Like a Dialog Box (ObjectWindows)=LN1RR.
+5 Using Particular Controls
+6 Standard Controls
+7 List Box Controls
+8 Using List Box Controls (ObjectWindows)=6CHT_GB
+8 Constructing List Box Objects (ObjectWindows)=4_ET_LU
+8 Modifying List Boxes (ObjectWindows)=846OHN
+8 Querying List Boxes (ObjectWindows)=22T2_PJ
+8 Responding To List Boxes (ObjectWindows)=62FC.15
+7 Static Control Objects
+8 Constructing Static Control Objects (ObjectWindows)=2H5LS13
+8 Modifying Static Controls (ObjectWindows)=.GM7WZ
+8 Querying Static Controls (ObjectWindows)=4BFUS.
+7 Buttons
+8 Constructing Buttons (ObjectWindows)=4G02EI5
+8 Responding To Buttons (ObjectWindows)=3N3HTY
+7 Check Box and Radio Button Controls
+8 Using Check Box and Radio Button Controls (ObjectWindows)=AQFR30
+7 Selection Boxes
+8 Modifying Selection Boxes (ObjectWindows)=DOWLRK
+8 Querying Selection Boxes (ObjectWindows)=3MN7_AR
+7 Group Boxes
+8 Constructing Group Boxes (ObjectWindows)=D0TYDV
+8 Grouping Controls (ObjectWindows)=184EOVH
+8 Responding To Group Boxes (ObjectWindows)=18DES4G
+7 Scroll Bars
+8 Using Scroll Bars (ObjectWindows)=11LPRO2
+8 Constructing Scroll Bars (ObjectWindows)=1OWGD.2
+8 Controlling the Scroll Bar Range (ObjectWindows)=X0QC49
+8 Controlling Scroll Amounts (ObjectWindows)=0CBVFX
+8 Querying Scroll Bars (ObjectWindows)=63B7_JN
+8 Responding To Scroll-bar Messages (ObjectWindows)=VDWAES
+8 Avoiding Thumb Tracking Messages (ObjectWindows)=GU60DZ
+8 Specializing Scroll Bar Behavior (ObjectWindows)=4YLBXQ
+7 Edit Controls
+8 Using Edit Controls (ObjectWindows)=38X__YB
+8 Constructing Edit Controls (ObjectWindows)=SO3MCP
+8 Using the Clipboard and the Edit Menu (ObjectWindows)=124H69L
+8 Querying Edit Controls (ObjectWindows)=12KDK3X
+8 Modifying Edit Controls (ObjectWindows)=4IE5TS
+7 Combo Boxes
+8 Using Combo Boxes (ObjectWindows)=PU86RF
+8 Varieties Of Combo Boxes (ObjectWindows)=11LGP1L
+8 Choosing Combo Box Types (ObjectWindows)=G8RKHR
+8 Constructing Combo Boxes (ObjectWindows)=QVMSS6
+8 Modifying Combo Boxes (ObjectWindows)=DLY_5D
+8 Querying Combo Boxes (ObjectWindows)=124KOVH
+6 Common Controls
+7 About the Animate Control (ObjectWindows)=21WB0ZN
+7 About the Column Header Control (ObjectWindows)=19RTFS1
+7 About the Drag List Box Control (ObjectWindows)=90QQPG
+7 About Gauges (ObjectWindows)=7NFZAE
+7 About the Hot Key Control (ObjectWindows)=21UD6N5
+7 About the List Window Control (ObjectWindows)=6AYHFGJ
+7 About Sliders (ObjectWindows)=0ZSNO1
+7 About the Tab Control (ObjectWindows)=127IDQ.
+7 About the Tool Tip Control (ObjectWindows)=172U0ZS
+7 About the Up-Down Control (ObjectWindows)=1OA9DW5
+5 Setting and Reading Control Values
+6 Setting and Reading Control Values (ObjectWindows)=14U.3XM
+6 Using Transfer Buffers (ObjectWindows)=1VHA0NJ
+6 Defining the Transfer Buffer
+7 Defining the Transfer Buffer (ObjectWindows)=37EVYRV
+7 List Box Transfer (ObjectWindows)=NHOGXF
+7 Combo Box Transfer (ObjectWindows)=FTF41E
+6 Defining the Corresponding Window Or Dialog Box
+7 Defining the Corresponding Window Or Dialog Box (ObjectWindows)=114RB8J
+7 Using Transfer with a Dialog Box (ObjectWindows)=21MV7AE
+7 Using Transfer with a Window (ObjectWindows)=TZEL1
+6 Transferring the Data
+7 Transferring the Data (ObjectWindows)=NEULZ
+7 Transferring Data To a Window (ObjectWindows)=WTN4WA
+7 Transferring Data From a Dialog Box (ObjectWindows)=JS9HFK
+7 Transferring Data From a Window (ObjectWindows)=TLKCLN
+7 Supporting Transfer For Customized Controls (ObjectWindows)=J2XM6K
+3 Gadget and Gadget Window Objects
+4 Gadget and Gadget Window Objects (ObjectWindows)=1195BFE
+4 Class TGadget
+5 Class TGadget (ObjectWindows)=12N79._
+5 Constructing and Destroying TGadget (ObjectWindows)=1_ZVVZP
+5 Identifying a Gadget (ObjectWindows)=14A.VHW
+5 Modifying and Accessing Gadget Appearance (ObjectWindows)=27I47.4
+5 Bounding the Gadget (ObjectWindows)=HP7V4
+5 Shrink Wrapping a Gadget (ObjectWindows)=13KV2H7
+5 Setting Gadget Size (ObjectWindows)=1O9.EK4
+5 Matching Gadget Colors To System Colors (ObjectWindows)=7E1XXV
+5 TGadget Public Data Members (ObjectWindows)=HQ8LFK
+5 Enabling and Disabling a Gadget (ObjectWindows)=789.KV
+5 Deriving From TGadget
+6 Initializing and Cleaning Up (ObjectWindows)=M7.QZQ
+6 Painting the Gadget (ObjectWindows)=IJ_CX
+6 Invalidating and Updating the Gadget (ObjectWindows)=4SXUI_
+6 Mouse Events in a Gadget (ObjectWindows)=KQLOJG
+4 ObjectWindows Gadget Classes
+5 Class TSeparatorGadget (ObjectWindows)=A7LNPU
+5 Class TTextGadget
+6 Class TTextGadget (ObjectWindows)=F62S
+6 Constructing and Destroying TTextGadget (ObjectWindows)=1S3C_SY
+6 Accessing the Gadget Text (ObjectWindows)=4U9AK2
+5 Class TBitmapGadget
+6 Class TBitmapGadget (ObjectWindows)=N3.R1I
+6 Constructing and Destroying TBitmapGadget (ObjectWindows)=5YQK.Q2
+6 Selecting a New Image (ObjectWindows)=6FW7S5
+6 Setting the System Colors with TBitmapGadget (ObjectWindows)=W281W8
+5 Class TButtonGadget
+6 Class TButtonGadget (ObjectWindows)=F8H064
+6 Constructing and Destroying TButtonGadget (ObjectWindows)=331QQN3
+6 Accessing Button Gadget Information (ObjectWindows)=OVK2OQ
+6 Setting Button Gadget Style (ObjectWindows)=8_RWYN
+6 Command Enabling (ObjectWindows)=2TPMN
+6 Setting the System Colors with TButtonGadget (ObjectWindows)=2PS.CKS
+5 Class TControlGadget
+6 Class TControlGadget (ObjectWindows)=80JL.9
+4 Gadget Windows
+5 Gadget Windows (ObjectWindows)=2CHW_9W
+5 Constructing and Destroying TGadgetWindow (ObjectWindows)=13LO_XH
+5 Creating a Gadget Window (ObjectWindows)=0EFX6A
+5 Inserting a Gadget Into a Gadget Window (ObjectWindows)=6NYODG
+5 Removing a Gadget From a Gadget Window (ObjectWindows)=HMFQU4
+5 Setting Window Margins and Layout Direction (ObjectWindows)=199TN5I
+5 Laying Out the Gadgets (ObjectWindows)=2TDVHF
+5 Notifying the Window When a Gadget Changes Size (ObjectWindows)=NGGM2L
+5 Shrink Wrapping a Gadget Window (ObjectWindows)=1CY4LGP
+5 Accessing Window Font (ObjectWindows)=CUPBYF
+5 Capturing the Mouse For a Gadget (ObjectWindows)=216CLQP
+5 Setting the Hint Mode (ObjectWindows)=D420R_
+5 Idle Action Processing (ObjectWindows)=_ON6L3
+5 Searching Through the Gadgets (ObjectWindows)=JUJAS6
+5 Deriving From TGadgetWindow
+6 Deriving From TGadgetWindow (ObjectWindows)=4IE._.E
+6 Painting a Gadget Window (ObjectWindows)=HF4CI5
+6 Finding Size of the Window and the Inner Rectangle (ObjectWindows)=K8I756
+6 Layout Units (ObjectWindows)=1_B.NXA
+6 Message Response Functions (ObjectWindows)=1.3KEHI
+4 ObjectWindows Gadget Window Classes
+5 ObjectWindows Gadget Window Classes (ObjectWindows)=74OF8F
+5 Class TControlBar (ObjectWindows)=1Y6LM25
+5 Class TMessageBar
+6 Class TMessageBar (ObjectWindows)=4M08XQ
+6 Constructing and Destroying TMessageBar (ObjectWindows)=H_JAK7
+6 Setting Message Bar Text (ObjectWindows)=9_DZ30
+6 Setting the Hint Text (ObjectWindows)=2EP1ZVQ
+5 Class TStatusBar
+6 Class TStatusBar (ObjectWindows)=1_1S1RP
+6 Constructing and Destroying TStatusBar (ObjectWindows)=5EGK_8D
+6 Inserting Gadgets Into a Status Bar (ObjectWindows)=.8YGJZ
+6 Displaying Mode Indicators (ObjectWindows)=2BDXARP
+6 Spacing Status Bar Gadgets (ObjectWindows)=12J6U1F
+5 Class TToolBox
+6 Class TToolBox (ObjectWindows)=1Y.W4GM
+6 Constructing and Destroying TToolBox (ObjectWindows)=32RAYT4
+6 Changing Tool Box Dimensions (ObjectWindows)=23YKDZ4
+3 Printer Objects
+4 Printer Objects Overview (ObjectWindows)=1WTJNBS
+4 Creating a Printer Object (ObjectWindows)=103TX.O
+4 Creating a Printout Object (ObjectWindows)=115Q5IP
+4 Printing Window Contents (ObjectWindows)=31ZM6V4
+4 Printing a Document
+5 Printing a Document (ObjectWindows)=5N7GUW
+5 Setting Print Parameters (ObjectWindows)=LI3Z0Q
+5 Counting Pages (ObjectWindows)=Z4KUZO
+5 Printing Each Page (ObjectWindows)=J1J9GB
+5 Indicating Further Pages (ObjectWindows)=5ATN_WF
+5 Choosing a Different Printer (ObjectWindows)=BSEDJ
+3 Graphics Objects
+4 Graphics Objects Overview (ObjectWindows)=A7FC4O
+4 GDI Class Organization (ObjectWindows)=.58XDR
+4 Changes To Encapsulated GDI Functions (ObjectWindows)=1I3MN8P
+4 Working with Device Contexts
+5 Working with Device Contexts (ObjectWindows)=33Q59UU
+5 TDC Class (ObjectWindows)=GB29TS
+5 Constructing and Destructing TDC (ObjectWindows)=CXWBQD
+5 DC Operators (ObjectWindows)=P3D0LG
+5 DC Functions (ObjectWindows)=KHAP2B
+5 Selecting and Restoring GDI Objects (ObjectWindows)=31JG6YP
+5 Drawing Tool Functions (ObjectWindows)=1IHPIS3
+5 Color and Palette Functions (ObjectWindows)=ACM36N
+5 Drawing Attribute Functions (ObjectWindows)=23HTQ5
+5 Viewport and Window Mapping Functions (ObjectWindows)=16DS75D
+5 Clip and Update Rectangle and Region Functions (ObjectWindows)=184JXK3
+5 MetaFile Functions (ObjectWindows)=10XKLGM
+5 Current Position Functions (ObjectWindows)=THTJN5
+5 Font Functions (ObjectWindows)=1T..GX
+5 Path Functions (ObjectWindows)=3NJ4_RP
+5 Output Functions (ObjectWindows)=112P80V
+5 Object Data Members and Functions (ObjectWindows)=CMOE7O
+4 TPen Class
+5 TPen Class (ObjectWindows)=T3FV7K
+5 Constructing TPen (ObjectWindows)=E9J9XM
+5 Accessing TPen (ObjectWindows)=BVE2C_
+4 TBrush Class
+5 TBrush Class (ObjectWindows)=1ILM38P
+5 Constructing TBrush (ObjectWindows)=54R4TT
+5 Accessing TBrush (ObjectWindows)=GUH7.W
+4 TFont Class
+5 TFont Class (ObjectWindows)=HNP6IN
+5 Constructing TFont (ObjectWindows)=28H8DDB
+5 Accessing TFont (ObjectWindows)=GL.YKR
+4 TPalette Class
+5 TPalette Class (ObjectWindows)=1MJSH_O
+5 Constructing TPalette (ObjectWindows)=1147PY0
+5 Accessing TPalette (ObjectWindows)=1Z9XB_X
+5 TPalette Member Functions (ObjectWindows)=2MBNJL3
+5 Extending TPalette (ObjectWindows)=2AZ.PG3
+4 TBitmap Class
+5 TBitmap Class (ObjectWindows)=74_GUN5
+5 Constructing TBitmap (ObjectWindows)=11.AQBF
+5 Accessing TBitmap (ObjectWindows)=1C9XESD
+5 TBitmap Member Functions (ObjectWindows)=1LBQWVC
+5 Extending TBitmap (ObjectWindows)=29.20KQ
+4 TRegion Class
+5 TRegion Class (ObjectWindows)=2B3J0_J
+5 Constructing and Destructing TRegion (ObjectWindows)=_9LFS1
+5 Accessing TRegion (ObjectWindows)=CN3C2M
+5 TRegion Member Functions (ObjectWindows)=12KIOZ7
+5 TRegion Operators (ObjectWindows)=1E.LPDK
+4 TIcon Class
+5 TIcon Class (ObjectWindows)=FIQQ6Z
+5 Constructing TIcon (ObjectWindows)=6WB9U7
+5 Accessing TIcon (ObjectWindows)=19UKM91
+4 TCursor Class
+5 TCursor Class (ObjectWindows)=LLNOF7
+5 Constructing TCursor (ObjectWindows)=1OQKW.X
+5 Accessing TCursor (ObjectWindows)=R.JLJ6
+4 TDib Class
+5 TDib Class (ObjectWindows)=7HDVCS
+5 Constructing and Destructing TDib (ObjectWindows)=2._82DP
+5 Accessing TDib
+6 Accessing TDib (ObjectWindows)=BVDQG1
+6 Type Conversions (ObjectWindows)=ZO.ICX
+6 Accessing Internal Structures (ObjectWindows)=91LEWM
+6 Clipboard (ObjectWindows)=17EX6IN
+6 DIB Information (ObjectWindows)=93JY.
+6 Working in PAL Or RGB Mode (ObjectWindows)=3GRH4R
+6 Matching Interface Colors To System Colors (ObjectWindows)=1JKLDWS
+6 Extending TDib (ObjectWindows)=ABING6
+3 Validator Objects
+4 Validator Objects Overview (ObjectWindows)=3N05.0C
+4 The Standard Validator Classes (ObjectWindows)=7ELDOS
+4 Validator Base Class (ObjectWindows)=16YGEMD
+4 Filter Validator Class (ObjectWindows)=12ZXE5I
+4 Range Validator Class (ObjectWindows)=2N3L5DC
+4 Lookup Validator Class (ObjectWindows)=1MSXEAA
+4 String Lookup Validator Class (ObjectWindows)=J.X2DY
+4 Picture Validator Class (ObjectWindows)=JUFKPD
+4 Using Data Validators
+5 Using Data Validators (ObjectWindows)=AODO0X
+5 Constructing an Edit Control Object (ObjectWindows)=UT7M3P
+5 Constructing and Assigning Validator Objects (ObjectWindows)=LAVKJ1
+4 Overriding Validator Member Functions
+5 Overriding Validator Member Functions (ObjectWindows)=1U51OCP
+5 Member Function Valid (ObjectWindows)=XLRXD4
+5 Member Function IsValid (ObjectWindows)=Y27AA6
+5 Member Function IsValidInput (ObjectWindows)=1MN9N0_
+5 Member Function Error (ObjectWindows)=X.93JB
+3 Visual Basic Controls
+4 About Visual Basic Control Objects (ObjectWindows)=3220IB0
+4 TVbxControl Class
+5 TVbxControl Class (ObjectWindows)=38H50ZQ
+5 TVbxControl Constructors (ObjectWindows)=5IHK4G
+5 Implicit and Explicit Construction (ObjectWindows)=BHKKK.
+5 TVbxEventHandler Class (ObjectWindows)=4O.CZ4
+4 Handling VBX Control Messages
+5 Handling VBX Control Messages (ObjectWindows)=29DMQD5
+5 Event Response Table (ObjectWindows)=16GNS_Y
+5 Interpreting a Control Event (ObjectWindows)=10RSEV4
+5 Finding Event Information (ObjectWindows)=BR13GH
+4 Accessing a VBX Control
+5 Accessing a VBX Control (ObjectWindows)=DGYGW6
+5 VBX Control Properties (ObjectWindows)=1.CKNPA
+5 Finding Property Information (ObjectWindows)=FEG6Q9
+5 Getting Control Properties (ObjectWindows)=1Z_U_D
+5 Setting Control Properties (ObjectWindows)=U0MJYK
+5 VBX Control Methods (ObjectWindows)=12CMVVH
+3 Dynamic Link Libraries
+4 Dynamic Link Library (ObjectWindows)=325_8X4
+4 Writing DLL Functions Overview (ObjectWindows)=1F3MZQ2
+4 Writing Shared Classes (ObjectWindows)=3VQGTD
+4 The TModule Object (ObjectWindows)=9SD9T7
+4 Using ObjectWindows as a DLL (ObjectWindows)=1S3QM
+4 Calling an ObjectWindows DLL=1N4IH6A
+4 Implicit and Explicit Loading (ObjectWindows)=Q1.MW
+4 Mixing Static and Dynamic-linked Libraries (ObjectWindows)=3S3Y_NS
+4 DLL Entry and Exit Functions
+5 DLL Entry and Exit Functions (ObjectWindows)=4MC7_26
+5 LibMain (ObjectWindows)=.4ZLX8
+5 WEP (ObjectWindows)=OWLWEP
+5 DllEntryPoint (ObjectWindows)=7OBE9RJ
+5 Exporting DLL Functions (ObjectWindows)=28B6ZFK
+5 Importing (calling) DLL Functions (ObjectWindows)=P5.T4Q
+3 Windows Shell Objects
+4 About the Shell Classes=I8KLYG
+3 OLE Classes
+4 Turning an application into an OCX container using OWL and Doc/View
+5 Turning an application into an OCX container using OWL and Doc/View=CreatingAnOLEContainerWithDocView
+5 Including OLE Headers=IncludingOWLHeaderFiles_OLEContainerWithDocView
+5 Deriving the Application Object from TOcModule=DerivingTheApplicationClassFromTOcModule_OLEContainerWithDocView
+5 Inheriting from OLE classes=InheritingFromOLEClasses_OLEContainerWithDocView
+5 Creating an Application Dictionary=CreatingAnApplicationDictionary_OLEContainerWithDocView
+5 Building Registration Tables=CreatingRegistrationTables_OLEContainerWithDocView
+5 Creating a Registrar Object=CreatingARegistrarObject_OLEContainerWithDocView
+5 Setting up the Edit Menu and the Tool Bar=SettinguptheEditMenuandtheToolBar
+5 Loading and Saving Compound Documents=LoadingandSavingCompoundDocuments
+4 Turning an ObjectWindows Application Into an OLE Container
+5 Turning an ObjectWindows Application Into an OLE Container=CreatingAnOLEContainerWithOWL
+5 Building a Container=IncludingOWLHeaderFiles_OLEContainerWithOWL
+5 Defining an Application Dictionary Object=CreatingAnApplicationDictionary_OLEContainerWithOWL
+5 Modifying Your Application class=DerivingTheApplicationClassFromTOcModule_OLEContainerWithOWL
+5 Creating Registration Tables=CreatingRegistrationTables_OLEContainerWithOWL
+5 Creating a Registrar Object=CreatingARegistrarObject_OLEContainerWithOWL
+5 Setting Up the Client Window=SettingUptheClientWindow
+5 Programming the User Interface=ProgrammingtheUserInterface
+5 Compiling and linking the application (OCX container)=CompilingAndLinkingTheApplication_OLEContainerWithOWL
+4 Creating an OLE server with Doc/View
+5 Creating an OLE server with Doc/View=CreatinganOLEserverwithDocView
+5 Including OLE Headers=IncludingOWLHeaderFiles_OLEServerWithDocView
+5 Creating an Application Dictionary=CreatinganApplicationDictionary_OLEServerWithDocView
+5 Deriving the Application Object from TOcModule=DerivingtheapplicationclassfromTOcModule_OLEServerWithDocView
+5 Inheriting from OLE classes=InheritingfromOLEClasses_OLEServerWithDocView
+5 Building Registration Tables=BuildingRegistrationTables_OLEServerWithDocView
+5 Creating a Registrar Object=CreatingaRegistrarObject_OLEServerWithDocView
+5 Processing the Command Line=ProcessingtheCommandLine
+5 Loading and Saving the Server's Documents=LoadingandSavingtheServersDocuments
+5 Compiling and Linking=CompilingAndLinkingTheApplication_OLEServerWithDocView
+4 Turning an ObjectWindows Application Into an OLE Server
+5 Turning an ObjectWindows Application Into an OLE Server=CreatingAnOLEServerWithOWL
+5 Including OLE Headers=IncludingOWLHeaderFiles_OLEServerWithOWL
+5 Including OLE Headers=IncludingOWLHeaderFiles_OLEServerWithOWL
+5 Creating an Application Dictionary=CreatingAnApplicationDictionary_OLEServerWithOWL
+5 Creating Registration Tables=CreatingRegistrationTables_OLEServerWithOWL
+5 Creating the Document List=CreatingADocumentList_OLEServerWithOWL
+5 Creating the Registrar Object=CreatingARegistrarObject_OLEServerWithOWL
+5 Modifying the Application class=DerivingTheApplicationClassFromTOcModule_OLEServerWithOWL
+5 Compiling and Linking=CompilingAndLinkingTheApplication_OLEServerWithOWL
+5 Creating a DLL OLE Server=CreatingADLLOLEServer_OLEServerWithOWL
+3 Windows Socket Classes
+4 Overview of the Windows Socket Classes=2IGP855
+4 Stream Socket Communication
+5 Stream Socket Communication=91FJM4
+5 Accepting a Connection=AcceptingaConnection
+5 Closing the Connection=ClosingtheConnection
+5 Creating and Connecting a Stream Server and a Client=21.EHCO
+4 Datagram Socket Communication
+5 Datagram Socket Communication=9T6Y.TP
+5 Creating a Datagram Socket=CreatingaDatagramSocket
+5 Sending Data From a Datagram Socket=SendingDataFromaDatagramSocket
+5 Receiving Data From a Datagram Socket=ReceivingDataFromaDatagramSocket
+4 Blocking and Non-Blocking Modes
+5 Blocking and Non-Blocking Modes=1B9EHC
+5 TServiceManager Notifications=TServiceManagerNotifications
+5 THostInfoManager Notifications=THostInfoManagerNotifications
+5 TSocket Notifications=TSocketNotifications
+5 TStreamSocket Notifications=TStreamSocketNotifications
+5 TDatagramSocket Notifications=TDatagramSocketNotifications
+4 About the Windows Socket Classes
+5 About THostInfoManager (ObjectWindows)=2Q907O
+5 About TINetSocketAddress (ObjectWindows)=.TTXFP
+5 About TServiceManager (ObjectWindows)=JC1F1Z
+5 About TSocket (ObjectWindows)=OWFTUM
+5 About TSocketError (ObjectWindows)=KBTH21
+5 About TSocketManager (ObjectWindows)=DDJ_XP
+5 Stream Function Flow
+6 Using a Stream Server=UsingaStreamServer
+6 Using a Stream Client=UsingaStreamClient
+5 Datagram Function Flow
+6 Using a Datagram Server=UsingaDatagramServer
+6 Using a Datagram Client=UsingaDatagramClient
+3 Windows System Classes
+4 TColor class=TColor
+4 TDropInfo class=TDropInfo
+4 TFileDroplet class=TFileDroplet
+4 TLocaleString Struct=TLocaleString
+4 TMsgThread class=TMsgThread
+4 TPaletteEntry class=TPaletteEntry
+4 TProcInstance class=TProcInstance
+4 TProfile class=TProfile
+4 TRegistry class=TRegistry
+4 TRegItem Struct=TRegItem
+4 TRegKey class=TRegKey
+4 TRegLink struct=TRegLink
+4 TRegList class=TRegList
+4 TRegValue class=TRegValue
+4 TRegValueIterator class=TRegValueIterator
+4 TResId class=TResId
+4 TResource class=TResource
+4 TRgbQuad class=TRgbQuad
+4 TRgbTriple class=TRgbTriple
+4 TString class=TString
+4 TXRegistry class=TXRegistry
+4 TFileTime class=TFileTime
+4 TSystemTime class=TSystemTime
+3 Using Persistent Streams Classes
+4 Using Persistent Streams Classes=UsingPersistentStreamsClasses
+4 Persistent Streams Class Library
+5 Persistent Streams (C++)=1JNHAV
+4 Persistent Stream Classes
+5 fpbase class=fpbase
+5 ifpstream class=ifpstream
+5 ipstream class=ipstream
+5 ofpstream class=ofpstream
+5 opstream class=opstream
+5 pstream class=pstream
+5 TStreamableBase class=TStreamableBase
+5 TStreamableClass class=TStreamableClass
+5 TStreamer class=TStreamer
+5 Streaming Macros=StreamingMacros
+3 Diagnostic Support
+4 Class Diagnostic Macros=classDiagnosticMacros
+4 Using Preprocessor Symbols=UsingPreprocessorSymbols
+4 CHECK=CHECK
+4 PRECONDITION=PRECONDITION
+4 TRACE=TRACE
+4 WARN=WARN
+4 TRACE and WARN Example=WARN_Ex
+4 CHECKX=CHECKX
+4 PRECONDITIONX=PRECONDITIONX
+4 TRACEX=TRACEX
+4 WARNX=WARNX
+4 DIAG_DECLARE_GROUP=DIAG_DECLARE_GROUP
+4 DIAG_DEFINE_GROUP=DIAG_DEFINE_GROUP
+4 DIAG_ENABLE=DIAG_ENABLE
+4 DIAG_ISENABLED=DIAG_ISENABLED
+4 DIAG_SETLEVEL=DIAG_SETLEVEL
+4 DIAG_GETLEVEL=DIAG_GETLEVEL
+4 Extended Diagnostics Macros Example=DIAG_GETLEVEL_Ex
+4 Extended Diagnostic Macros=ExtendedDiagnosticMacros
+4 Macro Message Output=MacroMessageOutput
+4 Run-Time Macro Control=RunTimeMacroControl
+3 Service Classes
+4 Date Time Classes
+5 TDate class=TDate
+5 TTime class=TTime
+4 File Classes
+5 TFile class=TFile
+5 TFileLineIterator class=TFileLineIterator
+5 TFileName class=TFileName
+5 TFileNameIterator Class=Scribble738017025875690388350
+5 TQtFile Class=TQtFile
+5 TRiffFile Class=TRiffFile
+4 Multithreading Classes
+5 Thread classes=Threadclasses
+5 TCriticalSection class=TCriticalSection
+5 TMutex class=TMutex
+5 TSync class=TSync
+5 TThread class=TThread
+4 String Support
+5 String classes=Stringclasses
+5 string class=stringclass
+5 TSubString class=TSubStringclass
+5 TRegexp class=TRegexp
+1 ObjectWindows 6.0 Reference Guide
+2 Overview of ObjectWindows
+3 About=20MW0YV
+3 ObjectWindows classes=1R6LQZ5
+3 ObjectWindows Libraries=IBGNSW
+3 ObjectWindows header files=G16EBJ
+3 ObjectWindows resource files=908PWR
+3 ObjectWindows data types=11H3LJO
+3 ObjectWindows scoped types=F5CN.B
+2 ObjectWindows Library Classes
+3 ObjectWindows Alphabetic Class Listing=4OAL_Y_
+3 A
+4 TAEnvelope Class=TAEnvelope
+4 TAnimateCtrl class=TAnimateCtrl
+4 TAPointer Class=Scribble73801702587569038574
+4 TAppDictionary class=TAppDictionary
+4 TApplication class=TApplication@applicat.hlp
+4 TAutoFactory<> class=TAutoFactory
+3 B
+4 TBandInfo struct=TBandInfo
+4 TBarDescr class=TBarDescr
+4 TBitmap class=TBitmap
+4 TBitmapGadget class=TBitmapGadget
+4 TBitFlags class=TBitFlags
+4 TBitSet class=TBitSet
+4 TBrush class=TBrush
+4 TBtnBitmap class=TBtnBitmap
+4 TBufferedFile class=TBufferedFile
+4 TButton class=TButton
+4 TButtonGadget class=TButtonGadget
+4 TButtonGadgetEnabler Class=TButtonGadgetEnabler
+4 TButtonTextDrawItem class=TButtonTextDrawItem
+4 TButtonTextGadget class=TButtonTextGadget
+4 TBwccDll class=TBwccDll
+3 C
+4 TCelArray class=TCelArray
+4 TCharFormat class=TCharFormat
+4 TCharRange class=TCharRange
+4 TCharSet class=TCharSet
+4 TCheckBox class=TCheckBox
+4 TCheckList class=TCheckList
+4 TCheckListItem class=TCheckListItem
+4 TChooseColorDialog class=TChooseColorDialog
+4 TChooseFontDialog class=TChooseFontDialog
+4 TClientDC class=TClientDC
+4 TClipboard class=TClipboard
+4 TClipboardViewer class=TClipBoardViewer
+4 TColumnHeader class=TColumnHeader
+4 TComboBox class=TComboBox
+4 TComboBoxData class=TComboBoxData
+4 TCommandEnabler class=TCommandEnabler
+4 TCommCtrlDll class=TCommCtrlDll
+4 TCommonDialog class=TCommonDialog
+4 TContextMenu class=TContextMenu
+4 TControl class=TControl
+4 TControlBar class=TControlBar
+4 TControlEnabler class=TControlEnabler
+4 TControlGadget class=TControlGadget
+4 TCreatedDC class=TCreatedDC
+4 TCtl3dDll class=TCtl3dDll
+4 TCursor class=TCursor
+3 D
+4 TDatagramSocket class=TDatagramSocket
+4 TDataObject class=TDataObject
+4 TDC class=TDC
+4 TDecoratedFrame class=TDecoratedFrame
+4 TDecoratedMDIFrame class=TDecoratedMDIFrame
+4 TDesktopDC class=TDesktopDC
+4 TDialog class=TDialog
+4 TDib class=TDib
+4 TDibDC class=TDibDC
+4 TDiBitmap class=TDiBitmap
+4 TDllLoader class=TDllLoader
+4 TDockable class=TDockable
+4 TDockableControlBar class=TDockableControlBar
+4 TDockingSlip class=TDockingSlip
+4 TDocManager class=TDocManager
+4 TDocTemplate class=TDocTemplate
+4 TDocTemplateT<D,V> class=TDocTemplateT
+4 TDocument class=TDocument
+4 TDragList class=TDragList
+4 TDropTarget class=TDropTarget
+4 TDvFileOpenDialog class=TDvFileOpenDialog
+3 E
+4 TEdgeConstraint struct=TEdgeConstraint
+4 TEdgeSlip class=TEdgeSlip
+4 TEdit class=TEdit
+4 TEditFile class=TEditFile
+4 TEditSearch class=TEditSearch
+4 TEditStream class=TEditStream
+4 TEditView class=TEditView
+4 TEnDropFiles class=TEnDropFiles
+4 TEnhMetaFilePict class=TEnhMetaFilePict
+4 TEnProtected class=TEnProtected
+4 TEnvelope Class=TEnvelope
+4 TErrorMode class=TErrorMode
+4 TEventHandler class=TEventHandler
+4 TExtractIcon class=TExtractIcon
+3 F
+4 TFile class=TFile
+4 TFileDocument class=TFileDocument
+4 TFileLineIterator class=TFileLineIterator
+4 TFileName class=TFileName
+4 TFileNameIterator Class=Scribble738017025875690388350
+4 TFileOpenDialog class=TFileOpenDialog
+4 TFileSaveDialog class=TFileSaveDialog
+4 TFilterValidator class=TFilterValidator
+4 TFindDialog class=TFindDialog
+4 TFindReplaceDialog class=TFindReplaceDialog
+4 TFindText class=TFindText
+4 TFloatingSlip class=TFloatingSlip
+4 TFont class=TFont
+4 TFormatRange class=TFormatRange
+4 TFrameWindow class=TFrameWindow
+3 G
+4 TGadget class=TGadget
+4 TGadgetControl class=TGadgetControl
+4 TGadgetWindow class=TGadgetWindow
+4 TGadgetWindowFont class=TGadgetWindowFont
+4 TGauge class=TGauge
+4 TGdiObject class=TGDIObject
+4 TGlyphButton class=TGlyphButton
+4 TGroupBox class=TGroupBox
+3 H
+4 THalftonePalette class=THalftonePalette
+4 THarbor class=THarbor
+4 THatch8x8Brush class=THatch8x8Brush
+4 THdrItem class=THdrItem
+4 THelpContext class=THelpContext
+4 THelpFileManager class=THelpFileManager
+4 THostEntry class=THostEntry
+4 THostInfoManager class=THostInfoManager
+4 THostInfoWindow class=THostInfoWindow
+4 THotKey class=THotKey
+4 THSlider class=THSlider
+3 I
+4 TIC class=TIC
+4 TIcon class=TIcon
+4 TIdentityPalette class=TIdentityPalette
+4 TImageInfo class=TImageInfo
+4 TImageList class=TImageList
+4 TINetSocketAddress class=TINetSocketAddress
+4 TInputDialog class=TInputDialog
+4 TInStream class=TInStream
+3 L
+4 TLayoutConstraint struct=TLayoutConstraintstruct
+4 TLayoutMetrics class=TLayoutMetrics
+4 TLayoutWindow class=TLayoutWindow
+4 TListBox class=TListBox
+4 TListBoxData struct=TListBoxData
+4 TListView class=TListView
+4 TListWindColumn class=TListWindColumn
+4 TListWindItem class=TListWindItem
+4 TListWindow class=TListWindow
+4 TLookupValidator class=TLookupValidator
+4 TLwComparer class=TLwComparer
+4 TLwDispInfoNotify class=TLwDispInfoNotify
+4 TLwFindInfo class=TLwFindInfo
+4 TLwHitTestInfo class=TLwHitTestInfo
+4 TLwKeyDownNotify class=TLwKeyDownNotify
+4 TLwNotify class=TLwNotify
+3 M
+4 TMailer class=TMailer
+4 TMci class=TMci
+4 TMDIChild class=TMDIChild
+4 TMDIClient Class=TMDIClient
+4 TMDIFrame class=TMDIFrame
+4 TMemoryDC class=TMemoryDC
+4 TMenu class=TMenu
+4 TMenuDescr class=TMenuDescr
+4 TMenuGadget class=TMenuGadget
+4 TMenuItemEnabler class=TMenuItemEnabler
+4 TMessageBar class=TMessageBar
+4 TMetaFileDC class=TMetaFileDC
+4 TMetaFilePict class=TMetaFilePict
+4 TModeGadget class=TModeGadget
+4 TModule class=TModule
+4 TModuleProc class=TModuleProc
+4 TModuleVersionInfo class=TModuleVersionInfo
+4 TMsgFilter class=TMsgFilter
+3 N
+4 TNoteTab class=TNoteTab
+4 TNoteTabItem Struct=TNoteTabItem
+3 O
+4 TOleClientDC class=TOleClientDC
+4 TOleDialog class=TOleDialog
+4 TOleDocument class=TOleDocument
+4 TOleFactoryBase<> class=TOleFactoryBase
+4 TOleFrame class=TOleFrame
+4 TOleLinkView class=TOleLinkView
+4 TOleMDIFrame class=TOleMDIFrame
+4 TOleView class=TOleView
+4 TOleWindow class=TOleWindow
+4 TOpenSaveDialog class=TOpenSaveDialog
+4 TOutStream class=TOutStream
+3 P
+4 TPaintDC class=TPaintDC
+4 TPalette::TPalette class=TPalette
+4 TPaneSplitter class=TPaneSplitter
+4 TParaFormat class=TParaFormat
+4 TPen class=TPen
+4 TPoint class=TPoint
+4 TPointL class=TPointL
+4 TPointF class=TPointF
+4 TPickListDialog class=TPickListDialog
+4 TPickListPopup class=TPickListPopup
+4 TPictureWindow class=TPictureWindow
+4 TPidl class=TPidl
+4 TPointer class=TPointer
+4 TPopupMenu class=TPopupMenu
+4 TPreviewDCBase class=TPreviewDCBase
+4 TPreviewPage class=TPreviewPage
+4 TPreviewWin class=TPreviewWin
+4 TPrintDC class=TPrintDC
+4 TPrintDialog class=TPrintDialog
+4 TPrinter class=TPrinter
+4 TPrinterAbortDlg class=TPrinterAbortDlg
+4 TPrintout class=TPrintout
+4 TPrintPreviewDC class=TPrintPreviewDC
+4 TPropertyPage class=TPropertyPage
+4 TPropertySheet class=TPropertySheet
+4 TPXPictureValidator class=TPXPictureValidator
+3 Q
+4 TQtFile Class=TQtFile
+3 R
+4 TRadioButton class=TRadioButton
+4 TRangeValidator class=TRangeValidator
+4 TRecentFiles class=TRecentFiles
+4 TRect class=TRect
+4 TRegion class=TRegion
+4 TRegisterOCXWnd class=TRegisterOcxWnd
+4 TReplaceDialog::TReplaceDialog class=TReplaceDialog
+4 TReqResize class=TReqResize
+4 TResponseTableEntry class=TResponseTableEntry
+4 TRichEdit class=TRichEdit
+4 TRichEditPagePreview class=TRichEditPagePreview
+4 TRichEditPreviewFrame class=TRichEditPreviewFrame
+4 TRichEditPrintout class=TRichEditPrintout
+4 TRiffFile Class=TRiffFile
+4 TRollDialog class=TRollDialog
+3 S
+4 TScreenDC class=TScreenDC
+4 TScrollBar class=TScrollBar
+4 TScrollBarData struct=TScrollBar_TScrollBarDatastruct
+4 TScroller class=TScroller
+4 TSelChange class=TSelChange
+4 TSeparatorGadget class=TSeparatorGadget
+4 TSerializer class=TSerializer
+4 TServiceEntry class=TServiceEntry
+4 TServiceManager class=TServiceManager
+4 TShellMalloc class=TShellMalloc
+4 TSize class=TSize
+4 TSizeGripGadget class=TSizeGripGadget
+4 TSlider class=TSlider
+4 TSocket class=TSocket
+4 TSocketAddress class=TSocketAddress
+4 TSocketError class=TSocketError
+4 TSocketInfo class=TSocketInfo
+4 TSocketManager class=TSocketManager
+4 TSortedStringArray class=TSortedStringArray
+4 TSplashWindow class=TSplashWindow
+4 TStatic class=TStatic
+4 TStatus class=TStatus
+4 TStatusBar class=TStatusBar
+4 TStorageDocument class=TStorageDocument
+4 TStream class=TStream
+4 TStreamSocket class=TStreamSocket
+4 TStringLookupValidator class=TStringLookupValidator
+4 TSystem class=TSystem
+3 T
+4 TTabControl class=TTabControl
+4 TTabHitTestInfo class=TTabHitTestInfo
+4 TTabItem class=TTabItem
+4 TTabKeyDown class=TTabKeyDown
+4 TTextGadget class=TTextGadget
+4 TTextFile class=TTextFile
+4 TTextRange class=TTextRange
+4 TTimeGadget class=TTimeGadget
+4 TTinyCaption class=TTinyCaption
+4 TToolBox class=TToolBox
+4 TToolInfo class=TToolInfo
+4 TTooltip class=TTooltip
+4 TTooltipEnabler class=TTooltipEnabler
+4 TTooltipHitTestInfo class=TTooltipHitTestInfo
+4 TTooltipText class=TTooltipText
+4 TTreeNode class=TTreeNode
+4 TTreeWindow=TTreeWindow
+4 TTwComparator Class=TTwComparator
+4 TTwDispInfoNotify class=TTwDispInfoNotify
+4 TTwHitTestInfo class=TTwHitTestInfo
+4 TTwKeyDownNotify class=TTwKeyDownNotify
+4 TTwNotify class=TTwNotify
+3 U
+4 TUDAccel class=TUDAccel
+4 TUIBorder class=TUIBorder
+4 TUIFace class=TUIFace
+4 TUIHandle class=TUIHandle
+4 TUIMetric class=TUIMetric
+4 TUIPart class=TUIPart
+4 TUpDown class=TUpDown
+4 TUpDownNotify class=TUpDownNotify
+4 TUrlLink Class=TUrlLink
+3 V
+4 TValidator Class=TValidator
+4 TVbxControl class=TVbxControl
+4 TVbxEventHandler class=TVbxEventHandler
+4 TView class=TView
+4 TVSlider class=TVSlider
+3 W
+4 TWaitCursor class=TWaitCursor
+4 TWindow class=TWindow
+4 TWindowDC class=TWindowDC
+4 TWindowView class=TWindowView
+4 TWinG class=TWinG
+4 TWinGDll class=TWinGDll
+4 TWinSock class=TWinSock
+4 TWinSockDll class=TWinSockDll
+3 X
+4 TXBase class=TXBase
+4 TXClipboard class=TXClipboard
+4 TXCommCtrl class=TXCommCtrl
+4 TXCompatibility class=TXCompatibility
+4 TXGdi class=TXGdi
+4 TXInvalidMainWindow class=TXInvalidMainWindow
+4 TXInvalidModule class=TXInvalidModule
+4 TXMenu class=TXMenu
+4 TXOutOfMemory class=TXOutOfMemory
+4 TXOwl class=TXOwl
+4 TXPrinter class=TXPrinter
+4 TXShell class=TXShell
+4 TXValidator class=TXValidator
+4 TXWindow class=TXWindow
+2 ObjectWindows Library Constants
+3 BF_xxxx Button Flag Constants=CXNW__
+3 CM_xxxx Edit Constants=CM_xxxxEditConstants
+3 CM_xxxx Edit File Constants=CM_xxxxEditFileConstants
+3 CM_xxxx Edit Replace Constants=CM_xxxxEditReplaceConstants
+3 CM_xxxx Edit View Constants=CM_xxxxEditViewConstants
+3 CM_xxxx MDI Constants=CM_xxxxMDIConstants
+3 ID_xxxx File Constants=ID_xxxxFileConstants
+3 ID_xxxx Printer Constants=ID_xxxxPrinterConstants
+3 IDA_EDITFILE Accelerator ID Constant=IDA_EDITFILEAcceleratorIDConstant
+3 IDA_OLEVIEW OLE Accelerator ID Constant=IDA_OLEVIEWOLEAcceleratorIDConstant
+3 IDG_xxxx Gadget ID Constants=IDG_xxxxGadgetIDConstants
+3 IDM_EDITFILE Menu ID Constant=IDM_EDITFILEMenuIDConstant
+3 IDM_xxxx OLE Menu ID Constants=IDM_xxxxOLEMenuIDConstant
+3 IDS_xxxx Edit View ID Constants=IDS_xxxxEditViewIDConstants
+3 IDS_Mode Constants=IDS_ModeConstants
+3 IDS_xxxx Document String ID Constants=IDS_xxxxDocumentStringIDConstants
+3 IDS_xxxx Edit File ID Constants=IDS_xxxxEditFileIDConstants
+3 IDS_xxxx Exception Message Constants=IDS_xxxxExceptionMessages
+3 IDS_xxxx List View ID Constants=IDS_xxxxListViewIDConstants
+3 IDS_xxxx Printer String ID Constants=IDS_xxxxPrinterStringIDConstants
+3 IDS_xxxx Validator ID Constants=IDS_xxxxValidatorIDConstants
+3 IDW_MDICLIENT Constant=IDW_MDICLIENTConstant
+3 IDW_FIRSTMDICHILD Constant=IDW_FIRSTMDICHILDConstant
+3 lmParent Constant=lmParentConstant
+3 MSG_SOCKET_NOTIFY Constant=MSG_SOCKET_NOTIFYConstant
+3 MruFileMessage Constant=MruFileMessageConstant
+3 pfxxxx Property Attribute Constants=pfxxxxPropertyAttributeConstants
+3 Vnxxxx view notification constants=Vnxxxxviewnotificationconstants
+2 ObjectWindows Library Enumerated Types
+3 dnxxxx Document Message enum=dnxxxxDocumentMessageenum
+3 ofxxxx Document Open enum=ofxxxxDocumentOpenenum
+3 shxxxx Document Sharing enum=shxxxxDocumentSharingenum
+3 TAbsLocation enum=TAbsLocation
+3 TEdge enum=TEdgeenum
+3 TEventStatus enum=TEventStatusenum
+3 TMeasurementUnits enum=TMeasurementUnitsenum
+3 TNativeUse enum=TNativeUseenum
+3 TNotificationSet enum=TNotificationSet
+3 TPicResult enum=TPicResultenum
+3 TPlacement enum=TPlacementenum
+3 TPrintoutFlags enum=TPrintoutFlagsenum
+3 TRelationship enum=TRelationshipenum
+3 TRelPosition enum=TRelPosition
+3 TSplitDirection enum=TSplitDirection
+3 TTransferDirection Enum=TTransferDirectionEnum
+3 TValidatorOptions enum=TValidatorOptionsenum
+3 TWidthHeight enum=TWidthHeightenum
+3 TWindowFlag enum=TWindowFlagenum
+3 xs Exception Status Enum=xsExceptionStatusEnum
+2 ObjectWindows Event Handlers
+3 Event Handlers (ObjectWindows)=EventHandlers
+3 Button Notification Messages=ButtonNotificationMessages
+3 Child ID Notification Messages=ChildIDNotificationMessages
+3 Combo Box Notification Messages=ComboBoxNotificationMessages
+3 Command Messages=17H8L_Q
+3 Common Control Notification Messages=CommonControlNotificationMessages
+3 Custom OWL Window Messages=CustomOWLWindowMessages
+3 Document Manager Messages=D9ID3L
+3 Document View Messages=DocumentViewMessages
+3 Edit Control Notification Messages=EditControlNotificationMessages
+3 Header Control Notification Messages=HeaderControlNotificationMessages
+3 List Box Notification Messages=ListBoxNotificationMessages
+3 List View Notification Messages=ListViewNotificationMessages
+3 ObjectComponents Messages=ObjectComponentsMessages
+3 Property Sheet Notification Messages=PropertySheetNotificationMessages
+3 Rich Edit Notification Messages=RichEditNotificationMessages
+3 Scroll Bar Notification Messages=ScrollBarNotificationMessages
+3 Standard Windows Messages=KNVLC1
+3 Tab Control Notification Messages=TabControlNotificationMessages
+3 Tool Tip Notification Messages=ToolTipNotificationMessages
+3 Tree View Notification Messages=TreeViewNotificationMessages
+3 Up/Down Notification Messages=UpDownNotificationMessages
+3 User-defined Messages=0547M6
+3 VBX Messages=VBXMessages
+2 ObjectWindows Library Functions
+3 GetApplicationObject function=GetApplicationObjectfunction
+3 GetWindowPtr function=GetWindowPtrfunction
+3 LongMulDiv Function=LongMulDivFunction
+3 OWLGetVersion Function=1A2JLAZ
+3 OWLMessageBox Function=OWLMessageBoxFunction
+2 ObjectWindows Library Macros
+3 Build Macros=BuildMacros
+3 _BUILDOWLDLL Macro=_BUILDOWLDLLMacro
+3 NATIVE_CTRL Macro=NATIVE_CTRLMacro
+3 Common Control Macros=Common_Control_Macros
+3 _OWL_NATIVECTRL_ALWAYS Macro=_OWL_NATIVECTRL_ALWAYSMacro
+3 _OWL_NATIVECTRL_MAYBE Macro=_OWL_NATIVECTRL_MAYBEMacro
+3 _OWL_NATIVECTRL_NEVER Macro=_OWL_NATIVECTRL_NEVERMacro
+3 Configuration Macros=Configuration_Macros
+3 _OWLCLASS Macro=_OWLCLASSMacro
+3 _OWLCLASS_RTL Macro=_OWLCLASS_RTLMacro
+3 _OWLDATA Macro=_OWLDATAMacro
+3 _OWLDLL Macro=_OWLDLLMacro
+3 _OWL_EXPORT Macro=_OWL_EXPORTMacro
+3 _OWL_EXPORT16 Macro=_OWL_EXPORT16Macro
+3 _OWLFAR Macro=_OWLFARMacro
+3 _OWLFARVTABLE Macro=_OWLFARVTABLEMacro
+3 _OWLFUNC Macro=_OWLFUNCMacro
+3 _OWL_INI Macro=_OWL_INIMacro
+3 _USERCLASS Macro=_USERCLASSMacro
+3 Doc/View Macros=ROJTTL
+3 DEFINE_DOC_TEMPLATE_CLASS Macro=DEFINE_DOC_TEMPLATE_CLASSMacro
+3 DOCVIEWCLASS Macro=DOCVIEWCLASSMacro
+3 DOCVIEWENTRY Macro=DOCVIEWENTRYMacro
+3 EV_xxxx Macros=EV_xxxxMacros
+3 OLE Macros=OLEMacros
+3 DEFINE_APP_DICTIONARY Macro=DEFINE_APP_DICTIONARYMacro
+3 _OCMCLASS macro=_OCMCLASSmacro
+3 Registration Macros=RegistrationMacros
+3 BEGIN_REGISTRATION Macro=BEGIN_REGISTRATIONMacro
+3 END_REGISTRATION Macro=END_REGISTRATIONMacro
+3 REGDATA Macro=REGDATAMacro
+3 REGITEM Macro=REGITEMMacro
+3 REGFORMAT Macro=REGFORMATMacro
+3 REGSTATUS Macro=REGSTATUSMacro
+3 REGICON Macro=REGICONMacro
+3 REGDOCFLAGS Macro=REGDOCFLAGSMacro
+3 REGISTRATION_FORMAT_BUFFER Macro=REGISTRATION_FORMAT_BUFFERMacro
+3 OLE Registration Macros=OLERegistrationMacros
+3 DECLARE_RESPONSE_TABLE Macro=DECLARE_RESPONSE_TABLEMacro
+3 DEFINE_RESPONSE_TABLE Macro=DEFINE_RESPONSE_TABLEMacro
+3 END_RESPONSE_TABLE Macro=END_RESPONSE_TABLEMacro
+3 TYPESAFE_DOWNCAST Macro=TYPESAFE_DOWNCASTMacro
+3 WinSock Macros=WinSockMacros
+3 WINSOCK_NOERROR Macro=WINSOCK_NOERRORMacro
+2 ObjectWindows Library Type Definitions
+3 TActionFunc typedef=TActionFunctypedef
+3 TActionMemFunc typedef=TActionMemFunctypedef
+3 TActionPageFunc typedef=TActionPageFunctypedef
+3 TAnyPMF typedef=TAnyPMFtypedef
+3 TCondFunc typedef=TCondFunctype
+3 TCondPageFunc typedef=TCondPageFunctypedef
+3 TMessageBox typedef=TMessageBoxtypedef
+1 ObjectWindows Class Hierarchy
+2 ObjectWindows Class Hierarchy=OWLPost_ObjectWindowsClassHierarchy

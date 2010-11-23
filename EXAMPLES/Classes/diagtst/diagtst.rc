@@ -1,0 +1,41 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1993, 1995 by Borland International, All Rights Reserved
+//----------------------------------------------------------------------------
+
+#include <owl/owlapp.rc>
+#include <owl/editfile.rc>
+#include <owl/except.rc>
+#include "diagtst.rh"
+
+IDM_COMMANDS MENU
+{
+ POPUP "&File"
+ {
+  MENUITEM "&New", CM_FILENEW
+  MENUITEM "&Open", CM_FILEOPEN
+  MENUITEM "&Save", CM_FILESAVE
+  MENUITEM "Save &As", CM_FILESAVEAS
+ }
+ POPUP "&Actions"
+ {
+	 MENUITEM "PRECONDITION", CM_PRECONDITION
+	 MENUITEM "PRECONDITIONX", CM_PRECONDITIONX
+	 MENUITEM "CHECK", CM_CHECK
+	 MENUITEM "CHECKX", CM_CHECKX
+	 MENUITEM "Check null pointer", CM_VALIDPTR
+	 MENUITEM "TRACE", 	CM_TRACE
+	 MENUITEM "TRACEX", CM_TRACEX
+	 MENUITEM "WARN", 	CM_WARN
+	 MENUITEM "WARNX", 	CM_WARNX
+	 MENUITEM "TRACE_FUNCTION", 	CM_FUNCTION
+	 MENUITEM "TRACE_FUNCTIONX", 	CM_FUNCTIONX
+	 MENUITEM "TRACE_FUNCTIONP", 	CM_FUNCTIONP
+	 MENUITEM "TRACE_FUNCTIONXP", 	CM_FUNCTIONXP
+	}
+	POPUP "&Hooks"
+	{
+	 MENUITEM "&Local Hook", CM_LOKALHOOK
+	 MENUITEM "&Global Hook", CM_GLOBALHOOK
+	}
+}

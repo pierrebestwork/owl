@@ -1,0 +1,77 @@
+//----------------------------------------------------------------------------
+// ObjectWindows - (C) Copyright 1991, 1994 by Borland International
+//   Tutorial application -- step10.rc
+//----------------------------------------------------------------------------
+#include <owl/editfile.rh>
+#include <owl/inputdia.rc>
+#include <owl/except.rc>
+
+#define CM_ABOUT      205
+#define CM_PENSIZE    206
+#define CM_PENCOLOR   207
+
+#define IDD_ABOUT     211
+
+#define IDS_FILEINFO  215
+
+#ifdef RC_INVOKED
+#ifndef WORKSHOP_INVOKED
+# include <winresrc.h>
+#endif
+
+#include <owl/statusba.rc>
+
+COMMANDS MENU
+{
+ POPUP "&File"
+ {
+  MENUITEM "&New",     CM_FILENEW
+  MENUITEM "&Open",    CM_FILEOPEN
+  MENUITEM "&Save",    CM_FILESAVE
+  MENUITEM "Save &As", CM_FILESAVEAS
+ }
+ POPUP "&Tools"
+ {
+  MENUITEM "Pen &Size",  CM_PENSIZE
+  MENUITEM "Pen &Color", CM_PENCOLOR
+ }
+ POPUP "&Help"
+ {
+  MENUITEM "&About",   CM_ABOUT
+ }
+}
+
+STRINGTABLE 
+{
+ CM_FILENEW, "Clears the screen for a new drawing"
+ CM_FILEOPEN, "Opens an existing drawing"
+ CM_FILESAVE, "Saves the active drawing"
+ CM_FILESAVEAS, "Saves the active drawing with a new name"
+ CM_PENSIZE, "Changes the pen width"
+ CM_PENCOLOR, "Changes the pen color"
+ CM_ABOUT, "Open an information dialog box"
+ IDS_FILEINFO, "Lines from Step 10"
+}
+
+IDD_ABOUT DIALOG 37, 25, 170, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | DS_3DLOOK
+CAPTION "About Drawing Pad"
+FONT 8, "MS Sans Serif"
+{
+ DEFPUSHBUTTON "Ok", IDOK, 60, 73, 50, 14
+ CONTROL "ObjectWindows 6.0 Tutorial Application", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 10, 43, 150, 10
+ CONTROL "Copyright 1991, 1996 by Borland International.\nCopyright 1998-1999 by Yura Bidus", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 4, 51, 164, 18
+ CONTROL "IDI_TUTORIAL", -1, "STATIC", SS_ICON | WS_CHILD | WS_VISIBLE, 78, 11, 14, 16
+ CONTROL "Drawing Pad", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 10, 34, 150, 8
+}
+
+IDI_TUTORIAL ICON "lamp.ico"
+CM_FILENEW BITMAP "new.bmp"
+CM_FILEOPEN BITMAP "open.bmp"
+CM_FILESAVE BITMAP "save.bmp"
+CM_FILESAVEAS BITMAP "saveas.bmp"
+CM_ABOUT BITMAP "about.bmp"
+CM_PENSIZE BITMAP "pensize.bmp"
+CM_PENCOLOR BITMAP "penclr.bmp"
+
+#endif  // RC_INVOKED

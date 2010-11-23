@@ -1,0 +1,63 @@
+//Always generated OWL Class Expert Data File.
+//OWL ClassExpert for VC. Version 1.0.
+//Copyright (C) 1998 by Yura Bidus. All rights reserved.
+//
+
+
+@@START_CLASS_INFO
+{
+  TClockWindow{
+    cppsource=..\aclock.cpp
+    ClassType=CWE12
+    BaseClasses=TFrameWindow,
+    Constructor=TClockWindow(const char* title)
+    Commands{
+      CM_ABOUT=CmAbout|
+      CM_EFFECTCHIME=CmChime|
+      CM_EFFECTCUCKOO=CmCuckoo|
+    }
+    Virtuals{
+      void Paint(TDC& dc, bool erase, TRect& rect)
+    }
+    Events{
+      EV_WM_TIMER=WM_TIMER,,void EvTimer(uint)
+    }
+  }
+  TClockApp{
+    cppsource=..\aclock.cpp
+    ClassType=CAE12
+    BaseClasses=TApplication,
+    Constructor=TClockApp()
+    Virtuals{
+      void InitMainWindow()
+    }
+  }
+}
+@@END_CLASS_INFO
+@@START_VERSION_INFO
+{
+  Project=AClock
+  Company=OWL NExt
+  Author=Borland
+  Copyright=Borland
+  Target=AClock
+}
+@@END_VERSION_INFO
+
+@@START_COMMAND_INFO
+{
+  CM_EFFECTCHIME
+  CM_EFFECTCUCKOO
+  CM_ABOUT
+}
+@@END_COMMAND_INFO
+@@START_DIALOG_INFO
+{
+  IDD_ABOUT_BWCC{
+    IDOK=Button
+  }
+  IDD_ABOUT{
+    IDOK=Button
+  }
+}
+@@END_DIALOG_INFO

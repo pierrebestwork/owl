@@ -1,0 +1,12 @@
+[DEFAULT]
+BASEURL=http://www.amazon.com/exec/obidos/ISBN=1884777465/owlnext/
+[DOC_YesNoVotingFrame_2115R3LFNWG834QCSJHelpfulReviews1]
+BASEURL=about:blank
+[DOC_iFrameHMD]
+BASEURL=javascript:'<html></html>'
+ORIGURL=javascript:'<html></html>'
+[InternetShortcut]
+URL=https://lists.sourceforge.net/lists/listinfo/owlnext-users
+Modified=10787AAF5B83C70157
+IconFile=http://www.amazon.com/favicon.ico
+IconIndex=1

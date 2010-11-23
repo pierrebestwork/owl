@@ -1,0 +1,100 @@
+//Always generated OWL Class Expert Data File.
+//OWL ClassExpert for VC. Version 1.0.
+//Copyright (C) 1998 by Yura Bidus. All rights reserved.
+//
+
+
+@@START_CLASS_INFO
+{
+  TodlistmAppl{
+    hsource=odlistmapp.h
+    cppsource=odlistmapp.cpp
+    ClassType=CAE1
+    BaseClasses=TApplication,
+    Constructor=TodlistmAppl()
+    Commands{
+      CM_FILENEW=CmFileNew|
+      CM_FILEOPEN=CmFileOpen|
+      CM_HELPABOUT=CmHelpAbout|
+    }
+    Virtuals{
+      void InitMainWindow()
+    }
+  }
+  TodlistmAboutDlg{
+    hsource=odlistmab.h
+    cppsource=odlistmab.cpp
+    WindowID=IDD_ABOUTDLG
+    ClassType=CDE12
+    BaseClasses=TDialog,
+    Constructor=TodlistmAboutDlg(TWindow* parent, TResId resId, TModule* module)
+    Virtuals{
+      void SetupWindow()
+    }
+  }
+  TodlistmView{
+    hsource=odlistmcl.h
+    cppsource=odlistmcl.cpp
+    ClassType=CWE12
+    BaseClasses=TEditFile,
+    Constructor=TodlistmView(TWindow* parent, int id, LPCTSTR text, int x, int y, int w, int h, LPCTSTR fileName, TModule* module)
+    Virtuals{
+      void SetupWindow();
+    }
+  }
+}
+@@END_CLASS_INFO
+@@START_VERSION_INFO
+{
+  Project=odlistm
+  Company=My Copmany
+  Author=Author
+  Copyright=
+  Target=odlistm
+}
+@@END_VERSION_INFO
+
+@@START_COMMAND_INFO
+{
+  CM_FILENEW
+  CM_FILEOPEN
+  CM_FILESAVE
+  CM_FILESAVEAS
+  CM_EXIT
+  CM_EDITUNDO
+  CM_EDITCUT
+  CM_EDITCOPY
+  CM_EDITPASTE
+  CM_EDITCLEAR
+  CM_EDITDELETE
+  CM_EDITFIND
+  CM_EDITREPLACE
+  CM_EDITFINDNEXT
+  CM_FIRST_ITEM
+  CM_SECOND_ITEM
+  CM_THIRD_ITEM
+  CM_ITEM4
+  CM_ITEM5
+  CM_ITEM6
+  CM_ITEM7
+  CM_ITEM8
+  CM_ENABLEALL
+  CM_TEST_DIALOG
+  CM_HELPABOUT
+}
+@@END_COMMAND_INFO
+@@START_DIALOG_INFO
+{
+  IDD_ABOUTDLG{
+    IDC_VERSION=Static
+    IDC_COPYRIGHT=Static
+    IDC_DEBUG=Static
+    IDOK=Button
+  }
+  IDD_DIALOG1{
+    IDOK=Button
+    IDCANCEL=Button
+    IDC_COMBO1=ComboBox
+  }
+}
+@@END_DIALOG_INFO

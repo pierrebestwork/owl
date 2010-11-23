@@ -1,0 +1,4 @@
+EXPORTS
+   GetOwlFxModule 
+   RegisterImageDescriptors
+   UnregisterImageDescriptors

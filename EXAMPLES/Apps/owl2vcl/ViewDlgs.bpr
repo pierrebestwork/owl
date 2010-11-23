@@ -1,0 +1,204 @@
+# ---------------------------------------------------------------------------
+!if !$d(BCB)
+BCB = $(MAKEDIR)\..
+!endif
+
+# ---------------------------------------------------------------------------
+# IDE SECTION
+# ---------------------------------------------------------------------------
+# The following section of the project makefile is managed by the BCB IDE.
+# It is recommended to use the IDE to change any of the values in this
+# section.
+# ---------------------------------------------------------------------------
+
+VERSION = BCB.04.04
+# ---------------------------------------------------------------------------
+PROJECT = ViewDlgs.dll
+OBJFILES = ViewDlgs.obj DocBase.obj DlgBase.obj ExView1.obj ExDoc1.obj
+RESFILES = ViewDlgs.res
+DEFFILE =
+RESDEPEN = $(RESFILES) DlgBase.dfm ExView1.dfm
+LIBFILES =
+LIBRARIES = dclocx40.lib vcldbx40.lib vcldb40.lib ibsmp40.lib BCBSMP40.lib \
+  vclx40.lib vcl40.lib
+SPARELIBS = vcl40.lib vclx40.lib BCBSMP40.lib ibsmp40.lib vcldb40.lib \
+  vcldbx40.lib dclocx40.lib
+PACKAGES = vclx40.bpi vcl40.bpi bcbsmp40.bpi vclsmp40.bpi
+# ---------------------------------------------------------------------------
+PATHCPP = .;
+PATHASM = .;
+PATHPAS = .;
+PATHRC = .;
+DEBUGLIBPATH = $(BCB)\lib\debug
+RELEASELIBPATH = $(BCB)\lib\release
+SYSDEFINES = NO_STRICT
+USERDEFINES = 
+# ---------------------------------------------------------------------------
+CFLAG1 = -I.;$(BCB)\include;$(BCB)\include\vcl -WD -O2 -Hc -H=$(BCB)\lib\vcl40.csm -w \
+  -Ve -Tkh30000 -a8 -4 -d -k- -vi -D$(SYSDEFINES);$(USERDEFINES) -c -b- -w-par \
+  -w-inl -Vx -tWM
+CFLAG2 =
+CFLAG3 =
+PFLAGS = -U.;$(BCB)\lib\obj;$(BCB)\lib;$(RELEASELIBPATH) \
+  -I.;$(BCB)\include;$(BCB)\include\vcl -$Y- -$L- -$D- -v -M -JPHNE
+RFLAGS = -i.;$(BCB)\include;$(BCB)\include\vcl
+AFLAGS = /i. /i$(BCB)\include /i$(BCB)\include\vcl /mx /w2 /zn
+LFLAGS = -L.;$(BCB)\lib\obj;$(BCB)\lib;$(RELEASELIBPATH) -aa -Tpd -x
+IFLAGS =
+# ---------------------------------------------------------------------------
+ALLOBJ = c0d32.obj sysinit.obj $(OBJFILES)
+ALLRES = $(RESFILES)
+ALLLIB = $(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib
+# ---------------------------------------------------------------------------
+!ifdef IDEOPTIONS
+
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=0
+MajorVer=2000
+MinorVer=4
+Release=1
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1033
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=Greg Bullock
+FileDescription=External Doc/View Dialogs for Demonstration with OWL application
+FileVersion=2000.4.1.0
+InternalName=ViewDlgs
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=ViewDlgs.DLL
+ProductName=
+ProductVersion=2000.5.21.0
+Comments=
+
+[Excluded Packages]
+$(BCB)\Bin\dclocx40.bpl=Borland Sample Imported ActiveX Controls
+$(BCB)\Projects\Bpl\O305BD41.BPL=Orpheus Data-Aware Components
+C:\WINDOWS\SYSTEM\\ibsmp40.bpl=Borland C++ InterBase Alerter Component
+$(BCB)\Bin\dcldb40.bpl=Borland Database Components
+$(BCB)\Bin\DclTeP4C.bpl=TeeChart Pro 4.0 Components
+$(BCB)\BIN\DCLTEE4C.BPL=TeeChart 4.0 Components
+$(BCB)\Bin\dcl31w40.bpl=Delphi 1.0 Compatibility Components
+$(BCB)\Bin\dclqrt40.bpl=QuickReport Components
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=.;$(BCB)\include;$(BCB)\include\vcl
+Item1=$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=.;$(BCB)\lib\obj;$(BCB)\lib
+Item1=$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_RTLDLL;USEPACKAGES
+Item1=_RTLDLL
+
+[HistoryLists\hlHostApplication]
+Count=1
+Item0=.\OWL_VCL.exe
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=.\OWL_VCL.exe
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+InMemoryExe=0
+ShowInfoMsgs=0
+
+!endif
+
+# ---------------------------------------------------------------------------
+# MAKE SECTION
+# ---------------------------------------------------------------------------
+# This section of the project file is not used by the BCB IDE.  It is for
+# the benefit of building from the command-line using the MAKE utility.
+# ---------------------------------------------------------------------------
+
+.autodepend
+# ---------------------------------------------------------------------------
+!if !$d(BCC32)
+BCC32 = bcc32
+!endif
+
+!if !$d(DCC32)
+DCC32 = dcc32
+!endif
+
+!if !$d(TASM32)
+TASM32 = tasm32
+!endif
+
+!if !$d(LINKER)
+LINKER = ilink32
+!endif
+
+!if !$d(BRCC32)
+BRCC32 = brcc32
+!endif
+# ---------------------------------------------------------------------------
+!if $d(PATHCPP)
+.PATH.CPP = $(PATHCPP)
+.PATH.C   = $(PATHCPP)
+!endif
+
+!if $d(PATHPAS)
+.PATH.PAS = $(PATHPAS)
+!endif
+
+!if $d(PATHASM)
+.PATH.ASM = $(PATHASM)
+!endif
+
+!if $d(PATHRC)
+.PATH.RC  = $(PATHRC)
+!endif
+# ---------------------------------------------------------------------------
+$(PROJECT): $(OBJFILES) $(RESDEPEN) $(DEFFILE)
+    $(BCB)\BIN\$(LINKER) @&&!
+    $(LFLAGS) +
+    $(ALLOBJ), +
+    $(PROJECT),, +
+    $(ALLLIB), +
+    $(DEFFILE), +
+    $(ALLRES)
+!
+# ---------------------------------------------------------------------------
+.pas.hpp:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.pas.obj:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.cpp.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.c.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.asm.obj:
+    $(BCB)\BIN\$(TASM32) $(AFLAGS) $<, $@
+
+.rc.res:
+    $(BCB)\BIN\$(BRCC32) $(RFLAGS) -fo$@ $<
+# ---------------------------------------------------------------------------

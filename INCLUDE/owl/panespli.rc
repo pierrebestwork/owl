@@ -1,0 +1,24 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1995, 1996 by Borland International, All Rights Reserved
+//
+//$Revision: 1.26 $
+//
+// Pane splitter cursors
+//----------------------------------------------------------------------------
+
+#include <owl/panespli.rh>
+
+#ifdef APSTUDIO_INVOKED
+// This will prevent the VC++ Resource Editor user from saving this file
+1 TEXTINCLUDE DISCARDABLE
+BEGIN
+"< Cannot change standard OWL resources! >\0"
+END
+#endif    // APSTUDIO_INVOKED
+
+IDC_RESIZE_V CURSOR "res/resize_v.cur"
+
+IDC_RESIZE_H CURSOR "res/resize_h.cur"
+
+IDC_RESIZE_HV CURSOR "res/resiz_hv.cur"

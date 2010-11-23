@@ -1,0 +1,73 @@
+// ---------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (C) 1994, 1995 by Borland International, All Rights Reserved
+//
+//   Command-enabling sample application
+//----------------------------------------------------------------------------
+#ifndef WORKSHOP_INVOKED
+# include <windows.h>
+#endif
+
+#include <owl\owlapp.rc>
+#include <owl\except.rc>
+#include "cmdenabl.h"
+
+#ifdef RC_INVOKED
+
+#include <owl/editfile.rh>
+
+MN_COMMANDS MENU
+{
+ POPUP "&File"
+ {
+  MENUITEM "&New", CM_FILENEW
+  MENUITEM "&Open", CM_FILEOPEN
+  MENUITEM "&Save", CM_FILESAVE
+  MENUITEM "Save &As", CM_FILESAVEAS
+ }
+
+ POPUP "&Actions"
+ {
+  MENUITEM "&Dirty?", CM_TOGGLEDIRTY
+  MENUITEM "&New?", CM_TOGGLENEW
+  MENUITEM "&Show file state", CM_SHOWSTATE
+ }
+ MENUITEM "Dialog...", CM_DIALOG
+}
+
+CM_FILENEW BITMAP "new.bmp"
+CM_FILEOPEN BITMAP "open.bmp"
+CM_FILESAVE BITMAP "save.bmp"
+CM_FILESAVEAS BITMAP "saveas.bmp"
+CM_TOGGLEDIRTY BITMAP "dirty.bmp"
+CM_TOGGLENEW BITMAP "tglnew.bmp"
+CM_SHOWSTATE BITMAP "state.bmp"
+
+STRINGTABLE
+{
+ CM_FILENEW, "Create a new file; Sets New to true and Dirty to false\nNew"
+ CM_FILEOPEN, "Open an existing file; Sets New and Dirty to false\nOpen"
+ CM_FILESAVE, "Save current file; Sets New and Dirty to false\nSave"
+ CM_FILESAVEAS, "Save current file under new name; Sets New to false and Dirty to false.\nSave As"
+ CM_TOGGLEDIRTY, "Makes file dirty if clean, clean if dirty.\nToggle Dirty"
+ CM_TOGGLENEW, "Makes file new if existing, existing if new.\Toggle New"
+ CM_SHOWSTATE, "Shows current state of New and Dirty flags\nShow State"
+}
+
+IDD_DIALOG1 DIALOG 0, 0, 240, 120
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CONTEXTHELP | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "TControlEnabler demo"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "OK", IDOK, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 186, 6, 50, 14
+ CONTROL "Cancel", IDCANCEL, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 186, 26, 50, 14
+ CONTROL "Help", IDHELP, "BUTTON", BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 186, 46, 50, 14
+ CONTROL "CheckBox1", IDC_CHECKBOX1, "button", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 13, 60, 12
+ CONTROL "CheckBox2", IDC_CHECKBOX2, "button", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 28, 60, 12
+ CONTROL "CheckBox3", IDC_CHECKBOX3, "button", BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 44, 60, 12
+ CONTROL "RadioButton1", IDC_RADIOBUTTON1, "button", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 60, 60, 12
+ CONTROL "RadioButton2", IDC_RADIOBUTTON2, "button", BS_AUTORADIOBUTTON | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 16, 76, 60, 12
+}
+
+
+#endif  // RC_INVOKED

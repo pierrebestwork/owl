@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Documento sin título</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<body>
+<p align="center"><strong><font size="4">Using Borland C++Builder Forms in OWL and MFC Applications </font>
+      </strong></p>
+<p align="center"><strong>Written by Brian Myers and Greg Cole</strong></p>
+<p><strong>Contents</strong><br />
+  I.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Introduction<br />
+  II.&nbsp;&nbsp;&nbsp; Examples<br />
+  III.&nbsp;&nbsp; Combining OWL and VCL</p>
+<ul>
+  <li>Instructions
+</li>
+  <li>Potential Difficulties Using OWL with VCL</li>
+</ul>
+<p>IV.&nbsp;&nbsp; Combining MFC and VCL</p>
+<ul>
+  <li>Instructions</li>
+</ul>
+<p>V.&nbsp;&nbsp; Late breaking developments - an alternative integration strategy</p>
+<p><strong>I.&nbsp; Introduction</strong><br />
+  This document describes how to build OWL or MFC programs that invoke forms designed visually in C++Builder using the Visual Component Library.&nbsp; The Visual Component Library (VCL) is the class framework that ships with C++Builder and Delphi.&nbsp; Programs you design visually as forms in C++Builder and Delphi use components built from VCL.</p>
+<p>This paper explains how to combine OWL and MFC applications with forms built using C++Builder.&nbsp; It's certainly possible to combine C++ applications with forms built using Delphi, but it is easier with C++Builder because of the common language, C++.&nbsp;&nbsp;&nbsp; For more information on blending C++ with Delphi code, look on<em> http://www.borland.com/borlandcpp/papers</em> for "Sharing Code and Objects Between Delphi and C++" and "Application Development with Borland C++ and Delphi."</p>
+<p><strong><em>Pros and Cons</em></strong><br />
+  The main reason to consider combining the OWL or MFC framework with the VCL framework is to take advantage of VCL while leveraging&nbsp; all your existing code.&nbsp; For example, the RAD visual design capabilities of Borland C++Builder make it easy to design many self-contained dialog boxes very quickly.&nbsp; You can then invoke those forms directly from your OWL application.</p>
+<p>The smallest unit that transfers easily&nbsp; from VCL to another framework is a form.&nbsp; Taking individual controls or components out of VCL individually would be more difficult.&nbsp; And you can get the effect of transferring a single control alone by creating a form that fits the control exactly, invisibly, and bringing that form to OWL.</p>
+<p>You can use a VCL form as a dialog or as a client window in your OWL application, and you can put all the controls you want onto a form.&nbsp; </p>
+<p><em>Note: Section V, Late breaking developments, details an alternative integration strategy which is both quicker and easier to implement. </em></p>
+<p>Combining OWL or MFC with VCL involves the following steps:</p>
+<ul>
+  <li>Install both C++Builder and Borland C++ 5.0.&nbsp; The Service Release version of Borland C++ 5.0 is required.&nbsp; This release will be available shortly after the release of Borland C++Builder.&nbsp;&nbsp; 
+</li>
+  <li>Put BC5\BIN first on your path and define BCBROOT as an environment variable pointing to your C++Builder installation.
+</li>
+  <li>Copy the examples under bc5\examples\cbuilder from your CD to your hard drive.
+</li>
+  <li>Link to a version of the OWL or MFC library that has been rebuilt for VCL compatibility.
+</li>
+  <li>For OWL, this means either OWL52V.DLL or OWLWV.LIB.&nbsp; Both are available on the Borland C++ 5.0 Service Release CD.
+</li>
+  <li>For MFC, you'll have to rebuild the MFC library.&nbsp; See the instructions below.
+</li>
+  <li>Use #define STRICT everywhere.&nbsp; (OWL always does anyway, but VCL does not.)</li>
+</ul>
+<p>Also, combining both OWL and VCL results, not surprisingly, in larger .EXE files than would be expected when working with a single class library.&nbsp; A non-debugging version of the simple OWLDLG example linked dynamically and built with the -O1 switch (optimize for size)&nbsp; is about 266K.</p>
+<p>If you rely on string tables for editing or internationalizing your user interface, be aware that VCL application UI strings are written in the binary DFM file.&nbsp;&nbsp;&nbsp; VCL forms can be viewed and edited as text and, in addition, a Borland C++Builder Translation Suite will be available after the release of C++Builder based upon the Delphi Translation Suite.&nbsp; This tool supports string extraction, table-based translation, context-sensitive translation for forms and menus, and more.</p>
+<p><strong>II.&nbsp; Examples</strong><br />
+  Borland C++ 5.0 Service Release includes three new examples demonstrating ways to combine VCL forms with OWL and MFC applications.&nbsp; All three examples are located on the CD under \BC5\EXAMPLES\CBUILDER.</p>
+<p><strong><em>EXAMPLES\CBUILDER\OWLDLG: </em></strong><strong><em>located on your CD</em></strong><strong></strong><br />
+  In this example, an OWL application invokes a dialog box that was created with C++Builder.&nbsp; The dialog box is a VCL form, not an OWL TDialog object.&nbsp; You will want to create your own bc5\examples\cbuilder\owldlg directory on your hard drive and copy the example files from your CD to your hard drive.&nbsp; </p>
+<p>OWLDLG demonstrates simple interaction between to the OWL and VCL parts.&nbsp; A menu command invokes the dialog.&nbsp; The dialog asks the user to pick a color.&nbsp; When the dialog closes, it passes the selected color back to the application.&nbsp; Each time the user invokes the dialog, the OWL application tells the dialog what the current color setting is, and the dialog starts by showing the current color.</p>
+<p>Copy the OWLDLG example from the Borland C++ CD<br />
+  The Borland C++ 5.0 Service Release ships with new a example that demonstrate how to combine OWL and VCL.&nbsp; The new example is not copied&nbsp; to your hard drive during installation.&nbsp; You'll need to copy it from the CD manually.</p>
+<ul>
+  <li>Create a bc5\examples\cbuilder\owldlg directory on your hard drive.&nbsp; It is important to create this in the right place in order for the .ide file copied over to work. From your bc5\examples directory on your hard drive:
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdir cbuilder
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cd cbuilder
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdir owldlg
+</li>
+  <li>From your CD go to the bc5\examples\cbuilder\owldlg directory and issue the command:</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; copy /s &lt;installed-drive&gt;:bc5\examples\cbuilder\owldlg</p>
+<p><strong><em>EXAMPLES\CBUILDER\HTMLFORM: </em></strong><strong><em>located on your CD</em></strong><strong></strong><br />
+  HTMLForm uses a VCL form to host an ActiveX control in an OWL application. You will want to create your own bc5\examples\cbuilder\htmlform directory on your hard drive and copy the example files from your CD to your hard drive.&nbsp; The VCL form contains a tool bar and the NetManage HTML browser OCX control, available with the Client/Server and Professional versions of C++Builder.&nbsp; The OWL frame has a menu and a status bar.&nbsp; The client window of the OWL frame is the VCL form.&nbsp; The user can type a URL in the VCL tool bar and browse that site.&nbsp; The OCX control generates events when it opens a URL and when it finishes downloading from the URL.&nbsp; The VCL handlers for these events place messages on the OWL status bar.&nbsp; The user can select sites from an OWL menu and OWL calls OCX methods to open the appropriate URL.</p>
+<p>Copy the HTMLFORM example from the Borland C++ CD<br />
+  The Borland C++ 5.0 Service Release ships with new a example that demonstrate how to combine OWL and VCL.&nbsp; The new example is not copied&nbsp; to your hard drive during installation.&nbsp; You'll need to copy it from the CD manually.</p>
+<ul>
+  <li>Create a bc5\examples\cbuilder\htmlform directory on your hard drive.&nbsp; It is important to create this in the right place in order for the .ide file copied over to work. From your bc5\examples directory on your hard drive:
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdir cbuilder
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cd cbuilder
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdir htmlform
+</li>
+  <li>From your CD go to the bc5\examples\cbuilder\htmlform directory and issue the command:</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; copy /s &lt;installed-drive&gt;:bc5\examples\cbuilder\htmlform</p>
+<p><strong><em>EXAMPLES\CBUILDER\MFCDLG: </em></strong><strong><em>located on your CD</em></strong><strong></strong><br />
+  This example resembles OWLDLG in that it invokes a VCL form as a dialog box, but this time from an MFC application. You will want to create your own bc5\examples\cbuilder\mfcdlg directory on your hard drive and copy the example files from your CD to your hard drive.&nbsp; The program in the MFCDLG directory is a modified version of the CTRLTEST program from the standard MFC examples.&nbsp; MFCDLG is described in more detail below, under the heading "Combining MFC and VCL."</p>
+<p>Copy the MFCDLG example from the Borland C++ CD<br />
+  The Borland C++ 5.0 Service Release ships with new a example that demonstrate how to combine MFC and VCL.&nbsp; The new example is not copied&nbsp; to your hard drive during installation.&nbsp; You'll need to copy it from the CD manually.</p>
+<ul>
+  <li>Create a bc5\examples\cbuilder\mfcdlg directory on your hard drive.&nbsp; It is important to create this in the right place in order for the .ide file copied over to work.&nbsp; From your bc5\examples directory on your hard drive:
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdir cbuilder
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cd cbuilder
+</li>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mkdir mfcdlg
+</li>
+  <li>From your CD go to the bc5\examples\cbuilder\mfcdlg directory and issue the command:</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; copy /s &lt;installed-drive&gt;:bc5\examples\cbuilder\mfcdlg</p>
+<p><strong>III.&nbsp; Combining OWL and VCL</strong><br />
+  This section gives step-by-step instructions for creating programs like OWLDLG and HTMLFORM.&nbsp; It also explains how to avoid some possible pitfalls.&nbsp; If you want to try the OWLDLG and HTMLFORM examples follow the instructions above and copy them from your CD to your hard drive.</p>
+<p><strong><em>Instructions</em></strong><br />
+  To combine OWL and VCL in your programs, follow these steps.</p>
+<p>Set up your machine</p>
+<ul>
+  <li>Install both Borland C++Builder and Borland C++ 5.0 Service Release on your machine.
+</li>
+  <li>Set the path and environment so that the BC Integrated Development Environment (IDE) and OWL makefiles can locate the source, library, include, and tools directories for both OWL and VCL.&nbsp; 
+</li>
+  <li>Put \BC5\BIN first on your path (before C++Builder, if it is there too.)&nbsp; 
+</li>
+  <li>Define BCBROOT as an environment variable pointing to the directory where C++Builder is installed, for example:</li>
+</ul>
+<p>SET BCBROOT=C:\CBUILDER</p>
+<p>Copy the VCL-Compatible OWL Libraries from the Borland C++ CD<br />
+  The Borland C++ 5.0 Service Release ships with new libraries that are essential for combining OWL with VCL.&nbsp; The new VCL-compatible libraries are not copied&nbsp; to your hard drive during installation.&nbsp; You'll need to copy them from the CD manually.</p>
+<ul>
+  <li>Copy these files into the BIN and LIB directories of&nbsp; your Borland C++ 5.0 tree.</li>
+</ul>
+<p><strong></strong>&nbsp;</p>
+<p><strong>CD directory&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Description</strong><br />
+  \BC5\BIN\OWL52V.DLL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OWL DLL <br />
+  \BC5\BIN\BDS52V.DLL&nbsp;&nbsp;&nbsp;&nbsp; BIDS DLL<br />
+  \BC5\LIB\OWLWVI.LIB&nbsp;&nbsp;&nbsp;&nbsp; OWL DLL import library<br />
+  \BC5\LIB\BIDSVI.LIB&nbsp;&nbsp;&nbsp;&nbsp; BIDS DLL import library<br />
+  \BC5\LIB\OWLWV.LIB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OWL static-link library<br />
+  \BC5\LIB\BIDSV.LIB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BIDS static-link library</p>
+<p>The CD's BIN and LIB directories also contain VCL-compatible OCF libraries and diagnostic versions of all the VCL-compatible libraries.</p>
+<p><strong>Building the VCL-Compatible Libraries Yourself</strong><br />
+  You can also build the VCL-compatible libraries yourself, if you prefer.&nbsp; The makefiles under \BC5\SOURCE recognize a new -DVCL switch and will pick the right options for you:</p>
+<p>cd c:\bc5\source\classlib<br />
+  make BIDSNAME=bids BIDSVER=52 -DVCL<br />
+  cd c:\bc5\source\ocf<br />
+  make -DVCL<br />
+  cd c:\bc5\source\owl<br />
+  make -DVCL</p>
+<p>To make the DLL versions, add the -DUSEDLL flag to each command line.&nbsp;&nbsp; To make debugging or diagnostic versions, add the -DDEBUG and -DDIAGS flags.&nbsp;&nbsp;&nbsp; Don't use the -DCODEGUARD flag – CodeGuard support for the Delphi and C++Builder VCL is not yet available.</p>
+<p>To use the incremental linker instead of TLINK32, add the -DILINK flag.</p>
+<p><strong>Why is a New OWL Library Necessary for Working with VCL?</strong><br />
+  The "V" versions of the OWL libraries use alignment and vtable compiler options that make them compatible with VCL .&nbsp; They also consider enums to be the size of a byte rather than the size of an int, as does VCL.</p>
+<p>VCL uses a new version of the run-time library, the one that ships with Borland C++Builder (CP32MT.LIB).&nbsp; The new RTL to has a different memory manager.&nbsp; To work with VCL, OWL must be linked to the VCL's RTL.&nbsp; Because the VCL's RTL is multithreading, the VCL-compatible version of OWL is really the MODEL=t version of OWL, now built with different command-line options.</p>
+<p>Finally, the VCL and OWL frameworks happen to use a lot of the same names for different classes.&nbsp; Both define a TApplication, a TStatusBar, a TRect, etc.&nbsp; When you turn on the -DVCL flag you also turn on a namespace wrapper around OWL.&nbsp; This lets you tell the compiler which version of TRect you mean by writing OWL::TRect or Windows::TRect (where <em>Windows</em> is a namespace defined by VCL).</p>
+<p>Create a C++Builder Form</p>
+<ul>
+  <li>Launch C++Builder and create a new project.&nbsp; Design your form visually and program it completely—adjust properties, add events, and extend your TForm-derived class in any way that will be useful.</li>
+</ul>
+<p>It's&nbsp; C++, just like OWL.&nbsp; You can do whatever you like with the form.&nbsp; You will still be able to edit the form even after building it into an OWL app, but making it as complete as possible the first time helps.</p>
+<p>Import the Form Into Your OWL Project</p>
+<ul>
+  <li>The .H, .CPP, and .DFM files from your C++Builder project are needed for the OWL project.&nbsp; Copy them to the OWL project directory.</li>
+</ul>
+<p><u>Command line Users</u>:&nbsp; you can just point your OWL makefile to the C++Builder project files.<br />
+    <u>IDE Users</u>:&nbsp; add these files to your project using the project views local menu | Add node.<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<ul>
+  <li>Define STRICT in every unit.&nbsp; (You can omit it if the first Windows header you include is an OWL header.&nbsp; Otherwise, be sure to #define STRICT explicitly.)</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<ul>
+  <li>Call AdoptVCLAppWindow in your SetupWindow function.&nbsp; The adoption function is defined for you in ADOPT.H and ADOPT.CPP, part of the VCLDLG example.&nbsp; See ADOPT.H for more details about what it's doing and why.</li>
+</ul>
+<p>Build Your Program<br />
+  You've installed the VCL-compatible OWL libraries, set your environment variables, and designed your C++Builder form.&nbsp; Depending on the logic of your program, you may also have to add a few function calls so the OWL code can interact with the VCL code.&nbsp; They're just C++ function calls.&nbsp; VCL objects can call methods on OWL objects and vice versa without any difficulty.</p>
+<p>The next step is to build all the files together.</p>
+<p><strong>Directory Options</strong> <br />
+    <u>Command line Users</u>:<br />
+  Be sure to add this switch for locating the VCL OBJ files:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -j$(BCBROOT)\lib\obj</p>
+<p><u>IDE Users</u>:<br />
+  To locate the C++Builder include files, the following must be appended to your projects include path:</p>
+<p>$env(bcbroot)\include;$env(bcbroot)\include\vcl</p>
+<p>To locate the VCL OBJ files, the following must be appended to your projects Library path:</p>
+<p>$env(bcbroot)\lib;$env(bcbroot)\lib\obj</p>
+<p><strong>Linker Options</strong><br />
+  If you rebuild your project often, using ILINK32 instead of TLINK32 will speed up your builds noticeably.</p>
+<p><strong>Compiler Options</strong><br />
+  Setting the right options is necessary for a successful compile and link because OWL and VCL normally define vtables differently and use different sizes for enums.&nbsp; Here are the most important option switches to use:</p>
+<p><u>Command line Users</u>:<br />
+  -a4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; align on 4-byte boundaries (OWL defaults to 1)<br />
+  -b- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; don't treat enums as ints (let them be smaller)<br />
+  -Vx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; allow 0-length empty member functions <br />
+  -Ve &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; allow 0-length empty base classes </p>
+<p>Since -WM (multithreading) is now the default for BCC32 in both Borland C++Builder and Borland C++ 5.0 Service Release, you don't need to set it explicitly.</p>
+<p><u>IDE Users</u>:<br />
+  off &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compiler | Code Generation, Allocate enums as ints (OWL defaults to on)<br />
+  on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32-bit Compiler | Processor, Data alignment - Double word (4-byte)<br />
+  on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C++ Options | General, Zero-lenth empty base classes<br />
+  on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C++ Options | General, Zero-length empty class member functions</p>
+<p>Even though -WM (multithreading) is now the default for BCC32 in both Borland C++Builder and Borland C++ 5.0 Service Release, this is not true for the IDE.&nbsp; You will need to turn on the Multithread option explicitly using TargetExpert.&nbsp; While in TargetExpert, choose Dynamic if you want to use the OWL DLLs, or Static, to use the static libraries.&nbsp; Note, since TargetExpert resets the libraries, make these changes before manually updating/adding libraries.</p>
+<p><strong>Defines</strong><br />
+  When built for VCL-compatibility, the OWL libraries wrap themselves in three namespaces: ClassLib, OCF, and OWL.&nbsp; Because the namespaces are conditionalized in the header files, when using the OWL namespaces you must always define the BI_NAMESPACE symbol for the compiler.&nbsp; </p>
+<p><u>Command line Users</u>:&nbsp; -DBI_NAMESPACE<br />
+    <u>Command line Users using OWLMAKE.GEN</u>:&nbsp; -DNAMESPACE<br />
+    <u>IDE Users</u>: add BI_NAMESPACE to the project's Defines.&nbsp; Also, If you are building with the OWL DLL, confirm these are defined:&nbsp; _RTLDLL;_BIDSDLL;_OWLDLL.&nbsp; If you are building statically, be sure they are not defined.</p>
+<p><strong>Libraries</strong><br />
+  VCL applications require a number of supporting libraries.&nbsp; You'll probably need all of these:</p>
+<p>owlwv bidsv cp32mt vcl ole2w32 oc30 mpr user32 import32</p>
+<p>To use the DLL versions of the libraries, replace the first three libraries with owlvi, bidsvi, and cp32mti.</p>
+<p><u>IDE Users</u>:&nbsp; To see what libraries are currently being included by your project, turn on Show run-time nodes (see Options | Environment, Project View).&nbsp; To add the missing BC++ Libraries, use TargetExpert.&nbsp; You will then have to modify the BIDS and OWL libraries to be the correct VCL compatible libraries.&nbsp; Do this by using the project views local menu | Edit node attributes, and changing the name field.&nbsp;&nbsp; Next add the missing C++Builder Libraries explicitly using the project views local menu | Add node.</p>
+<p><strong>Using OWLMAKE.GEN</strong><br />
+  All the OWL examples in Borland C++, including OWLDLG and HTMLFORM, have short makefiles that generate their rules by including a larger and more general makefiles, OWLMAKE.GEN and MAKEFILE.GEN.&nbsp; These have been updated so that they too understand the -DVCL switch.&nbsp; If you're familiar with using MAKEFILE.GEN, then writing OWL/VCL makefiles is easy—just add -DVCL whatever you already have.&nbsp; (Also be sure to set BCBROOT as an environment variable—see above.)</p>
+<p><strong>Common Build Errors</strong><br />
+  Depending on what OWL types you use, you are likely to see compiler warnings such as "ambiguity between OWL::TColor and Graphics::TColor."&nbsp; Because VCL and OWL use the same names for a handful of classes it is sometimes necessary to be completely explicit about which you mean.&nbsp; The VCL-compatible version of the OWL framework uses three namespaces: ClassLib, OCF, and OWL. VCL is split up into many smaller namespaces such the as Graphics, Forms, BDE, Mapi, Controls, and others.&nbsp; Resolve ambiguities by adding an explicit namespace qualifier to each ambiguous class name.</p>
+<p><strong>OWL Classes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VCL Classes</strong><br />
+  ClassLib::TColor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Graphics::TColor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+  OWL::TApplication&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Forms::TApplication<br />
+  ClassLib::TRect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Windows::TRect</p>
+<p>Both OWL and VCL have "using" clauses in their headers so you don't need to write <em>using namespace OWL</em> or <em>using namespace Forms </em>in your own code.&nbsp; They namespaces are always already open for you.</p>
+<p>If your code contains forward references to classes defined inside the namespace, then you should wrap those references in the namespace, too.&nbsp; For example, if your code contains this line now</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class _OWLCLASS TStatusBar;</p>
+<p>You should change it this:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; namespace OWL {<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class _OWLCLASS TStatusBar;<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>Finally, if the linker complains about unresolved references to symbols that include namespace scopes, be sure that you have defined BI_NAMESPACE for the compiler (see Compiler Options, above.)<strong> </strong></p>
+<p><strong>Debugging Versions</strong><br />
+  To build debugging versions, link the executable to VCLD.LIB instead of VCL.LIB.&nbsp; (And as always you can rebuild OWLWV.LIB and OWLWVI.LIB with the DEBUG and DIAGS options.)</p>
+<p><strong><em>Potential Difficulties Using OWL with VCL</em></strong><br />
+  VCL and OWL use the same identifier value for different resource strings.&nbsp; Furthermore, due to the way VCL apps are built, the VCL strings always get priority.&nbsp; EXEs that combine OWL and VCL always get the VCL string, not the OWL string, when there is a conflict.&nbsp; HTMLForm has to turn off the display of status bar hint text for system menu items because otherwise the wrong strings appear.&nbsp; Other resource ID collisions may still be discovered.</p>
+<p>OWL cannot renumber these strings because their numbers are determined by the command ID for the relevant system menu item.&nbsp; One workaround: build the VCL modules of an OWL/VCL app into a separate DLL.&nbsp; All the VCL resources will end up there.&nbsp; OWL will look for its resources in the EXE, VCL in the DLL. </p>
+<p><strong>IV.&nbsp; Combining MFC and VCL</strong><br />
+  This section describes how to modify an MFC example so that it will host a form generated by Borland C++Builder.&nbsp; Specifically, it tells how to add a VCL form to the standard MFC example, CTRLTEST (found in BC5\EXAMPLES\MFC\GENERAL\CTRLTEST.)&nbsp; The instructions detail all the modifications needed to add a dialog box designed as a form in C++Builder.&nbsp; The modified example can be found on your CD in BC5\EXAMPLES\CBUILDER\MFCDLG. If you want to try the MFCDLG example follow the instructions in the EXAMPLES section and copy them from your CD to your hard drive.</p>
+<p>CTRLTEST shows an MFC window invoking different types of dialog boxes.&nbsp; MFCDLG adds a command to invoke a C++Builder form as though it were just another dialog box..</p>
+<p>These instructions assume that both Borland C++Builder and Borland C++ are installed.&nbsp; It also assumes you have copied the example from the CD to your hard drive.&nbsp; MFC is only included in Borland C++, not C++Builder.&nbsp; VCL is in C++Builder, not in Borland C++.&nbsp; </p>
+<p><strong><em>Instructions</em></strong><br />
+  VCL applications are always multithreaded and linked statically to the MFC library (no MFC DLLs).&nbsp; The corresponding MFC library is NAFXCW.LIB. </p>
+<p>Rebuild NAFXCW.LIB<br />
+  NAFXCW.LIB is normally built with compiler switches that conflict with VCL.&nbsp; To make a compatible version, you'll need to rebuild NAFXCW.LIB with the proper compiler and linker switches.&nbsp; Here are the steps:</p>
+<ul>
+  <li>Copy the MFC source code from BC5\SOURCE\MFC directory on the CD to your hard disk.&nbsp; Preserve directory names and structure so that the makefiles will work.&nbsp; For example, copy it to C:\BC5\SOURCE\MFC.</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+  <li>From the MFC subdirectory enter the command: </li>
+</ul>
+<p>make -B -l -fborland.mak DEBUG=0 DBGINFO=0 LIBDIR=c:\bc5\lib <br />
+  "OPT=-a4 -b- -Vx -Ve"</p>
+<p>This results in a new version of NAFXCW.LIB being created in the C:\BC5\LIB directory</p>
+<p>Create the Form in C++Builder<br />
+  Using Borland C++ Builder, create the desired form.&nbsp; In our modifications to CTRLTEST, we named the form "SimpleCP." C++ Builder creates a .CPP file containing the form's code, a .H file to describe the form, and a DFM file which holds the resource data necessary to create and display the form at runtime.</p>
+<p>Add a Menu Choice to CTRLTEST<br />
+  CTRLTEST already has a menu for selecting different kinds of dialog boxes.&nbsp; We added an item to it.</p>
+<p>Add a command ID to RESOURCE.H:</p>
+<p>#define IDM_TEST_CPPBUILDER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 413</p>
+<p>Add a corresponding menu item to the AFX_IDI_STD_FRAME menu defined in CRTLTEST.RC:</p>
+<p>MENUITEM "&amp;C++Builder Form...",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IDM_TEST_CPPBUILDER</p>
+<p>Extend the CTestWindow class defined in CTRLTEST.H by adding a method to handle the menu selection:</p>
+<p>afx_msg void OnTestCppBuilder();</p>
+<p>Extend the message map in CTRLTEST.CPP so that selection of the menu at runtime will cause the flow of execution to be passed to the handler:</p>
+<p>ON_COMMAND(IDM_TEST_CPPBUILDER, OnTestCppBuilder)</p>
+<p>Create a new file to hold the implementation of the command handler.&nbsp; Ours is BLDRTEST.CPP. </p>
+<p>#include "stdafx.h"<br />
+  #include "ctrltest.h"</p>
+<p>// C++Builder and MFC both have BEGIN_MESSAGE_MAP and END_MESSAGE_MAP <br />
+  // macros.&nbsp; They are performing analogous tasks but in <br />
+  // different ways.&nbsp; The defines made by MFC must be removed prior to <br />
+  // including VCL.H to avoid <br />
+  // compiler errors</p>
+<p>#undef BEGIN_MESSAGE_MAP<br />
+  #undef END_MESSAGE_MAP<br />
+  #include &lt;vcl.h&gt;</p>
+<p>#include "SimpleCPPBuilder.h"</p>
+<p>void CTestWindow::OnTestCppBuilder()<br />
+  {<br />
+  &nbsp; TForm1 *aForm = new TForm1(NULL);<br />
+  &nbsp; aForm-&gt;ShowModal();<br />
+  }</p>
+<p>// The purpose of the following code is to call the VCL <br />
+  // initialization code once during application startup.<br />
+  //<br />
+  static void foo(){<br />
+  &nbsp; Application-&gt;Initialize();<br />
+  }<br />
+  #pragma startup foo</p>
+<p>Reparent the main VCL window<br />
+  During VCL initialization a VCL TApplication window is created.&nbsp; This is a hidden top level window used to represent the application to the system (its icon shows up in the task bar).&nbsp; In a normal VCL application, this is the desired behavior.&nbsp; However, when the main window is an MFC window the result is <em>two </em>top level windows.&nbsp; If you skipped this step, you would end up with two icons in the Task Bar when you ran CTRLTEST.EXE, both referring to the same application.&nbsp; </p>
+<p>To avoid the duplication, modify CTRLTEST.CPP (the main module) to #include the file ADOPT.H.&nbsp; Then call AdoptVCLAppWindow to in the CTestApp::InitInstance() method:</p>
+<p>AdoptVCLAppWindow(*pMainWnd);</p>
+<p>The code in ADOPT.CPP makes the invisible VCL window a child of the main MFC window so only one icon appears in the Task Bar for CTRLTEST.</p>
+<p>Modify the Makefile</p>
+<p><strong>Modify Symbol Definitions</strong><br />
+  The MAKEFILE for CTRLTEST needs to be extended.&nbsp; Add these lines to it:</p>
+<p>DEBUG=0<br />
+  CFLAGS=-a4 -b- -Vx -Ve -D_VCL_LEAN_AND_MEAN <br />
+  LINKFLAGS=-V4.0<br />
+  CFLAGS=$(CFLAGS) -I"c:\program files\borland\cbuilder\include\vcl"<br />
+  OTHERLIBS=vcl<br />
+  OTHERLIBPATH="c:\program files\borland\cbuilder\lib;c:\program files\borland\cbuilder\lib\obj"</p>
+<p>The line "CFLAGS=-a4 -b- -Vx -Ve -D_VCL_LEAN_AND_MEAN" sets the appropriate compiler options and omits portions of the VCL which are not strictly necessary when combining MFC and VCL.</p>
+<p>The line "LINKFLAGS=-V4.0" is not strictly necessary. &nbsp;It will tag the resulting .EXE as being a Windows 4.0 application.&nbsp; Using this tag makes the dialogs in the application look better when run under Win95 or WinNT because they use the CTRL3D extensions.</p>
+<p>The line "CFLAGS=$(CFLAGS) -I"c:\program files\borland\cbuilder\include\vcl"" assumes that Borland C++ Builder has been installed to the C:\PROGRAM FILES\BORLAND\CBUILDER directory.&nbsp; The line ensures that header files needed by VCL are locatable.</p>
+<p>The line "OTHERLIBS=vcl" specifies that the VCL.LIB file should be linked in to the resulting .EXE.&nbsp; This library resolves the references which will be made to VCL supplied functionality.&nbsp; </p>
+<p>The line "OTHERLIBPATH="c:\program files\borland\cbuilder\lib;c:\program files\borland\cbuilder\lib\obj"" will be used to expand the library search path so that VCL.LIB can be located.</p>
+<p><strong>Add the New Modules to the Build Process</strong><br />
+  The MAKEFILE contains the line:</p>
+<p>OBJS=ctrltest.obj paredit.obj \</p>
+<p>we need to add our new files to this list so that they will be compiled and linked.&nbsp; Change the line to be:</p><p>OBJS=<strong>SimpleCPPBuilder.obj adopt.obj bldrtest.obj</strong> \<br />
+  &nbsp; ctrltest.obj paredit.obj \</p>
+<p><strong>Tell Make What Libraries to Use</strong><br />
+  The MFCSAMPS.MAK file sets the libraries to be linked with for a statically linked MFC app with the line:</p>
+<p>LIBRARIES=nafxcw$(DEBUG_SUFFIX).lib $(OTHERLIBS) <strong>cw32mt.lib</strong>\ <br />
+  import32.lib</p>
+<p>CP32MT.LIB is a new version of the runtime library (CW32MT was used in past versions) designed to be fully VCL compatible.</p>
+<p>LIBRARIES=nafxcw$(DEBUG_SUFFIX).lib $(OTHERLIBS) <strong>cp32mt.lib</strong>\<br />
+  import32.lib</p>
+<p>We need to specify a number of other libraries (which we can do by setting&nbsp; OTHERLIBS in our makefile) </p>
+<p><strong>Tell Make Where to Look for Libraries</strong><br />
+  We need to set the library search path to include the C++Builder libraries as well as the standard Borland C++ libraries.&nbsp; MFCSAMPS.MAK sets LINKFLAGS with a line like:</p>
+<p>LINKFLAGS=/n /m /s /w-inq $(LINKDEBUG) /L$(BORLIB) $(LINKFLAGS)</p>
+<p>Since BORLIB is used to specify startup code, we can't change it.&nbsp; So we'll extend the line to this:</p>
+<p>LINKFLAGS=/n /m /s /w-inq $(LINKDEBUG) /L$(BORLIB);<strong>$(OTHERLIBPATH)</strong>\ <br />
+  $(LINKFLAGS)</p>
+<p><strong>Help MAKE Locate Its Include File</strong><br />
+  The MAKEFILE contains the line</p>
+<p>!include &lt;$(MAKEDIR)\..\include\mfc\mfcsamps.mak&gt;</p>
+<p>MAKEDIR is an internal macro which expands to be the directory where MAKE was invoked.&nbsp; If C++Builder is installed <strong>after</strong> BC5.0 then typing MAKE on the command line invokes the MAKE.EXE from CBUILDER\BIN.&nbsp; That MAKE does not have a ..\INCLUDE\MFC\MFCSAMPS.MAK file.</p>
+<p>Either put BC5\BIN first on your path, or use an absolute path in the !include line of your makefile so MAKE can find the MFCSAMPS.MAK installed with Borland C++.</p>
+<p><strong>How to Use Debugging Versions of the Libraries</strong><br />
+  The line "DEBUG=0" makes the linker use the non-debugging version of&nbsp; the MFC library.&nbsp; (To use the debugging version, you could build NAFXCWD.LIB using the command</p>
+<p>make -B -l -fborland.mak DEBUG=1 DBGINFO=0 LIBDIR=c:\bc5\lib <br />
+  "OPT=-a4 -b- -Vx -Ve"</p>
+<p>There is also a debugging version of the VCL.&nbsp; To use it, change OTHERLIBS=vcl to OTHERLIBS=vcld.</p>
+<p><strong>V. Late breaking developments - an alternative integration strategy</strong><br />
+  This section describes an alternate way of combining VCL with OWL or MFC.&nbsp; This approach is simpler, but has not been tested as well as the above method.</p>
+<p>This method recognizes the differences in vtable alignment, enum size and structure packing between VCL and MFC/OWL and addresses it by ensuring that the appropriate compiler options are in effect when VCL related classes are encountered.&nbsp; This is done by wrapping references to VCL within header files which explicitly set/reset these options.</p>
+<p>The following instructions describe how to modify one of the MFC example programs CTRLTEST (found in BC5\EXAMPLES\MFC\GENERAL\CTRLTEST), so that it will host a VCL based form.</p>
+<p>These instructions assume that both Borland C++Builder and Borland C++ are installed.&nbsp; MFC is only included in Borland C++, not C++Builder.&nbsp; VCL is included in C++Builder, not in Borland C++.&nbsp; </p>
+<p><strong><em>Instructions</em></strong></p>
+<p><strong>Copy new VCL include files</strong><br />
+  Release 1.0 of C++Builder shipped with several header files which require upgrading to resolve compile time conflicts.&nbsp; The new header files have no incompatibilities with the other headers shipped with C++Builder and so there is no need to rebuild any VCL based code that relies on them.&nbsp; This needs to be done only once.&nbsp; The existing files:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SYSDEFS.H<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WINDOWS.HPP<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CONTROLS.HPP<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RICHEDIT.HPP<br />
+  and the new files:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VCLON.H<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VCLOFF.H<br />
+  in the directory BC5\EXAMPLES\CBUILDER\INCLUDE on your CD need to be copied into the CBUILDER\INCLUDE\VCL subdirectory of your existing CBUILDER installation. </p>
+<p><strong>Create C++ Builder form</strong><br />
+  Use C++Builder to create the desired form - call it myform.&nbsp; Copy the 3 form files (myform.cpp, myform.h, myform.dfm) to the project's directory. <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; copy myform.* c:\bc5\examples\mfc\general\ctrltest </p>
+<p><strong>Load the project file</strong><br />
+  Run BCW and open the project file (c:\bc5\examples\mfc\general\ctrltest\ctrltest.ide).</p>
+<p><strong>Extend the project's directories</strong><br />
+  From the Project View window, select the CTRLTEST.EXE node and use the right mouse button to invoke the node's context menu.&nbsp; Select "Edit local options" to see the Project Options Dialog.&nbsp; Select the "Directories" category and append C++Builder's directories to the existing directories.&nbsp; To the Include path add:<br />
+  $env(bcbroot)\include;$env(bcbroot)\include\vcl</p>
+<p>and to the Library path add:</p>
+<p>$env(bcbroot)\lib;$env(bcbroot)\lib\obj</p>
+<p><strong>Add VCL form to project</strong><br />
+  From the Project View window, select the CTRLTEST.EXE node and use the right mouse button to invoke the node's context menu.&nbsp; Select "Add node", and select the MYFORM.CPP file. </p>
+<p><strong>Switch runtime libraries</strong><br />
+  From the IDE's main menu select Options | Environment | Project View and turn on the "Show run-time nodes" option.</p>
+<p>In the Project View window, select the node named "cw32mt.lib".&nbsp; Remove it from the project by pressing the Delete key.</p>
+<p>This is an important step - your project will crash if this runtime library is left in the project because VCLON.H brings in an alternate (VCL friendly) runtime library named by CP32MT.LIB.</p>
+<p><strong>Incorporate VCL functionality </strong><br />
+  Make the following modifications to the file CTRLTEST.CPP:<br />
+  &nbsp;&nbsp; <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a. add the following after the last #include:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #include "vclon.h"<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #include "myform.h"<br />
+  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #include "vcloff.h"</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b. in the function "CTestApp::InitInstance()", after Create has been<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; called on "pMainWnd", add the following code (init VCL stuff<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; correctly):</p>
+<p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Application-&gt;Initialize();<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetParent(Application-&gt;Handle, *pMainWnd);<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c. in the "CTestApp::OnAppAbout()" function (at the bottom of the file), <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comment out the single line of code and add the following:</p>
+<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TForm1 *form = new TForm1(Application);<br />
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; form-&gt;Left = 100;<br />
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; form-&gt;Top = 100;<br />
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; form-&gt;ShowModal();<br />
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; delete form;</p>
+<p><strong>Test the results</strong><br />
+  Make &amp; run the project; use the "Help | About" menu to invoke the C++Builder dialog box.</p>
+<p><strong>Linker issues</strong><br />
+  VCL.H contains a compiler pragma that causes a library symbol to be emitted into the object file.&nbsp; When this object file is encountered during the link it will cause the file referenced by the pragma to also be included.&nbsp; An advantage of this technique is that the linked libraries can be changed without affecting the project definition.&nbsp; A disadvantage is that control over exactly where (with respect to other object modules) the referenced libraries will be encountered is difficult for the user to determine.&nbsp; The result may be success, warnings or errors during link.</p>
+<p>If your link succeeds with no warnings,&nbsp; the order of your linked objects requires no tweaking. </p>
+<p>If your link encounters either warnings or errors, it is because the order in which files are being linked is confusing the linker.&nbsp; Borland C++ version 5.02 comes with both an incremental linker (the default) and a standard linker (controlled by the Options|Project|Linker|32-bit linker|Use incremental linker option).</p>
+<p>Messages like:<br />
+  Linking D:\BC5\EXAMPLES\MFC\GENERAL\CTRLTEST\ctrltest.exe<br />
+  &nbsp; Error: Unable to open file 'GRIDS.OBJ'<br />
+  &nbsp; Error: Unable to open file 'OUTLINE.OBJ'</p>
+<p>Come from the incremental linker and can be fixed by ensuring that a source file containing VCLON/VCLOFF is encountered prior to a file which simply includes VCL.H.</p>
+<p>Messages like:<br />
+  Linking D:\BC5\EXAMPLES\MFC\GENERAL\CTRLTEST\ctrltest.exe<br />
+  &nbsp; Warning: Export '_DebugHook' is duplicated<br />
+  &nbsp; Warning: Export '_ExceptionClass' is duplicated<br />
+  &nbsp; Warning: Export '__lockDebuggerData()' is duplicated<br />
+  &nbsp; Warning: Export '__unlockDebuggerData()' is duplicated<br />
+  &nbsp; Warning: Export '_DebugHook' is duplicated<br />
+  &nbsp; Warning: Export '_ExceptionClass' is duplicated<br />
+  &nbsp; Warning: Export '__lockDebuggerData()' is duplicated<br />
+  &nbsp; Warning: Export '__unlockDebuggerData()' is duplicated</p>
+<p>Come from the standard linker and can safely be ignored (the duplicates aren't really duplicates at all, they are the exact same code from the same place just referenced differently).<br />
+  -----------------------------------------------------------<br />
+  Copyright © 1997. Borland International, Inc.</p>
+</body>
+</html>

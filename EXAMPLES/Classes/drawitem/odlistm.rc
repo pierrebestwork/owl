@@ -1,0 +1,463 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_SDI MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        CM_FILENEW
+        MENUITEM "&Open...",                    CM_FILEOPEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Save",                       CM_FILESAVE, GRAYED
+        MENUITEM "Save &As...",                 CM_FILESAVEAS, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",               CM_EXIT
+    END
+    MENUITEM SEPARATOR
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tAlt+BkSp",             CM_EDITUNDO, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tShift+Del",             CM_EDITCUT, GRAYED
+        MENUITEM "&Copy\tCtrl+Ins",             CM_EDITCOPY, GRAYED
+        MENUITEM "&Paste\tShift+Ins",           CM_EDITPASTE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Clear &All\tCtrl+Del",        CM_EDITCLEAR, GRAYED
+        MENUITEM "&Delete\tDel",                CM_EDITDELETE
+        , CHECKED, GRAYED
+    END
+    POPUP "&Search"
+    BEGIN
+        MENUITEM "&Find...",                    CM_EDITFIND, GRAYED
+        MENUITEM "&Replace...",                 CM_EDITREPLACE, GRAYED
+        MENUITEM "&Next\aF3",                   CM_EDITFINDNEXT, GRAYED
+        POPUP "Submenu"
+        BEGIN
+            MENUITEM "FirstItem",                   CM_FIRST_ITEM
+            MENUITEM "Second Item",                 CM_SECOND_ITEM
+            MENUITEM "Third Item",                  CM_THIRD_ITEM
+            MENUITEM "Forth Item",                  CM_ITEM4
+            MENUITEM "Fifth Item",                  CM_ITEM5
+            MENUITEM "Sixth Item",                  CM_ITEM6
+            MENUITEM "Seventh Item",                CM_ITEM7
+            MENUITEM "Eight Item",                  CM_ITEM8
+            MENUITEM "Enable All",                  CM_ENABLEALL
+        END
+    END
+    MENUITEM SEPARATOR
+    MENUITEM "Test Dialog...",              CM_TEST_DIALOG
+    MENUITEM SEPARATOR
+    MENUITEM SEPARATOR
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About...",                   CM_HELPABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDM_SDI ACCELERATORS MOVEABLE PURE 
+BEGIN
+    VK_DELETE,      CM_EDITDELETE,          VIRTKEY 
+    VK_DELETE,      CM_EDITCUT,             VIRTKEY, SHIFT
+    VK_INSERT,      CM_EDITCOPY,            VIRTKEY, CONTROL
+    VK_INSERT,      CM_EDITPASTE,           VIRTKEY, SHIFT
+    VK_DELETE,      CM_EDITCLEAR,           VIRTKEY, CONTROL
+    VK_BACK,        CM_EDITUNDO,            VIRTKEY, ALT
+    VK_F3,          CM_EDITFINDNEXT,        VIRTKEY 
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_SDIAPPLICATION      ICON    DISCARDABLE     "res/applsdi.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTDLG DIALOG DISCARDABLE  12, 17, 204, 65
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About odlistm"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Version",IDC_VERSION,34,13,170,8,SS_NOPREFIX
+    CTEXT           "About this Application",-1,37,4,165,8,SS_NOPREFIX
+    CTEXT           "",IDC_COPYRIGHT,2,27,200,17,SS_NOPREFIX
+    RTEXT           "",IDC_DEBUG,136,55,66,8,SS_NOPREFIX
+    ICON            IDI_SDIAPPLICATION,-1,2,2,20,20
+    DEFPUSHBUTTON   "OK",IDOK,82,48,40,14
+END
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Icon Selection"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LISTBOX         IDC_LIST1,7,38,113,50,LBS_OWNERDRAWFIXED | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO1,7,7,114,81,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | CBS_SORT | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x3fL
+#else
+ FILEFLAGS 0x3eL
+#endif
+ FILEOS 0x1L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "My Copmany\0"
+            VALUE "FileDescription", "odlistm for Windows\0"
+            VALUE "FileVersion", "1.0\0"
+            VALUE "InternalName", "odlistm\0"
+            VALUE "LegalCopyright", "Copyright 1998. All right reserved.\0"
+            VALUE "LegalTrademarks", "Windows(TM) is a trademark of Microsoft Corporation\0"
+            VALUE "OriginalFilename", "odlistm.exe\0"
+            VALUE "ProductName", "odlistm\0"
+            VALUE "ProductVersion", "1.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res/bitmap1.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "res/bitmap2.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "res/bitmap3.bmp"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "res/bitmap4.bmp"
+IDB_BITMAP5             BITMAP  DISCARDABLE     "res/bitmap5.bmp"
+IDB_BITMAP6             BITMAP  DISCARDABLE     "res/bitmap6.bmp"
+IDB_BITMAP7             BITMAP  DISCARDABLE     "res/bitmap7.bmp"
+IDB_BITMAP8             BITMAP  DISCARDABLE     "res/bitmap8.bmp"
+IDB_BITMAP9             BITMAP  DISCARDABLE     "res/bitmap9.bmp"
+IDB_BITMAP10            BITMAP  DISCARDABLE     "res/bitmap10.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDB_BITMAP2 TOOLBAR MOVEABLE PURE  19, 17
+BEGIN
+    BUTTON      CM_FILENEW
+    BUTTON      CM_FILEOPEN
+    BUTTON      CM_FILESAVE
+    BUTTON      CM_FILESAVEAS
+    BUTTON      CM_EDITUNDO
+    BUTTON      CM_EDITCUT
+    BUTTON      CM_EDITCOPY
+    BUTTON      CM_EDITPASTE
+    BUTTON      CM_EDITCLEAR
+    BUTTON      CM_HELPABOUT
+    BUTTON      CM_EDITFIND
+    BUTTON      CM_EDITREPLACE
+    BUTTON      CM_EDITFINDNEXT
+    BUTTON      CM_FILECLOSE
+    BUTTON      ID_BUTTON40010
+    BUTTON      ID_BUTTON40011
+    BUTTON      CM_EXIT
+    BUTTON      ID_BUTTON40013
+    BUTTON      24337
+    BUTTON      24338
+    BUTTON      61536
+    BUTTON      61488
+    BUTTON      61472
+    BUTTON      61728
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    24320                   "Edit operations"
+    CM_EDITUNDO             "Reverses the last operation"
+    CM_EDITCUT              "Cuts the selection and puts it on the Clipboard"
+    CM_EDITCOPY             "Copies the selection and puts it on the Clipboard"
+    CM_EDITPASTE            "Inserts the Clipboard contents at the insertion point"
+    CM_EDITDELETE           "Deletes the selection"
+    CM_EDITCLEAR            "Clears the active document"
+    CM_EDITADD              "Inserts a new line"
+    CM_EDITEDIT             "Edits the current line"
+    24330                   "File operations"
+    CM_FILENEW              "Creates a new window"
+    CM_FILEOPEN             "Opens a window"
+    CM_FILESAVE             "Saves the active document"
+    CM_FILESAVEAS           "Saves the active document with a new name"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    CM_FILECLOSE            "Closes the active document"
+    24350                   "Search/replace operations"
+    CM_EDITFIND             "Finds the specified text"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    CM_EXIT                 "Quits odlistm and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    CM_EDITREPLACE          "Finds the specified text and changes it"
+    CM_EDITFINDNEXT         "Finds the next match"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2008                    "Access About"
+    CM_HELPABOUT            "About the odlistm application"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MODES               "EXT|CAPS|NUM|SCRL|OVR|REC"
+    IDS_MODESOFF            "   |  |   |  |   |   "
+    IDS_CANNOTFIND          "Cannot find ""%s""."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UNTITLED            "Document"
+    IDS_UNABLEREAD          "Unable to read file %s from disk."
+    IDS_UNABLEWRITE         "Unable to write file %s to disk."
+    IDS_FILECHANGED         "The text in the %s file has changed.\n\nDo you want to save the changes?"
+    IDS_FILEFILTER          "Text files|*.txt|AllFiles|*.*|"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VBXLIBRARYFAIL      "VBX Library init failure"
+    IDS_INVALIDMAINWINDOW   "Invalid MainWindow"
+    IDS_INVALIDMODULE       "Invalid module specified for window"
+    IDS_OUTOFMEMORY         "Out of memory"
+    IDS_NOAPP               "No application object"
+    IDS_UNKNOWNERROR        "Unknown error"
+    IDS_UNHANDLEDXMSG       "Unhandled Exception"
+    IDS_OKTORESUME          "OK to resume?"
+    IDS_OWLEXCEPTION        "ObjectWindows Exception"
+    IDS_UNKNOWNEXCEPTION    "Unknown exception"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INVALIDCLIENTWINDOW "Invalid client window %s"
+    IDS_INVALIDCHILDWINDOW  "Invalid child window %s"
+    IDS_INVALIDWINDOW       "Invalid window %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GDIRESLOADFAIL      "GDI resource load failure"
+    IDS_GDICREATEFAIL       "GDI creation failure"
+    IDS_GDIALLOCFAIL        "GDI allocate failure"
+    IDS_GDIFAILURE          "GDI failure"
+    IDS_LAYOUTBADRELWIN     "Invalid relative window specified in layout constraint in window %s"
+    IDS_LAYOUTINCOMPLETE    "Incomplete layout constraints specified in window %s"
+    IDS_PRINTERERROR        "Printer error"
+    IDS_VALIDATORSYNTAX     "Validator syntax error"
+    IDS_MENUFAILURE         "Menu creation failure"
+    IDS_CHILDCREATEFAIL     "Child create fail for window %s"
+    IDS_WINDOWEXECUTEFAIL   "Execute fail for window %s"
+    IDS_WINDOWCREATEFAIL    "Create fail for window %s"
+    IDS_CHILDREGISTERFAIL   "Child class registration fail for window %s"
+    IDS_CLASSREGISTERFAIL   "Class registration fail for window %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INVALIDDIBHANDLE    "Invalid DIB handle %X"
+    IDS_GDIDESTROYFAIL      "GDI object %X destroy failure"
+    IDS_GDIDELETEFAIL       "GDI object %X delete failure"
+    IDS_GDIFILEREADFAIL     "GDI file read failure"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61440                   "Changes the size of the window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61456                   "Moves the window to another position"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61472                   "Reduces the window to an icon"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61488                   "Enlarges the window to it maximum size"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61728                   "Restores the window to its previous size"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61536                   "Closes the window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61744                   "Opens task list"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    61504                   "Switches to next window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_VALPXPCONFORM       "Input does not conform to picture:\n""%s"""
+    IDS_VALINVALIDCHAR      "Invalid character in input"
+    IDS_VALNOTINRANGE       "Value is not in the range %ld to %ld."
+    IDS_VALNOTINLIST        "Input is not in valid-list"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDC_TEST_DIALOG         "Test Dialog"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

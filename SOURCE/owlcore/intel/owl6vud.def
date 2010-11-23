@@ -1,0 +1,19 @@
+LIBRARY     owl6vud.dll
+
+EXPORTS
+;__u64add@8
+;__u64sub@8
+;__u64cmp@8
+;__i64cmp@8
+;__u64mul@12
+;__64div@12
+;__u64neg@4
+;__64and@8
+__u128add@8
+__u128sub@8
+__u128cmp@8
+__i128cmp@8
+__u128neg@4
+__128and@8
+__u128mul@12
+__128div@12

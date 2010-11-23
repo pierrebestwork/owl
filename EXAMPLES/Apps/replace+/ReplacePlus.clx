@@ -1,0 +1,129 @@
+//Always generated OWL ClassExpert's Data File.
+//OWL ClassExpert for VC. Version 1.1.
+//Copyright (C) 1998-1999 by Yura Bidus. All rights reserved.
+//
+
+
+@@START_CLASS_INFO
+{
+  Filter{
+    hsource=replacer.h
+    cppsource=replacer.cpp
+    ClassType=C12
+    Constructor=Filter()
+  }
+  FileRecurser{
+    hsource=replacer.h
+    cppsource=replacer.cpp
+    ClassType=C12
+    Constructor=FileRecurser(char *_folder, char *_filter, bool _subfolders,FileProcessorBase *_fileProcessor)
+  }
+  ReplaceApp{
+    hsource=app.h
+    cppsource=app.cpp
+    ClassType=CAE123
+    BaseClasses=TApplication,
+    Constructor=ReplaceApp()
+    Virtuals{
+      void InitInstance()
+      void InitMainWindow()
+    }
+  }
+  THelpDialog{
+    hsource=help.h
+    cppsource=help.cpp
+    WindowID=IDD_HELP
+    ClassType=CWDE123
+    BaseClasses=TDialog,
+    Constructor=THelpDialog(TWindow* parent, TResId resId, TModule* module)
+  }
+  ReplaceClient{
+    hsource=client.h
+    cppsource=client.cpp
+    WindowID=IDD_CLIENT
+    ClassType=CWDE123
+    BaseClasses=TDialog,
+    Constructor=ReplaceClient(TWindow* parent, TResId resId, TModule* module)
+    Commands{
+      IDC_BROWSE=BnBrowseClicked|
+      IDOK=CmOk|
+    }
+    Virtuals{
+      void SetupWindow()
+      bool PreProcessMsg(MSG &msg)
+    }
+    Controls{
+      EV_BN_CLICKED=BN_CLICKED,IDC_HLP,void BnHelpClicked()
+      EV_BN_CLICKED=BN_CLICKED,IDC_ACTIONFIND,void BnActionClicked()
+      EV_BN_CLICKED=BN_CLICKED,IDC_ACTIONTOUCH,void BnActionClicked()
+      EV_COMMAND=WM_COMMAND,IDC_BROWSE,void BnBrowseClicked()
+      EV_COMMAND=WM_COMMAND,IDOK,void CmOk()
+    }
+  }
+  ReplaceData{
+    hsource=util.h
+    cppsource=util.cpp
+    ClassType=C12
+    Constructor=ReplaceData()
+  }
+  FileProcessorBase{
+    hsource=replacer.h
+    cppsource=replacer.cpp
+    ClassType=C12
+    Constructor=FileProcessorBase *_fileProcessor)
+  }
+  Toucher{
+    hsource=replacer.h
+    cppsource=replacer.cpp
+    ClassType=C12
+    BaseClasses=FileProcessorBase,
+    Constructor=Toucher(const TTime &_filetime)
+  }
+  Replacer{
+    hsource=replacer.h
+    cppsource=replacer.cpp
+    ClassType=C12
+    BaseClasses=FileProcessorBase,
+    Constructor=Replacer(char *_find, char *_replace)
+  }
+}
+@@END_CLASS_INFO
+@@START_VERSION_INFO
+{
+  Project=ReplacePlus
+  Company=Some Company
+  Author=Jogy
+  Copyright=Copyright (c) 2000 by Jogy
+  Target=ReplacePlus
+}
+@@END_VERSION_INFO
+
+@@START_COMMAND_INFO
+{
+}
+@@END_COMMAND_INFO
+@@START_DIALOG_INFO
+{
+  IDD_CLIENT{
+    IDC_FOLDER=combobox
+    IDC_FILTER=combobox
+    IDC_ST_FIND=static
+    IDC_FIND=combobox
+    IDC_ST_REPLACE=static
+    IDC_REPLACE=combobox
+    IDC_ST_TIME=static
+    IDC_EDITTIME=SysDateTimePick32
+    IDC_EDITDATE=SysDateTimePick32
+    IDC_BROWSE=button
+    IDC_SUBFOLDERS=CheckBox
+    IDC_ACTIONFIND=RadioButton
+    IDC_ACTIONTOUCH=RadioButton
+    IDOK=BUTTON
+    IDCANCEL=BUTTON
+    IDC_HLP=button
+  }
+  IDD_HELP{
+    IDOK=BUTTON
+  }
+}
+@@END_DIALOG_INFO

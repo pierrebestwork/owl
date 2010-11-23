@@ -1,0 +1,246 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "..\aclock.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+CUCKOO1                 BITMAP  MOVEABLE PURE   "..\cuckoo1.bmp"
+CUCKOO2                 BITMAP  MOVEABLE PURE   "..\cuckoo2.bmp"
+CUCKOO3                 BITMAP  MOVEABLE PURE   "..\cuckoo3.bmp"
+CUCKOO4                 BITMAP  MOVEABLE PURE   "..\cuckoo4.bmp"
+CUCKOO5                 BITMAP  MOVEABLE PURE   "..\cuckoo5.bmp"
+CUCKOO6                 BITMAP  MOVEABLE PURE   "..\cuckoo6.bmp"
+CUCKOO7                 BITMAP  MOVEABLE PURE   "..\cuckoo7.bmp"
+CUCKOO8                 BITMAP  MOVEABLE PURE   "..\cuckoo8.bmp"
+FACE_BMP                BITMAP  MOVEABLE PURE   "..\face_bmp.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON    DISCARDABLE     "../aclock.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+TOOL_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&Effects"
+    BEGIN
+        MENUITEM "&Chime",                      CM_EFFECTCHIME
+        MENUITEM "C&uckoo",                     CM_EFFECTCUCKOO
+    END
+    POPUP "&Help", HELP
+    BEGIN
+        MENUITEM "&About",                      CM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT_BWCC DIALOG DISCARDABLE  16, 23, 171, 86
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Cuckoo Clock"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Created with Borland C++ and ObjectWindows",-1,9,45,153,
+                    9
+    CTEXT           "Chimes Every Hour.",-1,9,9,153,9
+    CTEXT           "Look out at Midnight!",-1,9,21,153,9
+    PUSHBUTTON      "OK",IDOK,61,66,48,14
+END
+
+IDD_ABOUT DIALOG DISCARDABLE  16, 23, 168, 81
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Cuckoo Clock"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Created with ObjectWindows",-1,6,42,156,9
+    CTEXT           "Chimes Every Hour.",-1,6,6,156,9
+    CTEXT           "Look out at Midnight!",-1,6,18,156,9
+    PUSHBUTTON      "OK",IDOK,60,60,48,14
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""aclock.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_COMMCTRL            "Failure in Common Control DLL"
+    IDS_INVALIDMODULEORD    "Ordinal %d not found in module "
+    IDS_INVALIDMODULEFCN    "Function %s not found in module "
+    IDS_VBXLIBRARYFAIL      "VBX Library init failure"
+    IDS_INVALIDMAINWINDOW   "Invalid MainWindow"
+    IDS_INVALIDMODULE       "Unable to load module %s"
+    IDS_OUTOFMEMORY         "Out of memory"
+    IDS_NOAPP               "No application object"
+    IDS_UNKNOWNERROR        "Unknown error"
+    IDS_UNHANDLEDXMSG       "Unhandled Exception"
+    IDS_OKTORESUME          "OK to resume?"
+    IDS_OWLEXCEPTION        "ObjectWindows Exception"
+    IDS_UNKNOWNEXCEPTION    "Unknown exception"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GDIRESLOADFAIL      "GDI resource load failure"
+    IDS_GDICREATEFAIL       "GDI creation failure"
+    IDS_GDIALLOCFAIL        "GDI allocate failure"
+    IDS_GDIFAILURE          "GDI failure"
+    IDS_LAYOUTBADRELWIN     "Invalid relative window specified in layout constraint in window %s"
+    IDS_LAYOUTINCOMPLETE    "Incomplete layout constraints specified in window %s"
+    IDS_PRINTERERROR        "Printer error"
+    IDS_VALIDATORSYNTAX     "Validator syntax error"
+    IDS_MENUFAILURE         "Menu creation failure"
+    IDS_CHILDCREATEFAIL     "Child create fail for window %s"
+    IDS_WINDOWEXECUTEFAIL   "Execute fail for window %s"
+    IDS_WINDOWCREATEFAIL    "Create fail for window %s"
+    IDS_CHILDREGISTERFAIL   "Child class registration fail for window %s"
+    IDS_CLASSREGISTERFAIL   "Class registration fail for window %s"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CLIPBOARDBUSY       "Attempt to open busy clipboard"
+    IDS_WINGFAILURE         "WING failure"
+    IDS_WINGNOTAVAILABLE    "WING not available"
+    IDS_INVALIDDIBHANDLE    "Invalid DIB handle %X"
+    IDS_GDIDESTROYFAIL      "GDI object %X destroy failure"
+    IDS_GDIDELETEFAIL       "GDI object %X delete failure"
+    IDS_GDIFILEREADFAIL     "GDI file read failure"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SHELLFAILURE        "Shell failure"
+    IDS_SHELLALLOCFAIL      "TShellMalloc::Alloc failed."
+    IDS_INVALIDPATH         "Invalid Path"
+    IDS_BINDTOOBJECTFAIL    "IShellFolder::BindToObject failed."
+    IDS_SHGETDESKTOPFAIL    "::SHGetDesktopFolder failed."
+    IDS_SHGETSPECIALFAIL    "::SHGetSpecialFolderLocation failed."
+    IDS_GETATTRIBUTESOFFAIL "IShellFolder::GetAttributesOf failed."
+    IDS_GETFILEINFOFAIL     "::SHGetFileInfo failed."
+    IDS_GETDISPLAYNAMEFAIL  "IShellFolder::GetDisplayNameOf failed."
+    IDS_GETPATHFROMPIDLFAIL "::SHGetPathFromIDList failed."
+    IDS_SETNAMEOFFAIL       "IShellFolder::SetNameOf failed."
+    IDS_GETUIOBJECTOFFAIL   "IShellFolder::GetUIObjectOf failed."
+    IDS_COMPAREIDSFAIL      "IShellFolder::CompareIDs failed."
+    IDS_TSHELLITEMINVALID   "TShellItem is invalid."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ENUMOBJECTSFAIL     "IShellFolder::EnumObjects failed."
+    IDS_CLONEFAIL           "IEnumIDList::Clone failed."
+    IDS_SHELLITERATORATEND  "Attempt to read past end of TShellItemIterator list."
+    IDS_IDLISTNEXTFAIL      "IEnumIDList::Next failed."
+    IDS_IDLISTSKIPFAIL      "IEnumIDList::Skip failed."
+    IDS_IDLISTRESETFAIL     "IEnumIDList::Reset failed."
+    IDS_IDLISTZEROPOINTER   "IEnumIDList pointer is zero."
+    IDS_SHGETMALLOCFAIL     "::SHGetMalloc failed."
+    IDS_GETICONLOCFAIL      "IExtractIcon::GetIconLocation failed."
+    IDS_EXTRICONEXTRACTFAIL "IExtractIcon::Extract failed."
+    IDS_SHELLRENAMEFAIL     "TShellItem::Rename attempted on item that cannot be renamed."
+    IDS_SHELLCOPYFAIL       "TShellItem::Copy attempted on item that cannot be copied."
+    IDS_SHELLMOVEFAIL       "TShellItem::Move attempted on item that cannot be moved."
+    IDS_SHELLDELETEFAIL     "TShellItem::Delete attempted on item that cannot be deleted."
+    IDS_CREATESHELLLINKFAIL "CoCreateInstance(IShellLink) failed."
+    IDS_LINKQUERYINTRFCFAIL "IShellLink::QueryInterface(IPersistFile) failed."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PERSISTFILELOADFAIL "IPersistFile::Load failed."
+    IDS_LINKGETIDLISTFAIL   "IShellLink::GetIDList failed."
+    IDS_SHLLINKSETPATHFAIL  "IShellLink::SetPath failed."
+    IDS_SHLLINKSETDESCFAIL  "IShellLink::SetDescription failed."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INVALIDCLIENTWINDOW "Invalid client window %s"
+    IDS_INVALIDCHILDWINDOW  "Invalid child window %s"
+    IDS_INVALIDWINDOW       "Invalid window %s"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,4 @@
+#define CM_ADDPAGE   4000
+#define CM_EXIT     24310
+
+#define IDM_MENU1     500

@@ -1,0 +1,89 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Bidus Yura, All Rights Reserved
+//----------------------------------------------------------------------------
+#ifndef WORKSHOP_INVOKED
+#include "windows.h"
+#endif
+
+#define NO_BMP_EDITFILE
+#define NO_BMP_EDITSEARCH
+
+#include <owl/editsear.rc>
+#include <owl/editfile.rc>
+#include <owl/owlapp.rc>
+#include <owl/except.rc>
+#include <owl/window.rh>
+#include "gadgetx.rh"
+
+
+IDM_TRACKMENU MENU
+{
+  MENUITEM "&New", 	CM_FILENEW
+  MENUITEM "&Open", CM_FILEOPEN
+  MENUITEM "&Save", CM_FILESAVE
+  MENUITEM  SEPARATOR
+  MENUITEM  "Save &As...", CM_FILESAVEAS
+}
+
+IDM_APPMENU MENU
+{
+	POPUP "&File"
+ 	{
+  	MENUITEM "&New", 	CM_FILENEW
+  	MENUITEM "&Open", CM_FILEOPEN
+    MENUITEM "&Save", CM_FILESAVE
+    MENUITEM  "Save &As...", CM_FILESAVEAS
+    MENUITEM  SEPARATOR
+    MENUITEM  "E&xit",       CM_EXIT
+ 	}
+
+  POPUP "&Edit"
+  {
+    MenuItem  "&Undo\aCtrl+Z",        CM_EDITUNDO
+    MenuItem  SEPARATOR
+    MenuItem  "Cu&t\aCtrl+X",         CM_EDITCUT
+    MenuItem  "&Copy\aCtrl+C",        CM_EDITCOPY
+    MenuItem  "&Paste\aCtrl+V",       CM_EDITPASTE
+    MenuItem  "&Delete\aDel",         CM_EDITDELETE
+    MenuItem  "C&lear All\aCtrl+Del", CM_EDITCLEAR
+  }
+
+  POPUP "&Search"
+  {
+    MenuItem  "&Find...",    CM_EDITFIND
+    MenuItem  "&Replace...", CM_EDITREPLACE
+    MenuItem  "&Next\aF3",   CM_EDITFINDNEXT
+  }
+
+ 	POPUP "&Help"
+ 	{
+  	MENUITEM "&About", CM_ABOUT
+ 	}
+}
+
+IDD_ABOUT DIALOG 18, 9, 200, 100
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About ButtonTextGadget App"
+FONT 8, "MS Sans Serif"
+{
+ DEFPUSHBUTTON "OK", IDOK, 75, 81, 50, 14
+ CTEXT "TButtonTextGadget example", -1, 21, 18, 164, 8
+ CTEXT "Copyright\xA9 1998", -1, 21, 32, 164, 8
+ CTEXT "by Yura Bidus", -1, 19, 45, 167, 8
+ GROUPBOX "", 102, 15, 3, 176, 62, BS_GROUPBOX
+}
+
+
+
+CM_FILENEW BITMAP PRELOAD MOVEABLE DISCARDABLE "new.bmp"
+CM_FILEOPEN BITMAP PRELOAD MOVEABLE DISCARDABLE "open.bmp"
+CM_FILESAVE BITMAP PRELOAD MOVEABLE DISCARDABLE "save.bmp"
+CM_FILESAVEAS BITMAP PRELOAD MOVEABLE DISCARDABLE "saveas.bmp"
+CM_EDITFIND BITMAP PRELOAD MOVEABLE DISCARDABLE "find.bmp"
+CM_EDITFINDNEXT BITMAP PRELOAD MOVEABLE DISCARDABLE "findnext.bmp"
+CM_EDITUNDO BITMAP PRELOAD MOVEABLE DISCARDABLE "undo.bmp"
+CM_EDITCUT BITMAP PRELOAD MOVEABLE DISCARDABLE "cut.bmp"
+CM_EDITCOPY BITMAP PRELOAD MOVEABLE DISCARDABLE "copy.bmp"
+CM_EDITPASTE BITMAP PRELOAD MOVEABLE DISCARDABLE "paste.bmp"
+

@@ -1,0 +1,154 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil MS Sans Serif;}{\f1\fnil\fcharset2 Symbol;}{\f2\fswiss\fprq2 System;}{\f3\fnil Times New Roman;}{\f4\fswiss\fprq2 Arial;}{\f5\fmodern\fprq1 Courier New;}}
+{\colortbl\red0\green0\blue0;\red128\green0\blue0;\red0\green128\blue0;\red0\green0\blue255;\red0\green0\blue128;}
+\deflang1033\pard\plain\f4\fs22\i About this documentation:\plain\f4\fs22 
+\par \tab This file covers the use of all of the classes contained in this project: namely \plain\f4\fs22\b TRichEditView\plain\f4\fs22 , \plain\f4\fs22\b TRichEditViewMDIChild\plain\f4\fs22 , \plain\f4\fs22\b TCbApp\plain\f4\fs22 , and \plain\f4\fs22\b TCbMDIChild\plain\f4\fs22 .  I have lumped these classes together in this project because they complement each other's functionality (and I developed them all as a result of TRichEditView).  TRichEditView gives you a TEditView with a RichEdit instead of a normal Edit control.  TCbApplication (Cb == ControlBar) defines an application object that supports the switching of multiple control bars.  TCbMDIChild makes use of TCbApp, switching out control bars depending on which mdi child is active.  TRichEditViewMDIChild is a descendant of TCbMDIChild.  It doesn't do anything very special.
+\par \tab You can use TCbApp and TCbMDIChild in your other projects without changing any of their source code; however, TRichEditView, as I have implemented it, depends on your application being derived from TCbApp, and TRichEditViewMDIChild is derived from TCbMDIChild itself.  Also, TRichEditView must be used in a Doc/View enabled app.  It should also be noted that I have not tested the control bar functionality with non-dockable control bars.
+\par 
+\par 
+\par \pard\qc\plain\f4\fs40\cf1\b TRichEditView\plain\f5\fs28\cf1\b 
+\par \pard\plain\f4\fs22\cf0 
+\par \tab Ever wished you could use OWL's TRichEdit as a view?  Well, I did - so I wrote this.  You can use it in place of a TEditView very easily.  I basically cut and pasted from TEditView source code and changed a whole lot on the way.  I guess I need to give Borland the credit for writing TEditView.
+\par 
+\par \plain\f4\fs22\cf0\b Cool features of TRichEditView:
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22\cf0 {\pntext\f1\'b7\tab}All Richedit functionality - bold, italic, underline, etc...
+\par {\pntext\f1\'b7\tab}Unlimited file size.
+\par {\pntext\f1\'b7\tab}It looks nice
+\par {\pntext\f1\'b7\tab}Easy to add to current projects
+\par {\pntext\f1\'b7\tab}You don't have to write it!
+\par \pard\plain\f4\fs22\cf0 
+\par \plain\f4\fs22\cf0\b TRichEditView overview:\plain\f4\fs22\cf0 
+\par 
+\par \tab I wrote TRichEditView because I needed an edit control that could edit a very large amount of text.  Since my only target is Windows 95 (I'm a hobbyist, I can target whatever I want <g>) I decided to take advantage of Windows 95' richedit control.  It can handle up to something like 248 million characters, which will probably be plenty for most earthlings.  It also has the nice feature of, of course, RTF functionality.  With TRichEditView, you can easily make an ancient ancestor of a word processor, or just use it to handle large files.
+\par \tab From what I understand, the richedit control will be available on NT 4 (including beta builds, I guess).  Since I obviously don't have access to a beta of NT 4, let alone enough RAM to please it, I have not tested it.  If you do have a beta of NT 4, I'd be interested to know how it works...
+\par 
+\par \plain\f4\fs22\cf0\b How to use TRichEditView:\plain\f4\fs22\cf0 
+\par 
+\par \tab I'll describe here how to get your app to work with TRichEditView just like the example does (control bar support and all).  I've tried to make things as flexible as possible so that you can use it in any way you like, so feel free to make changes in the way I used it.
+\par \tab Adding TRichEditView to your app is pretty easy.  First of all, add the source code to your project:
+\par 
+\par \tab RichEditView.cpp
+\par \tab RichEditViewMDIChild.cpp
+\par \tab CbApp.cpp
+\par \tab CbMDIChild.cpp
+\par \tab RichEditView.rc
+\par 
+\par No problem here.
+\par \tab Now that you've got all the source code included, you need to make a few modifications to some of the code to fit it to your app.  Here's a listing of the changes needed to be made:
+\par \tab 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22\cf0 {\pntext\f1\'b7\tab}Derive your application object from TCbApplication.  \plain\f4\fs22\cf0\i See below for details on doing so.\plain\f4\fs22\cf0 
+\par {\pntext\f1\'b7\tab}Add the correct DEFINE_DOC_TEMPLATE's to your app:
+\par \pard\plain\f5\fs22\cf0 
+\par \pard\li360\plain\f5\fs22\cf0 DEFINE_DOC_TEMPLATE_CLASS(TFileDocument, TRichEditView, REV);
+\par \pard\li2160\fi-1800\plain\f5\fs22\cf0 REV RichText(\plain\f5\fs22\cf3 "Rich text files"\plain\f5\fs22\cf0 , \plain\f5\fs22\cf3 "*.rtf"\plain\f5\fs22\cf0 , \plain\f5\fs22\cf3 0\plain\f5\fs22\cf0 , \plain\f5\fs22\cf3 "rtf"\plain\f5\fs22\cf0 , dtAutoDelete | dtUpdateDir | dtOverwritePrompt);
+\par REV PlainText(\plain\f5\fs22\cf3 "Text files"\plain\f5\fs22\cf0 , \plain\f5\fs22\cf3 "*.txt"\plain\f5\fs22\cf0 , \plain\f5\fs22\cf3 0\plain\f5\fs22\cf0 , \plain\f5\fs22\cf3 "txt"\plain\f5\fs22\cf0 , dtAutoDelete | dtUpdateDir | dtOverwritePrompt);
+\par 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22\cf0 {\pntext\f1\'b7\tab}Some of the functions (like \plain\f5\fs22\cf0 EvNewView() in the app object\plain\f4\fs22\cf0 , etc...) have added code.  I've noted these in the source code, so just look around and find them.
+\par \pard\plain\f4\fs22\cf0 
+\par 
+\par \pard\qc\plain\f4\fs40\cf1\b TCbApplication
+\par \pard\plain\f4\fs22 
+\par \tab TCbApplication is an abstract TApplication descendant that handles switching control bars on demand.
+\par \plain\f4\fs22\b 
+\par TCbApplication implementation overview:
+\par \plain\f4\fs22 
+\par \tab I developed TCbApplication as a result of TRichEditView.  I did not like having a bunch of dead toolbar buttons lying around confusing stupid users (my parents both say that disabled options have always confused them.  BTW:  it's Ok that I still live with them because I just got out of highschool...).  I wanted a way to switch control bars in and out of the harbor.  I figured it would be easy to do, maybe four or five lines of code here and there.  Woops.
+\par \tab Once you see the source code, you may ask yourself "why did this kid use THarbor's Insert()/Remove() functions instead of hiding the window like the TOleFrame does ?(via a WM_COMMAND w/ toolbar id passed as wparam)".  The answer is - I couldn't get it to work.  I gave up on the WM_COMMAND route ( THarbor reassigns its dockables' parents ).  I then used \plain\f5\fs22 bar->ShowWindow(SW_HIDE)\plain\f4\fs22 , but the dockingslip did not resize itself properly.  For instance, if one bar was below another in a TEdgeSlip, hiding the bottom bar would not result in the TEdgeSlip resizing.  The hidden bar would just disappear, which is in fact all that was happening.  As far as TEdgeSlip was concerned, the bar was still there.  The only way to get the slips to redraw after a bar was removed was to actually remove the bar.  Who knew?
+\par \tab TCbApplication has one helper class: TBarInfo.  A very descriptive name - it holds all the information about a TDockableControlBar a human could possibly shake a stick at.  A TBarInfoArray ( \plain\f5\fs22\b typedef\plain\f5\fs22  TArrayAsVector<TBarInfo>\plain\f4\fs22  ) is kept by TCbApplication which holds one TBarInfo class for each bar type.  To add a bar type to the array, call TCbApplication's AddBarType() function.  TCbApplication adds a new TBarInfo class to the array at index [type] (\plain\f4\fs22\i for this reason, keep bar type constants low and relatively sequential\plain\f4\fs22 ).
+\par \tab Oh yeah, by the way, I wrote TCbApplication to use dockable control bar's.  If you redefine Insert() and Remove(), however, it would probably be easy to make it work with the plain old TDecoratedFrame approach.
+\par \tab There are three virtual functions you need to redefine:  CreateBar(), PreInsertBar(), and PreRemoveBar().  See below for details.
+\par 
+\par \plain\f4\fs22\b Adding to your project\plain\f4\fs22 
+\par 
+\par \tab First of all, derive your application from TCbApplication.  For each control bar you want TCbApplication to take care of, you must define a unique integer identifier.  By convention, you should define this identifier in your application's header file like:
+\par 
+\par \plain\f5\fs22 \tab \plain\f5\fs22\cf2 #define CBT_MYCONTROLBARTYPE 2\plain\f4\fs22\cf2 
+\par \plain\f4\fs22 
+\par Next you must inform TCbApplication of the control bars to keep track of.  For each CBT_XXX constant you defined, call AddBarType() passing CBT_XXX.
+\par 
+\par \plain\f5\fs22 \tab \plain\f5\fs22\cf4\i // Somewhere in the constructor\plain\f5\fs22 
+\par \tab AddBarType( CBT_MYBAR1 );
+\par \tab AddBarType( CBT_MYBAR2 );\plain\f4\fs22 
+\par 
+\par TCbApplication creates a TBarInfo for each bar type and adds it to \plain\f4\fs22\i barInfoArray\plain\f4\fs22  at index [CBT_XXX], so keep your CBT_XXX's small (range from 2 on up).  You can then access each control bar's TBarInfo like this:
+\par 
+\par \plain\f5\fs22 \tab TBarInfo& barInfo = barInfoArray[CBT_MYBAR1];\plain\f4\fs22 
+\par 
+\par Now we need to add some functions to your TCbApplication-derived object:
+\par 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22 {\pntext\f1\'b7\tab}One of TCbApplication's pure virtual functions is CreateBar( \plain\f4\fs22\b int\plain\f4\fs22  barType ).  I made this function pure virtual because it \plain\f4\fs22\b must\plain\f4\fs22  be redefined in your application because there is no default behaviour for it.  You should define CreateBar() in your app as:
+\par \pard\li180\plain\f4\fs22 
+\par \pard\li720\plain\f5\fs22\b void\plain\f5\fs22  Createbar( \plain\f5\fs22\b int\plain\f5\fs22  barType );\plain\f4\fs22 
+\par \pard\plain\f4\fs22 
+\par \pard\li720\plain\f4\fs22 CreateBar() is called by TCbApplication when it has been determined that a certain control bar (of type \plain\f4\fs22\i barType\plain\f4\fs22 ) has not yet been \plain\f4\fs22\b new\plain\f4\fs22 'ed and Create()'ed.  The TRichEditViewApp implements this function with a switch statement with one case for each of the predefined control bar types (again, if you would like to do it another way, go ahead).  
+\par Under each case, a specific control bar creation function is called with the \plain\f4\fs22\i bar\plain\f4\fs22  member of the control bar type's TBarInfo structure passed as the single parameter.  By convention I've named these bar creation functions as CreateXxxBar().
+\par If you want TRichEditView to use the exact same control bars in your application, you can copy its CreateBar(), CreateAppBar(), CreateTxtBar(), and CreateRtfBar() functions and add them to your project.
+\par \pard\plain\f4\fs22 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22 {\pntext\f1\'b7\tab}TCbApplication defines two other pure virtuals that give you last-minute control over the insertion and deletion of control bars:
+\par \pard\plain\f4\fs22 
+\par \pard\li720\plain\f5\fs22\b void\plain\f5\fs22  PreInsertBar( \plain\f5\fs22\b int\plain\f5\fs22  barType, \plain\f5\fs22\b bool\plain\f5\fs22  first );
+\par \plain\f5\fs22\b void\plain\f5\fs22  PreRemoveBar( \plain\f5\fs22\b int\plain\f5\fs22  barType );\plain\f4\fs22 
+\par \pard\plain\f4\fs22 
+\par \pard\li360\plain\f4\fs22 The \plain\f4\fs22\b bool\plain\f4\fs22  parameter in PreInsertBar() specifies whether this is the first time the bar has been inserted (i.e. no valid position info).  Do any last minute setup on the control bar's TBarInfo structures (see above to find out how to access a bar's TBarInfo) in these two functions, as they are called immediately before harbor->Insert() or harbor->Remove().  
+\par \pard\plain\f4\fs22 
+\par 
+\par \pard\qc\plain\f4\fs40\cf1\b TCbMDIChild\plain\f5\fs28\cf1\b 
+\par \pard\plain\f4\fs22 
+\par \tab TCbMDIChild is used to add MDI child - specific control bar support.  What this means is that TCbMDIChild makes it possible for your app to add/remove control bars from your app's harbor depending on which MDI child is activated.  It can be used independantly of TRichEditView.
+\par 
+\par \plain\f4\fs22\b How it works\plain\f4\fs22 
+\par \tab Each mdi child has a collection of control bar types associated with it.  Each mdi child class keeps track of its control bar types in a TIntArray.  The bar type identifier should be defined in the mdi child class's header file.
+\par 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22\i {\pntext\f1\'b7\tab}If you don't want a child class to have a control bar, add CBCHILD_NONE as the first element in the TIntArray.\plain\f4\fs22 
+\par \pard\plain\f4\fs22 
+\par You tell a TCbMDIChild class what types of control bars it has by using a TIntArray.  Construct a TIntArray and add all the CBCHILD_XXX constants that you want a class to support.  Then, pass the array as the second parameter in the constructor.
+\par 
+\par \plain\f5\fs22 TCbMDIChild::TCbMDIChild( TMDIClient& parent,
+\par \pard\li3510\plain\f5\fs22 TIntArray barTypes, 
+\par \plain\f5\fs22\b const char far\plain\f5\fs22 * title,
+\par TWindow* clientWnd,
+\par \plain\f5\fs22\b bool\plain\f5\fs22  shrinkToClient,
+\par TModule* module)
+\par \pard\plain\f4\fs22 
+\par \tab The work of determining when to insert or remove a control bar is done in TCbMDIChild::EvMDIActivate().  This logic is repeated for each of the control bar types that this class supports:
+\par 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22 {\pntext\f1\'b7\tab}If the activating child has the same type of control bar as the deactivating child, the deactivating child does not remove it's control bar and the activating child does not insert its control bar.  This way, unneeded flicker is avoided.
+\par {\pntext\f1\'b7\tab}If the activating child and deactivating child have different control bar types, the deactivating child removes its bar and the activating child inserts its bar.
+\par {\pntext\f1\'b7\tab}This process loops for all of the control bar types contained in the barTypes array.
+\par \pard\plain\f4\fs22 
+\par \tab The child inserts and removes its control bars by calling these functions from TYourApplication:
+\par \plain\f5\fs22 \tab 
+\par \pard\li720\plain\f5\fs22\cf4\i // See above for more info on these TCbApplication functions.\plain\f5\fs22\b 
+\par void\plain\f5\fs22  InsertBar(\plain\f5\fs22\b int\plain\f5\fs22  barType);
+\par \plain\f5\fs22\b void\plain\f5\fs22  RemoveBar(\plain\f5\fs22\b int\plain\f5\fs22  barType);
+\par \pard\plain\f5\fs22 \tab \plain\f4\fs22 
+\par \plain\f4\fs22\b Adding TCbMDIChild to your app\plain\f4\fs22 
+\par 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22 {\pntext\f1\'b7\tab}To use TCbMDIChild in your app, you must derive \plain\f4\fs22\b\ul all\plain\f4\fs22  of your TMDIChild decendants from it.  If you do not, TCbMDIChild::EvMDIActivate() will GPF on the call to TYPESAFE_DOWNCAST.
+\par {\pntext\f1\'b7\tab}Add some function that will create each control bar.
+\par \pard\plain\f4\fs22 
+\par 
+\par \plain\f5\fs22\cf1\b\i Things I'll be working on
+\par \plain\f4\fs22\cf0 
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f4\fs22\cf0 {\pntext\f1\'b7\tab}Add the size and font combo boxes to the control bar.  I wanted to get it in this release, but it turned out to be more complicated than I thought.
+\par {\pntext\f1\'b7\tab}Make TRichEditView act more like Wordpad's implementation of the richedit control.
+\par {\pntext\f1\'b7\tab}Add a ruler/margins bar.
+\par {\pntext\f1\'b7\tab}Add better printing support (ie margins, stuff like that).
+\par {\pntext\f1\'b7\tab}Create an OLE enabled TRichEditView which will be able to insert pictures into the document.  I've heard things that make me think that Microsoft left the OLE interfaces of the richedit control unimplemented.  We'll see...
+\par \pard\plain\f4\fs22\cf0 
+\par \plain\f5\fs22\cf1\b\i Bug fixes
+\par \plain\f4\fs22\cf0 \tab None as of yet!
+\par 
+\par 
+\par \plain\f5\fs22\cf1\b\i Contacting me
+\par \plain\f4\fs22\cf0 
+\par   As always, this code is absolutely free for freeware apps.  My main purpose in doing this sort of stuff is to gain experience and help others.  If you use this code for a shareware-type app, and can afford it, please contribute some money to my "broke college kid" fund.  If you cannot afford it, that's cool.  I know how single-developer shareware can drain a wallet.  When and if your app makes some money, think of me sitting in a cold dorm room with old ragged clothes and no money to buy deoderant.  If you would like to use this code in a commercial app, please contact me.  In case you have problems using this code or any questions/comments in general, I'd be happy to hear from you.
+\par   I frequent the Borland C++ forums on Compuserve, by the way, so feel free to leave me a message post there (make sure you address it to me so I can find it!) or mail me direct if that pleases you.
+\par 
+\par \tab CIS: 75627,3615
+\par \tab CIS(alpha numeric, whenever they enable it): phi_beta_gimp
+\par \tab Internet: 75627.3615@compuserve.com
+\par 
+\par   Oh yeah, I'm also looking for a nice entry level programming job.  If anyone knows of any sort of C++ openings (especially OWL) in or around Atlanta, let me know!  \plain\f4\fs22\cf0\i Please!\plain\f4\fs22\cf0   I am a capable programmer starting Georgia Tech this October.  I've worked in C++ (all Borland) for three years now - all self taught.  Considering how I and most of my friends have jobs that pay at most $6.00/hr (well, if I had a job), and the lowest programming contract I've heard of is $35/hr, I'm sure I'd be happy with something in the lower middle ;-).
+\par   As I mentioned, I'll be starting college in the fall.  I'll have my very own internet address (and an Ethernet connection, 100mb/s :-), so keep a lookout for my new address and eventual web page.
+\par }
+ 

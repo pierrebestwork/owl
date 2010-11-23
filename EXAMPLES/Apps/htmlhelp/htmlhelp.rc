@@ -1,0 +1,41 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1995, 1995 by Borland International, All Rights Reserved
+//----------------------------------------------------------------------------
+#include <owl/owlapp.rc>
+#include <owl/hlpmanag.rc>
+#include <owl/except.rc>
+#include <owl/glyphbtn.rc>
+#include <owl/window.rh>
+#include "htmlhelp.rh"
+
+
+IDD_DIALOG DIALOGEX 0, 0, 185, 53
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "HTML-Help"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,128,7,50,14
+    PUSHBUTTON      "Help in Dlg",IDC_TEST,5,8,50,14
+    CTEXT           "For full help press F1!",-1,5,32,170,16
+END
+
+IDD_MAKEFIRST DIALOG 0, 0, 317, 143
+STYLE DS_3DLOOK | WS_CHILD | WS_CAPTION
+CAPTION "Make Movie - First Step"
+FONT 8, "MS Sans Serif"
+{
+ CONTROL "&Select name for new movie:", -1, "static", SS_LEFT | WS_CHILD | WS_VISIBLE, 112, 50, 93, 10
+ CONTROL "Select &format of movie:", -1, "static", SS_LEFT | WS_CHILD | WS_VISIBLE, 112, 76, 89, 10
+ CONTROL "Frame &type:", -1, "static", SS_LEFT | WS_CHILD | WS_VISIBLE, 112, 103, 60, 8, 0
+ CONTROL "Frame2", -1, "static", SS_ETCHEDFRAME | WS_CHILD | WS_VISIBLE | WS_DISABLED, 103, 1, 1, 149
+}
+
+IDD_MAKESECOND DIALOG 0, 1, 317, 143
+STYLE DS_3DLOOK | WS_CHILD | WS_CAPTION
+CAPTION "Make Movie - Second Step"
+FONT 8, "MS Sans Serif"
+{
+}
+

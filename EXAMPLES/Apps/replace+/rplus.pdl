@@ -1,0 +1,634 @@
+ ;    Copyright (C) 1993-4, Borland International
+ ;    All rights reserved
+ ;  
+{ Version = 400 }
+{ SubSystem = StyleSheets
+  { StyleSheet = "Default Project Options"
+    { CppCompile = "-I$ENV(BC5ROOT)\INCLUDE -H=JReplace.csm" }
+    { Link = "-L$ENV(BC5ROOT)\LIB" }
+  }
+  { StyleSheet = "Optimized (Speed)"
+    { CppCompile = "-O-d -O -Ob -Oe -Og -Oi -Ol -Om -Ot -Op -Ov -k- -Z" }
+  }
+  { StyleSheet = "Optimized (Size)"
+    { CppCompile = "-O-d -O -Ob -Oe -Os -Ol -Oc -k- -Z" }
+  }
+  { StyleSheet = "Optimized (Dead Code)"
+    { CppCompile = "-O-d -Z -Ob" }
+  }
+  { StyleSheet = "Debug Info (Full)"
+    { CppCompile = "-v -vi- -R" }
+    { Link = "-v" }
+  }
+  { StyleSheet = "Debug Info (No browser)"
+    { CppCompile = "-v -vi- -R-" }
+    { Link = "-v" }
+  }
+  { StyleSheet = "Debug Info (Inlines inline)"
+    { CppCompile = "-v -vi" }
+    { Link = "-v" }
+  }
+  { StyleSheet = "Diagnostics"
+    { CppCompile = "-D__DEBUG=2;__TRACE;__WARN" }
+  }
+  { StyleSheet = "Debug Info and Diagnostics"
+    { Components = "Debug Info (Full);Diagnostics;" }
+  }
+  { StyleSheet = "Debug Info and Diagnostics"
+    { Components = "Debug Info (Full);Diagnostics;" }
+  }
+}
+{ SubSystem = Tool
+  { Tool = "VRML View"
+    { Category = Viewer }
+    { Path = "D:\PROGRA~1\INTERN~1\IEXPLORE.EXE" }
+    { CmdLine = "-nohome $EDNAME" }
+    { MenuText = "VRML View" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu | ToolsMenu }
+    { AppliesTo = ".vrml;.wrl;" }
+  }
+  { Tool = "BCC55"
+    { Category = Translator }
+    { Path = "c:\bcc55\bin\bcc32.exe" }
+    { CmdLine = "-v -c $NOSWAP $CAP MSG(BCC55MSG) +$RSP(-I$INC -D$DEF -o$OUTNAME) $EDNAME" }
+    { MenuText = "BCC 5.5 Compile" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu | ToolsMenu }
+    { AppliesTo = ".c;.cpp;" }
+    { TranslateTo = ".obj" }
+  }
+  { Tool = "LINK55"
+    { Category = Translator }
+    { Path = "c:\bcc55\bin\ilink32.exe" }
+    { CmdLine = "$NOSWAP $CAP MSG(BORL2MSG) -Tpe -aa -V4.0 -v @$RSP($TLINKRSP)" }
+    { MenuText = "BCC 5.5 Link" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu | TargetTranslator | ToolsMenu }
+    { AppliesTo = "AppExpert;AppExpertDll;.exe;.dll;" }
+  }
+  { Tool = "GNU Grep"
+    { Category = Transfer }
+    { Path = "c:\gnu\bin\grep.exe" }
+    { CmdLine = "-n $NOSWAP $CAP MSG(GG2MSG) $PROMPT *.?pp *.h *.rh *.rc" }
+    { MenuText = "&GNU grep" }
+    { HelpHint = "GNU grep" }
+    { SearchPath = SourcePath }
+    { ToolFlag = ToolsMenu }
+  }
+  { Tool = "GrepFiles"
+    { Category = Transfer }
+    { Path = "grep.com" }
+    { CmdLine = "-n+ $NOSWAP$CAP MSG(GREP2MSG)$PROMPT void $SELNODES" }
+    { MenuText = "&Grep" }
+    { HelpHint = "Grep currently selected nodes" }
+    { SearchPath = 0 }
+    { ToolFlag = ToolsMenu }
+  }
+  { Tool = "WinSight"
+    { Category = Transfer }
+    { Path = "ws32.exe" }
+    { MenuText = "&WinSight" }
+    { HelpHint = "Track Windows messages" }
+    { SearchPath = 0 }
+    { ToolFlag = ToolsMenu }
+  }
+  { Tool = "RunExecutable"
+    { Category = Viewer }
+    { CmdLine = "$ARGS" }
+    { MenuText = "&Run" }
+    { HelpHint = "Run executable using IDE Debugger" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = "AppExpert;.exe;" }
+    { DefaultFor = ".exe;" }
+  }
+  { Tool = "TraceInto"
+    { Category = Viewer }
+    { CmdLine = "$ARGS" }
+    { MenuText = "&Debug" }
+    { HelpHint = "Trace into first instruction of executable" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = "AppExpert;.exe;" }
+  }
+  { Tool = "EditText"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "&Text Edit" }
+    { HelpHint = "Edit node's source file" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".cpp;.c;.h;AutoDepend;.asm;.def;.hpj;.rc;.rh;.kb;.dlg;.txt;.spp;.java;.html;.vrml;.wrl;" }
+    { DefaultFor = ".cpp;.c;.h;AutoDepend;.asm;.def;.hpj;.rh;.kb;.txt;.spp;.java;.html;.vrml;.wrl;" }
+  }
+  { Tool = "BrowseGlobals"
+    { Category = Viewer }
+    { MenuText = "&Browse Globals" }
+    { HelpHint = "Browse node's global variables" }
+    { SearchPath = 0 }
+    { AppliesTo = "AppExpert;AppExpertDll.c;.h;.exe;.dll;" }
+  }
+  { Tool = "TurboDebugWin"
+    { Category = Viewer }
+    { CmdLine = "$SAVE ALL $TD $EXENAME $ARG" }
+    { MenuText = "&Turbo Debugger" }
+    { HelpHint = "Turbo Debugger on current target node" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu | ToolsMenu }
+    { AppliesTo = "AppExpert;.exe;" }
+  }
+  { Tool = "TDStartup"
+    { Category = Viewer }
+    { CmdLine = "$TD -l $EXENAME $ARG" }
+    { MenuText = "TDW (&startup)" }
+    { HelpHint = "TDW debugging startup code" }
+    { SearchPath = 0 }
+    { ToolFlag =  }
+    { AppliesTo = "AppExpert;.exe;" }
+  }
+  { Tool = "BriefRestore"
+    { Category = Viewer }
+    { Path = "b.exe" }
+    { MenuText = "&Brief" }
+    { HelpHint = "Brief restoring previous buffers" }
+    { SearchPath = SourcePath }
+    { AppliesTo = ".cpp;.c;.h;.asm;.rc;.def;.hpj;" }
+  }
+  { Tool = "SmartBrief"
+    { Category = Viewer }
+    { Path = "b.exe" }
+    { CmdLine = "-m`goto_line $LINE` $EDNAME" }
+    { MenuText = "&Brief" }
+    { HelpHint = "Brief with current node and current line" }
+    { SearchPath = SourcePath }
+    { AppliesTo = ".cpp;.c;.h;.asm;.rc;.def;.hpj;" }
+  }
+  { Tool = "BriefCurrNodes"
+    { Category = Viewer }
+    { Path = "b.exe" }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "&Brief" }
+    { HelpHint = "Brief on current nodes" }
+    { SearchPath = SourcePath }
+    { AppliesTo = ".cpp;.c;.h;.asm;.rc;.def;.hpj;" }
+  }
+  { Tool = "ViewHelpFile"
+    { Category = Viewer }
+    { Path = "winhelp.exe" }
+    { CmdLine = "$OUTNAME" }
+    { MenuText = "&WinHelp" }
+    { HelpHint = "View Help Project [.hpj] node using WinHelp" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".hpj;" }
+  }
+  { Tool = "Project"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "&Project" }
+    { SearchPath = 0 }
+    { ToolFlag =  }
+    { AppliesTo = ".ide;.prj;" }
+    { DefaultFor = ".ide;.prj;" }
+  }
+  { Tool = "C++Builder"
+    { Category = Viewer }
+    { Path = "bcb.exe" }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "C++&Builder" }
+    { HelpHint = "Launch C++Builder to edit project" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu | ToolsMenu }
+    { AppliesTo = ".mak;" }
+  }
+  { Tool = "C++BuilderProject"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "&C++Builder Project" }
+    { SearchPath = 0 }
+    { ToolFlag =  }
+    { AppliesTo = ".mak;" }
+    { DefaultFor = ".mak;" }
+  }
+  { Tool = "AppExpert"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "AppE&xpert..." }
+    { HelpHint = "Create an AppExpert project" }
+    { SearchPath = 0 }
+    { ToolFlag =  }
+    { AppliesTo = ".ide;AppExpert;AppExpertDll;" }
+  }
+  { Tool = "ClassExpert"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "ClassE&xpert" }
+    { HelpHint = "View AppExpert target with ClassExpert" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = "AppExpert;AppExpertDll;" }
+    { DefaultFor = "AppExpert;AppExpertDll;" }
+  }
+  { Tool = "EditResource"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "Edit &Resources" }
+    { HelpHint = "Edit resource" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".rc;.fnt;" }
+    { DefaultFor = ".rc;" }
+  }
+  { Tool = "EditBitmapFile"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "Edit &Bitmap" }
+    { HelpHint = "Edit bitmap" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".bmp;.rle;" }
+    { DefaultFor = ".bmp;.rle;" }
+  }
+  { Tool = "EditCursorFile"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "Edit &Cursor" }
+    { HelpHint = "Edit cursor file" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".cur;" }
+    { DefaultFor = ".cur;" }
+  }
+  { Tool = "EditIconFile"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "Edit &Icon" }
+    { HelpHint = "Edit icon file" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".ico;" }
+    { DefaultFor = ".ico;" }
+  }
+  { Tool = "EditBinaryResources"
+    { Category = Viewer }
+    { CmdLine = "$EDNAME" }
+    { MenuText = "Edit &Binary Resources" }
+    { HelpHint = "Edit resource" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".res;.exe;.dll;.drv;.vbx;.cpl;.fon;" }
+    { DefaultFor = ".res;.dll;" }
+  }
+  { Tool = "CodeGuardLogImport"
+    { Category = Viewer }
+    { MenuText = "&Import CodeGuard Log" }
+    { HelpHint = "Import CodeGuard log file (.CGL) to the Message Window" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = "AppExpert;.exe;.cgl;" }
+    { DefaultFor = ".cgl;" }
+  }
+  { Tool = "CodeGuardConfig"
+    { Category = Viewer }
+    { Path = "cgconfig.exe" }
+    { CmdLine = "$TARGET" }
+    { MenuText = "&CodeGuard Config" }
+    { HelpHint = "Run CodeGuard Configuration Utility on selected target" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu | ToolsMenu }
+    { AppliesTo = "AppExpert;.exe;.cgi;" }
+    { DefaultFor = ".cgi;" }
+  }
+  { Tool = "SmartGrep"
+    { Category = Viewer }
+    { MenuText = "Smart &Grep ..." }
+    { HelpHint = "SmartGrep files or currently selected nodes" }
+    { SearchPath = 0 }
+    { ToolFlag = ToolsMenu }
+    { AppliesTo = ".cpp;.c;.cc;.h;.hpp;.asm;.def;.hpj;.rh;.kbd;.txt;.spp;.rc;.dlg;" }
+  }
+  { Tool = "EnderDelivery"
+    { Category = Viewer }
+    { MenuText = "Ender &Delivery" }
+    { HelpHint = "Ender Project delivery" }
+    { SearchPath = 0 }
+    { ToolFlag = ToolsMenu }
+  }
+  { Tool = "SourceInclude"
+    { Category = Translator }
+    { HelpHint = "Include source file in target build" }
+    { SearchPath = SourcePath }
+    { ToolFlag = MakeTool }
+    { AppliesTo = ".def;.rtf;" }
+    { DefaultFor = ".def;.rtf;" }
+    { DependencyChecker = 33 }
+  }
+  { Tool = "HeaderInclude"
+    { Category = Translator }
+    { HelpHint = "Include header file in source build" }
+    { SearchPath = IncludePath }
+    { ToolFlag = MakeTool }
+    { AppliesTo = ".h;.hpp;.hrc;.rh;.inc;.asi;AutoDepend;" }
+    { DefaultFor = ".h;.hpp;.hrc;.rh;.inc;.asi;AutoDepend;" }
+    { DependencyChecker = 33 }
+  }
+  { Tool = "BinInclude"
+    { Category = Translator }
+    { HelpHint = "Include library file in target build" }
+    { SearchPath = LibPath }
+    { ToolFlag = MakeTool }
+    { AppliesTo = ".obj;.lib;.res;.dfm;" }
+    { DefaultFor = ".obj;.res;.dfm;" }
+    { DependencyChecker = 33 }
+  }
+  { Tool = "MakeNode"
+    { Category = Translator }
+    { HelpHint = "Make node and dependencies" }
+    { SearchPath = 0 }
+    { ToolFlag = TargetTranslator | MakeTool }
+    { AppliesTo = "SourcePool;.ide;" }
+    { DefaultFor = "SourcePool;.ide;" }
+    { DependencyChecker = CollectorDepend }
+  }
+  { Tool = "StripAutoDepends"
+    { Category = Translator }
+    { MenuText = "Remove &AutoDepends" }
+    { HelpHint = "Remove all [AutoDepend] nodes from a node" }
+    { SearchPath = SourcePath }
+    { ToolFlag = ToolsMenu }
+    { AppliesTo = ".cpp;.rc;.exe;.dll;.lib;.c;" }
+    { DependencyChecker = 33 }
+  }
+  { Tool = "CppCompile"
+    { Category = Translator }
+    { MenuText = "&C++ Compile" }
+    { HelpHint = "C++ compile node to .obj" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".cpp;.c;.cas;.h;" }
+    { DefaultFor = ".cpp;" }
+    { TranslateTo = ".obj" }
+    { DependencyChecker = AutoDepend }
+  }
+  { Tool = "CCompile"
+    { Category = Translator }
+    { MenuText = "&C Compile" }
+    { HelpHint = "C compile node to .obj" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".c;.cas;.h;" }
+    { DefaultFor = ".c;.cas;" }
+    { TranslateTo = ".obj" }
+    { DependencyChecker = AutoDepend }
+  }
+  { Tool = "CtoAssembler"
+    { Category = Translator }
+    { MenuText = "&C to Assembler" }
+    { HelpHint = "Generate .asm from C node" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".c;.cpp;.h;" }
+    { TranslateTo = ".asm" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "CppToAssembler"
+    { Category = Translator }
+    { MenuText = "C++ to &Assembler" }
+    { HelpHint = "Generate .asm from C++ node" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".c;.cpp;.h;" }
+    { TranslateTo = ".asm" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "CViaAssembler"
+    { Category = Translator }
+    { MenuText = "C &via Assembler" }
+    { HelpHint = "Generate .obj from C node thru TASM" }
+    { SearchPath = SourcePath }
+    { AppliesTo = ".c;.cpp;.h;" }
+    { TranslateTo = ".obj" }
+    { DependencyChecker = AutoDepend }
+  }
+  { Tool = "CppViaAssembler"
+    { Category = Translator }
+    { MenuText = "C++ &via Assembler" }
+    { HelpHint = "Generate .obj from C++ node thru TASM" }
+    { SearchPath = SourcePath }
+    { AppliesTo = ".c;.cpp;.h;" }
+    { TranslateTo = ".obj" }
+    { DependencyChecker = AutoDepend }
+  }
+  { Tool = "LinkTarget"
+    { Category = Translator }
+    { MenuText = "&Link" }
+    { HelpHint = "Link target node" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = "AppExpert;AppExpertDll;.exe;.dll;" }
+    { DefaultFor = "AppExpert;AppExpertDll;.exe;.dll;" }
+    { DependencyChecker = CollectorDepend }
+  }
+  { Tool = "LinkLibrary"
+    { Category = Translator }
+    { MenuText = "&Link and Implib" }
+    { HelpHint = "Link .dll then create import library" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = ".dll;" }
+    { TranslateTo = ".lib" }
+    { DependencyChecker = CollectorDepend }
+  }
+  { Tool = "CompileResources"
+    { Category = Translator }
+    { MenuText = "Resource &Compile" }
+    { HelpHint = "Compile resource node to .res" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".rc;" }
+    { DefaultFor = ".rc;" }
+    { TranslateTo = ".res" }
+    { DependencyChecker = 83 }
+  }
+  { Tool = "LibraryCreate"
+    { Category = Translator }
+    { MenuText = "&Create Library" }
+    { HelpHint = "Create a static library" }
+    { SearchPath = LibPath }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = ".lib;" }
+    { DefaultFor = ".lib;" }
+    { DependencyChecker = CollectorDepend }
+  }
+  { Tool = "Assembler"
+    { Category = Translator }
+    { CmdLine = "$TASM" }
+    { MenuText = "&Assemble" }
+    { HelpHint = "Assemble current node to .obj" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".asm;" }
+    { DefaultFor = ".asm;" }
+    { TranslateTo = ".obj" }
+    { DependencyChecker = AutoDepend }
+  }
+  { Tool = "CreateImportLibrary"
+    { Category = Translator }
+    { CmdLine = "$IMPLIB" }
+    { MenuText = "&Implib" }
+    { HelpHint = "Create an import library from node" }
+    { SearchPath = LibPath }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = ".dll;.def;.lib;" }
+    { TranslateTo = ".lib" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "CompileHLP"
+    { Category = Translator }
+    { CmdLine = "$NOSWAP $CAP MSG(HC312MSG) $EDNAME" }
+    { MenuText = "&Compile" }
+    { HelpHint = "Compile help project node .hpj to .hlp" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = ".hpj;" }
+    { DefaultFor = ".hpj;" }
+    { TranslateTo = ".hlp" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "CppPreprocessor"
+    { Category = Translator }
+    { CmdLine = "$NOSWAP $CAP MSG(BORL2MSG) +$RSP(-I$INC -D1;$DEF -o$OUTNAME) $EDNAME" }
+    { MenuText = "&Preprocess" }
+    { HelpHint = "Preprocess C/C++ node to .i file" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".cpp;.c;" }
+    { TranslateTo = ".i" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "ConvertOWL1Source"
+    { Category = Translator }
+    { Path = "owlcvt.exe" }
+    { CmdLine = "+$RSP($OWLCVT) $SELNODES $CAP MSG(BORL2MSG) $NOSWAP" }
+    { MenuText = "&Owl Convert" }
+    { HelpHint = "Convert currently selected nodes from OWL 1 to OWL 2" }
+    { SearchPath = SourcePath }
+    { AppliesTo = ".cpp;" }
+    { TranslateTo = ".cpp" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "OleRegisterServer"
+    { Category = Translator }
+    { Path = "regist32.exe" }
+    { CmdLine = "$TARGET -RegServer" }
+    { MenuText = "Register O&LE Server" }
+    { HelpHint = "Register the current target as an OLE server" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = "AppExpert;AppExpertDll;.exe;.dll;" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "OleUnregisterServer"
+    { Category = Translator }
+    { Path = "regist32.exe" }
+    { CmdLine = "$TARGET -UnregServer" }
+    { MenuText = "&Unregister OLE Server" }
+    { HelpHint = "Unregister the current target as an OLE server" }
+    { SearchPath = OutputPath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = "AppExpert;AppExpertDll;.exe;.dll;" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "RunScriptFile"
+    { Category = Translator }
+    { MenuText = "&Load and Run Script" }
+    { HelpHint = "Load and run a cScript file" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".spp;" }
+    { DefaultFor = ".spp;" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "CompileHLP32"
+    { Category = Translator }
+    { Path = "hcrtf.exe" }
+    { CmdLine = "/xn $NOSWAP $CAP MSG(GENERIC) $EDNAME" }
+    { MenuText = "&Compile" }
+    { HelpHint = "Compile help project node .hpj to Windows 4.0 .hlp" }
+    { SearchPath = SourcePath }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = ".hpj;" }
+    { TranslateTo = ".hlp" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "Rescan"
+    { Category = Translator }
+    { CmdLine = "idOutputPath" }
+    { MenuText = "&Rescan" }
+    { HelpHint = "Rescan the header files to recreate the AppExpert database" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = "AppExpert;AppExpertDll;" }
+    { TranslateTo = ".apx" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "5.5 CppCompile"
+    { Category = Translator }
+    { MenuText = "&C++ 5.5 Compile" }
+    { HelpHint = "C++ 5.5 compile node to .obj" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".cpp;.c;.cas;.h;" }
+    { TranslateTo = ".obj" }
+    { DependencyChecker = AutoDepend }
+  }
+  { Tool = "5.5 CCompile"
+    { Category = Translator }
+    { MenuText = "&C 5.5 Compile" }
+    { HelpHint = "C 5.5 compile node to .obj" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".c;.cas;.h;" }
+    { TranslateTo = ".obj" }
+    { DependencyChecker = AutoDepend }
+  }
+  { Tool = "5.5 LinkTarget"
+    { Category = Translator }
+    { MenuText = "&Link 5.5" }
+    { HelpHint = "Link 5.5 target node" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = "AppExpert;AppExpertDll;.exe;.dll;" }
+    { DependencyChecker = CollectorDepend }
+  }
+  { Tool = "5.5 LibraryCreate"
+    { Category = Translator }
+    { MenuText = "&Create Library 5.5" }
+    { HelpHint = "Create a static library 5.5" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = ".lib;" }
+    { DependencyChecker = CollectorDepend }
+  }
+  { Tool = "5.5 CompileResources"
+    { Category = Translator }
+    { MenuText = "Resource &Compile 5.5" }
+    { HelpHint = "Compile resource 5.5 node to .res" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu }
+    { AppliesTo = ".rc;" }
+    { TranslateTo = ".res" }
+    { DependencyChecker = TimeStamp }
+  }
+  { Tool = "5.5 LinkLibrary"
+    { Category = Translator }
+    { MenuText = "&Link 5.5 and Implib" }
+    { HelpHint = "Link 5.5 target node and create import library" }
+    { SearchPath = 0 }
+    { ToolFlag = LocalMenu | TargetTranslator }
+    { AppliesTo = "AppExpert;AppExpertDll;.exe;.dll;" }
+    { TranslateTo = ".lib" }
+    { DependencyChecker = CollectorDepend }
+  }
+}

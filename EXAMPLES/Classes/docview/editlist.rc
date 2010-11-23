@@ -1,0 +1,42 @@
+//----------------------------------------------------------------------------
+// ObjectWindows - (C) Copyright 1993 by Borland International
+//----------------------------------------------------------------------------
+#define NO_BMP_EDITSEARCH
+#define NO_BMP_EDITFILE
+
+#include <owl\listview.rc>
+#include <owl\editview.rc>
+
+#define IDB_LISTVIEW 301
+#define IDB_EDITVIEW 302
+
+#ifdef RC_INVOKED
+
+IDB_LISTVIEW TOOLBAR 20, 20
+{
+ 	BUTTON -1
+ 	BUTTON CM_EDITUNDO
+ 	BUTTON CM_EDITCUT
+ 	BUTTON CM_EDITCOPY
+ 	BUTTON CM_EDITPASTE
+ 	BUTTON CM_EDITADD
+ 	BUTTON -1
+ 	SEPARATOR
+}
+
+IDB_EDITVIEW TOOLBAR 20, 20
+{
+  BUTTON -1
+  BUTTON CM_EDITUNDO
+  BUTTON CM_EDITCUT
+  BUTTON CM_EDITCOPY
+  BUTTON CM_EDITPASTE
+	BUTTON -1
+ 	SEPARATOR
+}
+
+IDB_LISTVIEW BITMAP "dvlist.bmp"
+IDB_EDITVIEW BITMAP "dvedit.bmp"
+
+
+#endif

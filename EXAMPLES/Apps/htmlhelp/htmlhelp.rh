@@ -1,0 +1,6 @@
+#define IDM_MAINMENU    1
+#define IDD_DIALOG      2
+#define IDD_MAKEFIRST		3
+#define IDD_MAKESECOND  4
+#define IDC_TEST	401
+

@@ -1,0 +1,12 @@
+# This is a part of the ObjectWindows Library.
+# OWL NExt
+#
+
+PROJ=bmpview
+#ROOT=..\..\..
+OBJS=bmpview.obj
+OWLDLL=1
+DEBUG=0
+
+
+!include <owlsamps.mk>

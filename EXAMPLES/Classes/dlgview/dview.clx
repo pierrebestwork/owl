@@ -1,0 +1,81 @@
+//Always generated OWL ClassExpert's Data File.
+//OWL ClassExpert for VC. Version 1.1.
+//Copyright (C) 1998-1999 by Yura Bidus. All rights reserved.
+//
+
+
+@@START_CLASS_INFO
+{
+  TdviewAppl{
+    hsource=dviewapp.h
+    cppsource=dviewapp.cpp
+    ClassType=CAE12
+    BaseClasses=TApplication,
+    Constructor=TdviewAppl()
+    Virtuals{
+      void InitMainWindow()
+    }
+  }
+  TSDIFrameWindow{
+    hsource=dviewab.h
+    cppsource=dviewab.cpp
+    ClassType=CWE12
+    BaseClasses=TFrameWindow,
+    Constructor=TSDIFrameWindow(TWindow* parent, LPCTSTR title, TWindow* clientWnd, bool shrinkToClient = false, TModule* module = 0)
+  }
+  TdviewView{
+    hsource=dviewcl.h
+    cppsource=dviewcl.cpp
+    WindowID=IDD_CLIENT
+    ClassType=CWVDE12
+    BaseClasses=TDialog,
+    Constructor=TdviewView(TDocument& doc, TWindow* parent=0)
+    Virtuals{
+      void SetupWindow()
+    }
+    Variables{
+      IDC_LIST1=TListWindow,ListWindList1
+      IDC_TREE1=TTreeWindow,TreeWindTree1
+    }
+  }
+}
+@@END_CLASS_INFO
+@@START_VERSION_INFO
+{
+  Project=dview
+  Company=Some Company
+  Author=Author
+  Copyright=Copyright 1999. All Rights reserved.
+  Target=dview
+}
+@@END_VERSION_INFO
+
+@@START_COMMAND_INFO
+{
+  CM_EDITUNDO
+  CM_EDITCUT
+  CM_EDITCOPY
+  CM_EDITPASTE
+  CM_EDITDELETE
+  CM_EDITCLEAR
+  CM_EDITFIND
+  CM_EDITREPLACE
+  CM_EDITFINDNEXT
+  CM_EDITADD
+  CM_EDITEDIT
+  CM_FILENEW
+  CM_FILEOPEN
+  CM_FILESAVE
+  CM_FILESAVEAS
+  CM_EXIT
+}
+@@END_COMMAND_INFO
+@@START_DIALOG_INFO
+{
+  IDD_CLIENT{
+    IDOK=Button
+    IDCANCEL=Button
+    IDC_TREE1=SysTreeView32
+  }
+}
+@@END_DIALOG_INFO

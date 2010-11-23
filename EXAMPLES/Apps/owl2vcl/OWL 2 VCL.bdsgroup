@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">Default.Personality</Option>
+      <Option Name="ProjectType"></Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{0774A841-D2FA-438A-9AB3-7A766D4DDAED}</Option>
+    </Option>
+  </PersonalityInfo>
+  <Default.Personality>
+    
+    <Projects>
+      <Projects Name="owl2vcl.exe">owl2vcl.bdsproj</Projects>
+      <Projects Name="viewdlgs1.dll">viewdlgs1.bdsproj</Projects>
+      <Projects Name="Targets">owl2vcl.exe viewdlgs1.dll</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Documento sin título</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<body>
+<p><strong><font size="4">Curent state:</font>
+      </strong></p>
+<p>Dan Notestein has succeeded in porting <strong>OWLNext</strong> to <strong>Linux</strong> using <a href="http://www.winehq.org/" target="_blank">WINE</a>. The changes made by him are merged in <strong>OWLNext</strong> 6.16, but were not tested afterwards.</p>
+<p><strong><font size="4">Previous state:</font>
+      </strong></p>
+<p>OWL was compiled and checked with MingW-2.95.2-1 compiler for Win32, owl6_41.zip was successfully build with GCC MingW 2.95.2-1 compiler as static library, I built also tutorial examples.&nbsp;<br />
+    <br />
+  (First who build OWLNext with GCC was <a href="mailto:khaley@bigfoot.com">Kenneth Haley</a> his page: <a href="http://www.bigfoot.com/~khaley">http://www.bigfoot.com/~khaley</a>.) <br />
+</p>
+<p>To use OWL with GCC you need: </p>
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td valign="top" width="100%">GCC-2.95.2-1 Mingw32 compiler. get it from <a href="http://www.mingw.org">MinGW -- Minimalist GNU For Windows</a>&nbsp;<br />
+        You need next files:
+        <table cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tbody>
+              <tr>
+                <td valign="baseline" width="42">-</td>
+                <td valign="top" width="100%">bin-msvcrt-2000-03-27.zip
+                    <!--mstheme-->                </td>
+              </tr>
+              <tr>
+                <td valign="baseline" width="42">-</td>
+                <td valign="top" width="100%">binutils-19990818-1-msvcrt.zip
+                    <!--mstheme-->                </td>
+              </tr>
+              <tr>
+                <td valign="baseline" width="42">-</td>
+                <td valign="top" width="100%">gcc-2.95.2-1-msvcrt.zip
+                    <!--mstheme-->                </td>
+              </tr>
+              <tr>
+                <td valign="baseline" width="42">-</td>
+                <td valign="top" width="100%">binutils-fixes-msvcrt.zip
+                    <!--mstheme-->                </td>
+              </tr>
+            </tbody>
+        </table></td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">Cygwin B20.1 full installation. </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">Fixed Win32 headers. Get them here <a href="add_ons/owl_lin.zip">owl_lin.zip</a>.You will find gcc.zip and files in it with additional definitions that are missed in original distribution.You can use win32api.dif instead. </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%"><a href="http://www.ultranet.com/~pauld/gmake">GNU make - download here</a>. </td>
+    </tr>
+  </tbody>
+</table>
+<p>After installing Cygwin B20.1 and MingW-2.95.2-1,&nbsp; replace files in i386-mingw32\include with fixed Win32 headers from <a href="add_ons/owl_lin.zip">owl_lin.zip</a> </p>
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td valign="top" width="100%">- open UNIX shell (run <strong>cygnus.bat</strong>) in OWL directory. </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">- Check gnumake,You need setup directories to GCC and OWL
+          <!--mstheme-->      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">- Change OWLROOT environment variable if it exist to: OWLROOT='e:/owl'&nbsp; ( for example as in my computer) </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">- Type command:<br />
+        make -f gnumake<br />
+        (If you have BC++, you will need rename GNU make, for example gmake and run gmake -f gnumake, or specify full path to make: c:\gcc\bin\make.exe.) </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">- You will see a lot of warnings, its Ok. after all it will create static library <strong>libowlwf.a</strong> </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">- I have test&nbsp;this library, and you can dowload examples in <a href="add_ons/owl_lin.zip">owl_lin.zip</a>. in file gnu_test.zip
+          <!--mstheme-->      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="100%">- You can also download prebuild library <strong>libowlwf.a</strong> </td>
+    </tr>
+  </tbody>
+</table>
+<p>Just uncomment line:<br />
+  DLL&nbsp;&nbsp;&nbsp; = 1<br />
+, and start build.&nbsp; </p>
+<p>It's all. Happy coding :) </p>
+<h5>Revised: December 16, 2003. </h5>
+</body>
+</html>

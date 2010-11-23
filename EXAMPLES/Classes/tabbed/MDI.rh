@@ -1,0 +1,17 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1991, 1995 by Borland International, All Rights Reserved
+//----------------------------------------------------------------------------
+#define IDD_NOTETAB           1010
+#define IDD_TABDLG1           1011
+#define IDD_TABDLG2           1012
+#define IDD_TABDLG3           1013
+#define IDD_TIPDLG            1014
+#define CM_SHOWNOTETAB        1106
+#define IDM_MDIMENU 					100
+#define CM_CREATECHILD1       101
+#define CM_CREATECHILD2       102
+#define CM_CREATECHILD3       103
+#define CM_HELSHOWTIPS        104
+
+

@@ -1,0 +1,13 @@
+#----------------------------------------------------------------------------
+# ObjectWindows
+# Copyright (c) 1993, 1995 by Borland International, All Rights Reserved
+#----------------------------------------------------------------------------
+
+SYSTEMS = WIN32
+MODELS = df
+EXERES = aclock
+RESEXE_= cuckoo1.bmp cuckoo2.bmp cuckoo3.bmp cuckoo4.bmp\
+         cuckoo5.bmp cuckoo6.bmp cuckoo7.bmp cuckoo8.bmp face_bmp.bmp
+
+!include ..\..\..\source\owlroot.inc
+!include ..\..\owlmake.gen

@@ -1,0 +1,73 @@
+//----------------------------------------------------------------------------
+// ObjectWindows - (C) Copyright 1991, 1994 by Borland International
+//   Tutorial application -- step11.rc
+//----------------------------------------------------------------------------
+#include <owl/editfile.rh>
+#include <owl/docview.rc>
+#include <owl/except.rc>
+
+#define CM_ABOUT      205
+#define CM_PENSIZE    306
+#define CM_PENCOLOR   307
+#define IDD_ABOUT     211
+#define IDB_DVSDI     212
+
+#define APSTUDIO_READONLY_SYMBOLS
+
+#ifdef RC_INVOKED
+#ifndef WORKSHOP_INVOKED
+# include <winresrc.h>
+#endif
+
+#include <owl/statusba.rc>
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#include "step12dv.rc"
+
+COMMANDS MENU
+{
+ MENUITEM "File",   0,GRAYED  ;placeholder for File menu from DocManager
+ POPUP "&Help"
+ {
+  MENUITEM "&About",   CM_ABOUT
+ }
+}
+
+IDB_DVSDI TOOLBAR 20, 20
+{
+ BUTTON CM_FILENEW
+ BUTTON CM_FILEOPEN
+ BUTTON CM_FILESAVE
+ BUTTON CM_FILESAVEAS
+ SEPARATOR
+ BUTTON -1
+ BUTTON -1
+ BUTTON CM_ABOUT
+}
+
+IDB_DVSDI BITMAP "dvmain.bmp"
+
+STRINGTABLE
+{
+ CM_ABOUT, "Open an information dialog box"
+}
+
+IDD_ABOUT DIALOG 37, 25, 170, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | DS_3DLOOK
+CAPTION "About Drawing Pad"
+FONT 8, "MS Sans Serif"
+{
+ DEFPUSHBUTTON "Ok", IDOK, 60, 73, 50, 14
+ CONTROL "ObjectWindows 6.0 Tutorial Application", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 10, 43, 150, 10
+ CONTROL "Copyright 1991, 1996 by Borland International.\nCopyright 1998 by Yura Bidus", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 4, 51, 164, 18
+ CONTROL "IDI_TUTORIAL", -1, "STATIC", SS_ICON | WS_CHILD | WS_VISIBLE, 78, 11, 14, 16
+ CONTROL "Drawing Pad", -1, "STATIC", SS_CENTER | WS_CHILD | WS_VISIBLE | WS_GROUP, 10, 34, 150, 8
+}
+
+IDI_TUTORIAL ICON "lamp.ico"
+
+//CM_ABOUT BITMAP "about.bmp"
+
+
+#endif  // RC_INVOKED
+

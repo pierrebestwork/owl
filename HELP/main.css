@@ -1,0 +1,114 @@
+body, table
+{
+	background-color: #E9E9E9;
+	color : Black;
+	font-family : Verdana;
+	font-size : 12px;
+	line-height : 20px;
+}
+table a:hover, a:hover
+{
+	color : #FF0000;
+}
+span.navigation a:link, span.navigation a:visited, span.navigation2 a:link, span.navigation2 a:visited
+{
+	text-decoration: none;
+}
+span.navigation a:hover, span.navigation2 a:hover
+{
+	text-decoration: underline;
+}
+a:link
+{
+	color : #993333;
+}
+a:visited
+{
+	color : #696969;
+}
+H1 
+{
+	letter-spacing : 1px;
+	font-size:24px
+}
+H2 
+{
+	font-size:20px
+}
+H3 
+{
+	font-size:18px
+}
+H4 
+{
+	font-size:16px
+}
+H1, H2, H3, H4 
+{
+	color : #8B4513;
+}
+td, th 
+{
+	text-align: left; padding-left: 1em
+}
+
+
+dt
+{
+	font-weight : bold;
+}
+p.lastupdated 
+{
+	font-style : italic;
+}
+span.navigation 
+{ 
+	font-size: 11px 
+}
+span.navigation2
+{
+	font-size: 10px;
+	margin-left: 20px;
+}
+span.newitem
+{
+	font-weight:bold;
+	color: #FF0000;
+}
+p.important 
+{
+	color: black; border: 1px solid red; padding: 4px
+}
+span.important 
+{
+	font-style: italic;
+}
+span.comment 
+{
+	font-style: italic;
+}
+p.comment 
+{
+	border: 1px dotted gray; 
+	margin: 1em; 
+	padding: 1em; 
+	font-size: 11px;
+}
+p.footer 
+{	
+	color: gray; 
+	font-size: small;
+}
+span.discontinued
+{
+	font-style: italic;
+	text-decoration: line-through;
+}
+span.updated, span.updated2
+{
+	color:red;
+}
+span.updated2:after
+{
+	content: " (updated)";
+}

@@ -1,0 +1,165 @@
+//----------------------------------------------------------------------------
+// ObjectWindows
+// Copyright (c) 1998 by Bidus Yura, All Rights Reserved
+//----------------------------------------------------------------------------
+#ifndef WORKSHOP_INVOKED
+#include "windows.h"
+#endif
+
+#include <owl/editfile.rc>
+#include <owl/owlapp.rc>
+#include <owl/except.rc>
+#include <owl/window.rh>
+#include "picktst.rh"
+
+
+IDM_TRACKMENU MENU
+{
+  MENUITEM "&New", 	CM_FILENEW
+  MENUITEM "&Open", CM_FILEOPEN
+	MENUITEM "&Save", CM_FILESAVE
+	MENUITEM  "Save &As...", CM_FILESAVEAS
+	MENUITEM  SEPARATOR
+	MENUITEM "&Test test test test", CM_TEST
+}
+
+IDM_APPMENU MENU
+{
+ POPUP "&File"
+ {
+	MENUITEM "&New", 	CM_FILENEW
+	MENUITEM "&Open", CM_FILEOPEN
+	MENUITEM "&Save", CM_FILESAVE
+	MENUITEM  "Save &As...", CM_FILESAVEAS
+	MENUITEM  SEPARATOR
+	MENUITEM  "E&xit",       CM_EXIT
+ }
+ POPUP "&CBar"
+ {
+	MENUITEM "Text &and Bitmap", CM_TEXTBITMAP
+	MENUITEM "&Bitmap only", CM_BITMAP
+	MENUITEM "&Text only", CM_TEXT
+	MENUITEM  SEPARATOR
+	MENUITEM "&Color", CM_COLOR
+  MENUITEM "&Chart", CM_BMPTEST
+ }
+
+ POPUP "&Help"
+ {
+	MENUITEM "&About", CM_ABOUT
+ }
+
+}
+
+CM_COLOR BITMAP "txtcol.bmp"
+CM_BMPTEST BITMAP "txtcol.bmp" // just place holder
+
+IDD_ABOUT DIALOG 18, 9, 200, 100
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About TDirDialog Test App"
+FONT 8, "MS Sans Serif"
+{
+ DEFPUSHBUTTON "OK", IDOK, 75, 81, 50, 14
+ CTEXT "Test Program", -1, 21, 18, 164, 8
+ CTEXT "Copyright\xA9 1998", -1, 21, 32, 164, 8
+ CTEXT "by Yura Bidus", -1, 19, 45, 167, 8
+ GROUPBOX "", 102, 15, 3, 176, 62, BS_GROUPBOX
+}
+
+IDB_BMPARRAY BITMAP "chart.bmp"
+
+
+STRINGTABLE
+{
+	CM_COLOR,             "Select Color\nColor"
+  CM_BMPTEST,           "Select chart\nChart"
+  CM_TEXTBITMAP,        "Set Text and Bitmap style for TTextButtonGadgets\nTextBitmap"
+  CM_TEXT,              "Set Text only style for TTextButtonGadgets\nText"
+  CM_BITMAP,            "Set Bitmap only style for TTextButtonGadgets\nBitmap"
+}
+
+STRINGTABLE
+{
+	IDS_STRING0+0,        "Set Black color\nBlack"
+	IDS_STRING0+1,        "Set Dark Red color\nDark Red"
+	IDS_STRING0+2,        "Set Green color\nGreen"
+	IDS_STRING0+3,        "Set Dark Yellow color\nDark Yellow"
+	IDS_STRING0+4,        "Set Dark Blue color\nDark Blue"
+	IDS_STRING0+5,        "Set Violet color\nViolet"
+	IDS_STRING0+6,        "Set Teal color\nTeal"
+	IDS_STRING0+7,        "Set Grey - 50% color\nGrey - 50%"
+	IDS_STRING0+8,        "Set Grey - 25% color\nGrey - 25%"
+	IDS_STRING0+9,        "Set Red color\nRed"
+	IDS_STRING0+10,       "Set Bright Green\nBright Green"
+	IDS_STRING0+11,       "Set Yellow color\nYellow"
+	IDS_STRING0+12,       "Set Blue color\nBlue"
+	IDS_STRING0+13,       "Set Pink color\nPink"
+	IDS_STRING0+14,       "Set Turquoise color\nTurquoise"
+	IDS_STRING0+15,       "Set White color\nWhite"
+	IDS_STRING0+16,       "Set Color16 color\nColor16"
+	IDS_DEFFIELD,        	"Set default field\nDefFiled"
+	IDS_CUSTFIELD,       	"Set castum field\nCustFiled"
+}
+
+STRINGTABLE
+{
+	IDS_STRING1 + 0, "This is the Black Color\nBlack"
+	IDS_STRING1 + 1, "This is the Brown Color\nBrown"
+	IDS_STRING1 + 2, "This is the Dark Olive Green Color\nDark Olive Green"
+	IDS_STRING1 + 3, "This is the Dark Green Color\nDark Green"
+	IDS_STRING1 + 4, "This is the Dark Teal Color\nDark Teal"
+	IDS_STRING1 + 5, "This is the Dark Blue Color\nDark Blue"
+	IDS_STRING1 + 6, "This is the Indigo Color\nIndigo"
+	IDS_STRING1 + 7, "This is the Dark Grey Color\nDark Grey"
+	IDS_STRING1 + 8, "This is the Dark Red Color\nDark Red"
+	IDS_STRING1 + 9, "This is the Orange Color\nOrange"
+	IDS_STRING1 + 10,"This is the Dark Yellow Color\nDark Yellow"
+	IDS_STRING1 + 11,"This is the Green Color\nGreen"
+	IDS_STRING1 + 12,"This is the Teal Color\nTeal"
+	IDS_STRING1 + 13,"This is the Blue Color\nBlue"
+	IDS_STRING1 + 14,"This is the Blue-grey Color\nBlue-grey"
+	IDS_STRING1 + 15,"This is the Grey-40 Color\nGrey-40"
+	IDS_STRING1 + 16,"This is the Red Color\nRed"
+	IDS_STRING1 + 17,"This is the Light Orange Color\nLight Orange"
+	IDS_STRING1 + 18,"This is the Lime Color\nLime"
+	IDS_STRING1 + 19,"This is the Sea Green Color\nSea Green"
+	IDS_STRING1 + 20,"This is the Aqua Color\nAqua"
+	IDS_STRING1 + 21,"This is the Light Blue Color\nLight Blue"
+	IDS_STRING1 + 22,"This is the Violet Color\nViolet"
+	IDS_STRING1 + 23,"This is the Grey - 50 Color\nGrey-50"
+	IDS_STRING1 + 24,"This is the Pink Color\nPink"
+	IDS_STRING1 + 25,"This is the Gold Color\nGold"
+	IDS_STRING1 + 26,"This is the Yellow Color\nYellow"
+	IDS_STRING1 + 27,"This is the Bright Green Color\nBright Green"
+	IDS_STRING1 + 28,"This is the Turquoise Color\nTurquoise"
+	IDS_STRING1 + 29,"This is the Sky Blue Color\nSky Blue"
+	IDS_STRING1 + 30,"This is the Plum Color\nPlum"
+	IDS_STRING1 + 31,"This is the Light Grey Color\nLight Grey"
+	IDS_STRING1 + 32,"This is the Rose Color\nRose"
+	IDS_STRING1 + 33,"This is the Tan Color\nTan"
+	IDS_STRING1 + 34,"This is the Light Yellow Color\nLight Yellow"
+	IDS_STRING1 + 35,"This is the Pale Green Color\nPale Green"
+	IDS_STRING1 + 36,"This is the Pale Turquoise Color\nPale Turquoise"
+	IDS_STRING1 + 37,"This is the Pale Blue Color\nPale Blue"
+	IDS_STRING1 + 38,"This is the Lavender Color\nLavender"
+	IDS_STRING1 + 39,"This is the White Color\nWhite"
+}
+STRINGTABLE
+{
+	IDS_CHART0+0,         "Create Area chart.\nArea"
+	IDS_CHART0+1,         "Create Columns chart.\nColumns"
+	IDS_CHART0+2,         "Create Cubes chart.\nCubes"
+	IDS_CHART0+3,         "Create Lines chart.\nLines"
+	IDS_CHART0+4,         "Create Marks chart.\nMarks"
+	IDS_CHART0+5,         "Create Fit to curve chart.\nFit to curve"
+	IDS_CHART0+6,         "Create Horizontal bars chart.\nHorizontal bars"
+	IDS_CHART0+7,         "Create Scatter (X vs. Y) chart.\nScatter (X vs. Y)"
+	IDS_CHART0+8,         "Create (Open-)Hi-Low-Close chart.\n(Open-)Hi-Low-Close"
+	IDS_CHART0+9,         "Create Pie chart.\nPie"
+	IDS_CHART0+10,        "Create Doughnut chart.\nDoughnut"
+	IDS_CHART0+11,        "Create Polar chart.\nPolar"
+	IDS_CHART0+12,        "Create Surface chart.\nSurface"
+	IDS_CHART0+13,        "Create Pareto chart.\nPareto"
+}
+
+

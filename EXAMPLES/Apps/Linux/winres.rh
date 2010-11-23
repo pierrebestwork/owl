@@ -1,0 +1,16 @@
+// REsources
+// 
+//
+
+#include <winresrc.h>
+
+// operation messages sent to DLGINIT
+#define LB_ADDSTRING    (WM_USER+1)
+#define CB_ADDSTRING    (WM_USER+3)
+
+
+#ifndef RC_INVOKED
+#define RT_DLGINIT  MAKEINTRESOURCE(240)
+#define RT_TOOLBAR  MAKEINTRESOURCE(241)
+#endif
+

@@ -1,0 +1,10 @@
+#define IDM_MDIMENU 					100
+
+#define CM_NEWWINDOW          101
+#define CM_STYLE3D            102
+#define CM_WINDOWFACE         103
+#define CM_LEFTSCROLLER       110
+#define CM_RIGHTSCROLLER      111
+#define CM_FONT               120
+
+#define IDB_IMAGELIST         1

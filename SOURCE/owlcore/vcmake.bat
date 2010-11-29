@@ -75,7 +75,8 @@ echo COMPVER=%COMPVER%
 echo.
 set MAKE=nmake -fvc.mak
 set COMMON=COMPVER=%COMPVER% %1 %2 %3 %4 %5 %6 %7 %8 %9
-set DEBUGS=DEBUG=1 DEBDEFS="/D__DEBUG=2 /D__TRACE /D__WARN"
+rem set DEBUGS=DEBUG=1 DEBDEFS="/D__DEBUG=2 /D__TRACE /D__WARN"
+set DEBUGS=DEBUG=1 DEBDEFS="/D__DEBUG=2 /D__WARN"
 
 rem Non-Unicode variants
 

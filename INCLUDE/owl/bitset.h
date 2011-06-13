@@ -109,10 +109,10 @@ class _OWLCLASS TBitSet {
 //
 // class CharSet
 // ~~~~~ ~~~~~~~~
-class _OWLCLASS TCharSet : public TBitSet<TCHAR> {
+class _OWLCLASS TCharSet : public TBitSet<> {
   public:
     TCharSet();
-    TCharSet(const TBitSet<TCHAR>& src);
+    TCharSet(const TBitSet<>& src);
     TCharSet(LPCTSTR str);
 };
 

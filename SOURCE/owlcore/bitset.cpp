@@ -203,7 +203,7 @@ uint8 TBitSet<T>::Mask(T item) const {
 // so that the user can instantiate it with other template arguments).
 //
 template class TBitSet<uint8>;
-template class TBitSet<TCHAR>;
+template class TBitSet<>;
 
 //----------------------------------------------------------------------------
 
@@ -213,16 +213,16 @@ template class TBitSet<TCHAR>;
 //
 TCharSet::TCharSet()
 :
-  TBitSet<TCHAR>()
+  TBitSet<>()
 {
 }
 
 //
 // Copy the bitset into this character set.
 //
-TCharSet::TCharSet(const TBitSet<TCHAR>& bs)
+TCharSet::TCharSet(const TBitSet<>& bs)
 :
-  TBitSet<TCHAR>(bs)
+  TBitSet<>(bs)
 {
 }
 
@@ -232,7 +232,7 @@ TCharSet::TCharSet(const TBitSet<TCHAR>& bs)
 //
 TCharSet::TCharSet(LPCTSTR str)
 :
-  TBitSet<TCHAR>()
+  TBitSet<>()
 {
   for (LPCTSTR p = str; *p; p++) {
     if (*p == _T('\\'))

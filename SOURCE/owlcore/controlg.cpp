@@ -114,8 +114,7 @@ TControlGadget::Created()
   // Register control with the tooltip window (if there's one)
   //
   TTooltip* tooltip = Window->GetTooltip();
-  if (tooltip) {
-    CHECK(tooltip->GetHandle());
+  if (tooltip && tooltip->IsWindow()) {
 
     // Register the control with the tooltip
     //
@@ -167,8 +166,7 @@ TControlGadget::Removed()
   //
   if (Window && Window->GetHandle()) {
     TTooltip* tooltip = Window->GetTooltip();
-    if (tooltip) {
-      CHECK(tooltip->GetHandle());
+    if (tooltip && tooltip->IsWindow()) {
 
       TToolInfo toolInfo(Window->GetHandle(), Control->GetHandle());
       tooltip->DeleteTool(toolInfo);

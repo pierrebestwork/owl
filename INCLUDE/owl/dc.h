@@ -489,9 +489,9 @@ class _OWLCLASS TDC : protected TGdiBase {
     void        Init();
 
   protected_data:
-    using TGdiBase::CheckValid;       // make this function available to derivatives
-    using TGdiBase::Handle;           // The handle of this DC
-    using TGdiBase::ShouldDelete;     // Should object delete the Handle in dtor?
+    TGdiBase::CheckValid;       // make this function available to derivatives
+    TGdiBase::Handle;           // The handle of this DC
+    TGdiBase::ShouldDelete;     // Should object delete the Handle in dtor?
 
     HBRUSH      OrgBrush;       // Original objects when DC was created
     HPEN        OrgPen;

@@ -95,10 +95,10 @@ public:
 	static int       RefCount(HANDLE handle);
 
 protected:
-	using TGdiBase::CheckValid;  // make this function available to derivatives
-	using TGdiBase::_CheckValid;  // make this function available to derivatives
-	using TGdiBase::Handle;      // and these members too
-	using TGdiBase::ShouldDelete;
+	TGdiBase::CheckValid;  // make this function available to derivatives
+	TGdiBase::_CheckValid;  // make this function available to derivatives
+	TGdiBase::Handle;      // and these members too
+	TGdiBase::ShouldDelete;
 
 	// Constructors for use by derived classes only
 	//
@@ -749,9 +749,9 @@ public:
 	};
 
 protected:
-	using TGdiBase::CheckValid;  // make this function available to derivatives
-	using TGdiBase::Handle;      // and these members too
-	using TGdiBase::ShouldDelete;
+	TGdiBase::CheckValid;  // make this function available to derivatives
+	TGdiBase::Handle;      // and these members too
+	TGdiBase::ShouldDelete;
 
 	// Protected ctor- derived classes need to fill in handle & get info
 	//

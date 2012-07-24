@@ -219,7 +219,7 @@ inline TMsgThread::TQueueLock::~TQueueLock()
 //
 // Release the real lock if it was locked
 //
-inline void TMsgThread::TQueueLock::Release(bool /*relinquish*/)
+inline void TMsgThread::TQueueLock::Release(bool relinquish)
 {
   if (Lock) {
     CHECK(relinquish == true);

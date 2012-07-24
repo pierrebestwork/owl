@@ -538,7 +538,7 @@ class _OCFCLASS TAutoString : public __OWL TString {
 #if defined(BI_HAS_WCHAR)
     TAutoString(const wchar_t* s)      : __OWL TString(s) {}
 #endif
-    TAutoString(BSTR s, bool /*loan*/)     : __OWL TString(s) {}
+    TAutoString(BSTR s, bool loan)     : __OWL TString(s) {}
     TAutoString(const owl_string& s) : __OWL TString(s) {}
     TAutoString(__OWL TUString* s)     : __OWL TString(s) {}
     explicit TAutoString(TAutoVal& val);
@@ -631,7 +631,7 @@ class _OCFCLASS TAutoVal {
     TAutoVal(IFontDisp*       ifc){ *this = ifc; };
     TAutoVal(VARIANT&           v){ *this = v; };
 //    TAutoVal(LARG_INTEGER       v){ *this = v; };
-    TAutoVal(const TNoArg      n){ *this = n; };
+    TAutoVal(const TNoArg&      n){ *this = n; };
 
     // The following constructors are added to complement the functionality of
     // TAutoVal
@@ -977,8 +977,8 @@ class TAutoCreator {
                                     IUnknown* outer = 0) = 0;
     virtual IDispatch* CreateDispatch(TObjectDescriptor objDesc,
                                       IUnknown* outer = 0) = 0;
-    virtual void       Attach(TServedObject& /*obj*/) {}
-    virtual void       Detach(TServedObject& /*obj*/) {}
+    virtual void       Attach(TServedObject& obj) {}
+    virtual void       Detach(TServedObject& obj) {}
 };
 
 class _OCFCLASS TServedObjectCreator : public TAutoCreator {
@@ -1902,7 +1902,7 @@ TAutoEnumT<T>::TAutoEnumT(TAutoEnumVal<T>* table, int symcount, int type)
 template <class T> bool
 TAutoEnumT<T>::Convert(TAutoVal& txtVal, TAutoVal& numVal)
 {
-  __OWL TString stringRef = txtVal.StrVal();  // 0 if not string type
+  __OWL TString& stringRef = txtVal.StrVal();  // 0 if not string type
   const _TCHAR* str = stringRef;
   if (str) {
     __OWL TLangId langId = txtVal.GetLanguage();
@@ -2011,7 +2011,7 @@ inline void TAutoCommand::Return(TAutoVal& v)
   v = TAutoVoid();
 }
 
-inline void TAutoCommand::Transfer(TAutoTransfer& /*x*/)
+inline void TAutoCommand::Transfer(TAutoTransfer& x)
 {
 }
 

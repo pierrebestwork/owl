@@ -585,7 +585,7 @@ class _ICLASS IBOverrideHelpButton : public IUnknown {
 //----------------------------------------------------------------------------
 // Will eliminate this inline QI in favor of TUnknown version next rev.
 //
-inline HRESULT _IFUNC IUnknown_QueryInterface(IUnknown FAR *, REFIID iid, LPVOID FAR * pif)
+inline HRESULT _IFUNC IUnknown_QueryInterface(IUnknown FAR *, REFIID /*iid*/, LPVOID FAR * pif)
 {
   // To avoid handing out different IUnknown pointers for
   // the same Windows Object don't match here.

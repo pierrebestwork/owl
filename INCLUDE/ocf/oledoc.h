@@ -110,7 +110,7 @@ inline TOcDocument* TOleDocument::GetOcDoc()
 // Virtual function to be overriden in TOleDocument-derived class which
 // serve or support linking to portions of a document's data.
 //
-inline bool TOleDocument::CommitSelection(TOleWindow& oleWin, void* userData)
+inline bool TOleDocument::CommitSelection(TOleWindow& /*oleWin*/, void* /*userData*/)
 {
   return true;
 }

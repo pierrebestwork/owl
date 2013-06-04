@@ -23,6 +23,9 @@
 #if !defined (__OWLEXT_UTIL_H)
 # include <owlext/util.h>
 #endif
+#if !defined (__OWLEXT_BUSY_H)
+# include <owlext/busy.h>
+#endif
 
 // Extended-TApplication classes (Core, Chapter Two)
 //

@@ -97,6 +97,7 @@
 #define _COMMENT_OWLEXTLIB_CHARACTER ""
 #endif
 
+/*
 #if defined(OWL1_COMPAT)
 #define _COMMENT_OWLEXTLIB_COMPAT "c1"
 #elif defined(OWL2_COMPAT)
@@ -106,6 +107,8 @@
 #else
 #define _COMMENT_OWLEXTLIB_COMPAT ""
 #endif
+*/
+#define _COMMENT_OWLEXTLIB_COMPAT ""
 
 #if defined(_OWLDLL)
 #define _COMMENT_OWLEXTLIB_IMPORT "i"
